@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        #navbar {
+            background: white url(@Url.Content("~/Pictures/Flag.JPG"));
+	        background-size: cover;
+	        border-radius: 60px;
+	        border: 1px solid #808080;
+	        box-shadow: 10px 10px 5px rgba(0,0,0,0.7);
+	        height: 6vh;
+	        left: 2%;
+	        top: 2%;
+	        position: fixed;
+	        width: 96vw;
+        }
+        #navbar a {
+            color: black;
+            font-size: 150%;
+            font-weight: bold;
+        }
+        .navlink {
+            float: left;
+            height: 100%;
+            line-height: 6vh;
+            text-align: center;
+            vertical-align: middle;
+            width: 20%;
+        }
+        .border-right {
+            border-right: 1px solid black;
+        }
+        #container {
+            margin-top: 4%;
+        }
+        #paypal {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div class="navlink border-right">
+            @Html.ActionLink("On The Issues", "Index", "Home")
+        </div>
+        <div class="navlink border-right">
+            @Html.ActionLink("In The News", "Index", "Home")
+        </div>
+        <div class="navlink border-right">
+            @Html.ActionLink("Q & A", "Index", "Home")
+        </div>
+        <div class="navlink border-right">
+            @Html.ActionLink("Events", "Index", "Home")
+        </div>
+        <div class="navlink">
+            @Html.ActionLink("Volunteer", "Index", "Home")
+        </div>
+    </div>
+
+    <div id="container" class="container body-content">
+        <div id="paypal">
+            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="M6CWY463KVP8S">
+                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
+        @RenderBody()
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Strek For Mayor</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
