@@ -1,18 +1,4 @@
 # Strek4Mayor
-
-##ABOUT THIS Project
-##The goal of this project is to create a functional website that will be used to help our client
-##Stefan Strek campaign for mayor of Eugene, Oregon. The functions of this site are as follows:
-##- It can accept donations that can be used for his campaign. 
-##- Store donation ammounts and relevant donor information on the Database.
-##- Display issues that our client stands for. + ability to edit/add/change them.
-##- Allow users to ask our client questions and display them when answered.
-##- Display a list of upcoming events our client will be publicly attending. Allow admin to add new events.
-##- Display recent news articles/videos our client has been featured in
-##- Allow volunteers to submit information relevant to allowing them to volunteer.
-##Overall this site will be used to allow users to get to know Stefan Strek better 
-##as a candiate for Mayor.
-
 Capstone Project
 
 -- THINGS TO DO BEFORE FIRST RELEASE:
