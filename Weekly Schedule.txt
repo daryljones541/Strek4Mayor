@@ -1,0 +1,41 @@
+A-TEAM ASSIGNMENTS:(current)
+Daryl: DONATE
+Matt: On-TheIssues
+Hunter: Q+A
+Allen: Master + Home(about Stefan for now) Set up accounts
+
+Week 1:
+- Have a working Master page (shared Layout.cshtml)
+- Have a functioning Home page (about Stefan + a pic of Stefan for now)
+- Donate button as part of the Nav bar
+	- DB to collect info of donations recieved
+		- Auto-Migration enabled
+- Have the site ONLINE with above things
+
+
+Week 2:
+- On-the-Issues page finished
+- User accounts (admin + anonymous)
+	- Divy up the user accesses to pages
+- Scrub ALL inputs 
+- Q+A page finished?
+	- Maybe not migration enabled just yet
+	
+
+Week 3:(PRE-ALPHA IN CLASS PRESENTATION)
+- Testing for new features
+- Integrate all new works to the Online site
+
+Week 4:
+
+Week 5:
+
+Week 6:
+
+Week 7:
+
+Week 8:
+
+Week 9:
+
+Week 10:
