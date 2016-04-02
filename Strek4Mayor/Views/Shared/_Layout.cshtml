@@ -8,8 +8,6 @@
     @Scripts.Render("~/bundles/modernizr")
     <style>
         #navbar {
-            background: white url(@Url.Content("~/Pictures/Flag.JPG"));
-	        background-size: cover;
 	        border-radius: 60px;
 	        border: 1px solid #808080;
 	        box-shadow: 10px 10px 5px rgba(0,0,0,0.7);
@@ -19,10 +17,21 @@
 	        position: fixed;
 	        width: 96vw;
         }
+        .left-curve {
+            border-top-left-radius: 60px;
+            border-bottom-left-radius: 60px;
+        }
+        .right-curve {
+            border-top-right-radius: 60px;
+            border-bottom-right-radius: 60px;
+        }
         #navbar a {
             color: black;
             font-size: 150%;
             font-weight: bold;
+        }
+        #navbar a:hover {
+            text-decoration: none;
         }
         .navlink {
             float: left;
@@ -32,8 +41,49 @@
             vertical-align: middle;
             width: 20%;
         }
+        .tile-1 {
+            background: url(@Url.Content("~/Pictures/Flag1.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-2 {
+            background: url(@Url.Content("~/Pictures/Flag2.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-3 {
+            background: url(@Url.Content("~/Pictures/Flag3.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-4 {
+            background: url(@Url.Content("~/Pictures/Flag4.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-5 {
+            background: url(@Url.Content("~/Pictures/Flag5.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-1:hover {
+            background: url(@Url.Content("~/Pictures/BrightFlag1.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-2:hover {
+            background: url(@Url.Content("~/Pictures/BrightFlag2.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-3:hover {
+            background: url(@Url.Content("~/Pictures/BrightFlag3.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-4:hover {
+            background: url(@Url.Content("~/Pictures/BrightFlag4.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-5:hover {
+            background: url(@Url.Content("~/Pictures/BrightFlag5.jpg")) no-repeat;
+            background-size: cover;
+        }
         .border-right {
             border-right: 1px solid black;
+            background-size: cover;
         }
         #container {
             margin-top: 4%;
@@ -45,31 +95,48 @@
 </head>
 <body>
     <div id="navbar">
-        <div class="navlink border-right">
-            @Html.ActionLink("On The Issues", "Index", "Home")
-        </div>
-        <div class="navlink border-right">
-            @Html.ActionLink("In The News", "Index", "Home")
-        </div>
-        <div class="navlink border-right">
-            @Html.ActionLink("Q & A", "Index", "QandA")
-        </div>
-        <div class="navlink border-right">
-            @Html.ActionLink("Events", "Index", "Home")
-        </div>
-        <div class="navlink">
-            @Html.ActionLink("Volunteer", "Index", "Home")
-        </div>
+        <a href="@Url.Action("Index", "Home")">
+            <div class="navlink border-right left-curve tile-1">
+                On The Issues
+            </div>
+        </a>
+        <a href="@Url.Action("Index", "Home")">
+            <div class="navlink border-right tile-2">
+                In The News
+            </div>
+        </a>
+        <a href="@Url.Action("Index", "Home")">
+            <div class="navlink border-right tile-3">
+                Q & A
+            </div>
+        </a>
+        <a href="@Url.Action("Index", "Home")">
+            <div class="navlink border-right tile-4">
+                Events
+            </div>
+        </a>
+        <a href="@Url.Action("Index", "Home")">
+            <div class="navlink right-curve tile-5">
+                Volunteer
+            </div>
+        </a>
     </div>
 
     <div id="container" class="container body-content">
         <div id="paypal">
             <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="M6CWY463KVP8S">
-                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <input type="hidden" name="cmd" value="_donations">
+                <input type="hidden" name="hosted_button_id" value="3PT462UMQ3HA2">
+                <table>
+                    <tr><td><input type="hidden" name="on0" value="Employment Status">Employment Status</td></tr>
+                    <tr><td><input type="text" name="os0" maxlength="200"></td></tr>
+                    <tr><td><input type="hidden" name="on1" value="Employer's Name">Employer's Name</td></tr>
+                    <tr><td><input type="text" name="os1" maxlength="200"></td></tr>
+                </table>
+                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
+
         </div>
         @RenderBody()
         <footer>
