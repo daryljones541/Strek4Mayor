@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace Strek4Mayor.Models
 {
-    public class Strek4MayorContext : DbContext
+    public class Strek4MayorContext : IdentityDbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -20,6 +21,8 @@ namespace Strek4Mayor.Models
         }
 
         public System.Data.Entity.DbSet<Strek4Mayor.Models.QandA> QandAs { get; set; }
+
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Donation> Donations { get; set; }
     
     }
 }

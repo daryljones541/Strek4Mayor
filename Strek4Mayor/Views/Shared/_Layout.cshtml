@@ -124,22 +124,12 @@
 
     <div id="container" class="container body-content">
         <div id="paypal">
-            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_donations">
-                <input type="hidden" name="hosted_button_id" value="3PT462UMQ3HA2">
-                <table>
-                    <tr><td><input type="hidden" name="on0" value="Employment Status">Employment Status</td></tr>
-                    <tr><td><input type="text" name="os0" maxlength="200"></td></tr>
-                    <tr><td><input type="hidden" name="on1" value="Employer's Name">Employer's Name</td></tr>
-                    <tr><td><input type="text" name="os1" maxlength="200"></td></tr>
-                </table>
+            <a href='@Url.Action("Make", "Donations")'>
                 <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
-
+            </a>
         </div>
         @RenderBody()
-        <footer>
+        <footer style="margin-top:20px;">
             <p>&copy; @DateTime.Now.Year - Strek For Mayor</p>
         </footer>
     </div>
