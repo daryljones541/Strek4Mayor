@@ -163,6 +163,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DbDropCreateOnModelChange.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\DonationVM.cs" />
     <Compile Include="Models\QandA.cs" />

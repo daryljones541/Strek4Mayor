@@ -163,18 +163,86 @@ namespace Strek4Mayor.Controllers
 
         public ActionResult Complete()
         {
-            /*
-            Donation donation = new Donation();
-            donation.FirstName = Request["first_name"];
-            donation.LastName = Request["last_name"];
-            donation.Amount = Request["mc_gross"];
-            donation.Address = Request["address_street"];
-            donation.City = Request["address_city"];
-            donation.ZipCode = Request["address_zip"];
-            donation.Email = Request["payer_email"];
-             * */
-            string data = new System.IO.StreamReader(Request.InputStream).ReadToEnd();
-            ViewBag.data = data;
+            try
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                /*
+                using (var wb = new WebClient())
+                {
+                    var data = new NameValueCollection();
+                    data["tx"] = Request.QueryString["tx"];
+                    data["at"] = "idnKptTL9518CH6VW-ux0enRTDBGXHWAU0I87iebhVQ0p6NGqO2D0BQStLG";
+                    data["cmd"] = "_notify-synch";
+                    var response = wb.UploadValues("https://www.sandbox.paypal.com/cgi-bin/webscr", "POST", data);
+                    string transactionData = "";
+                    foreach (var r in response)
+                    {
+                        transactionData+=r;
+                    }
+                    ViewBag.data = transactionData;
+                }
+                 */
+                string authToken = "idnKptTL9518CH6VW-ux0enRTDBGXHWAU0I87iebhVQ0p6NGqO2D0BQStLG";
+                string txToken = Request.QueryString["tx"];
+                string query = "cmd=_notify-synch&tx=" + txToken + "&at=" + authToken;
+
+                //Post back to either sandbox or live
+                string strSandbox = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+                string strLive = "https://www.paypal.com/cgi-bin/webscr";
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(strSandbox);
+
+                //Set values for the request back
+                req.Method = "POST";
+                req.ContentType = "application/x-www-form-urlencoded";
+                req.ContentLength = query.Length;
+
+
+                //Send the request to PayPal and get the response
+                StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
+                streamOut.Write(query);
+                streamOut.Close();
+                StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
+                string strResponse = streamIn.ReadToEnd();
+                streamIn.Close();
+
+                Dictionary<string, string> results = new Dictionary<string, string>();
+                if (strResponse != "")
+                {
+                    StringReader reader = new StringReader(strResponse);
+                    string line = reader.ReadLine();
+
+                    if (line == "SUCCESS")
+                    {
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            results.Add(line.Split('=')[0], line.Split('=')[1]);
+
+                        }
+                        string payPalResponse = "";
+                        foreach (KeyValuePair<string, string> result in results)
+                        {
+                            payPalResponse += "<li>" + result.Key + " = " + result.Value + "</li>";
+                        }
+                        ViewBag.data = payPalResponse;
+                    }
+                    else if (line == "FAIL")
+                    {
+                        // Log for manual investigation
+                        ViewBag.data="Unable to retrive transaction detail";
+                    }
+                }
+                else
+                {
+                    //unknown error
+                    ViewBag.data="ERROR!";
+                }            
+            }
+            catch (Exception e)
+            {
+                ViewBag.data = "Error Message: " + e.Message;
+            }
+
             return View();
         }
 
@@ -240,7 +308,6 @@ namespace Strek4Mayor.Controllers
             string response = "";
             using (StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII))
             {
-
                 streamOut.Write(strRequest);
                 streamOut.Close();
                 using (StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream()))
