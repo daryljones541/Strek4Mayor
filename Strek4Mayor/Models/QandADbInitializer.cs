@@ -18,6 +18,7 @@ namespace Strek4Mayor.Models
                 QandAId = 1,
                 Title = "Political Stance",
                 Body = "Where do you stand on homeless veterans in the Eugene area, and How do you plan on helping the situation?",
+                Member = "Guest",
                 Answer = "This is something that needs to be addressed",
                 Date = date1
             };
@@ -26,6 +27,7 @@ namespace Strek4Mayor.Models
             {
                 QandAId = 2,
                 Title = "Big Phony",
+                Member = "Not Guest",
                 Body = "You are not helping or folling anyone!",
                 Answer = "This is something that that needs to be hidden",
                 Date = date2

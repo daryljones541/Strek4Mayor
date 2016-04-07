@@ -13,5 +13,6 @@ namespace Strek4Mayor.Models
         public string Title { get; set; }
         public string Answer { get; set; }
         public bool MessageStatus { get; set; }
+        public string Member { get; set; }
     }
 }
