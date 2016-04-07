@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Strek4Mayor.Models;
 using System.Data.Entity;
+using Strek4Mayor.Models;
 
 namespace Strek4Mayor
 {
@@ -14,7 +14,7 @@ namespace Strek4Mayor
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new DbDropCreateOnModelChange());
+            Database.SetInitializer(new QandADbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h1>I am always here to answer question and help out. Please don't be offensive or rude or your message will not be posted. I take crticism very well, and am alsways looking to better myself for the good of the people of Eugene.</h1>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,10 +14,20 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Title)
+            
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Body)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Member)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MessageStatus)
@@ -27,10 +38,23 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Body)
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Body)
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Answer)
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MessageStatus)
