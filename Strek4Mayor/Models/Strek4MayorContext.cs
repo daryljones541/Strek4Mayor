@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Strek4Mayor.Models
 {
-    public class Strek4MayorContext : IdentityDbContext
+    public class Strek4MayorContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -21,8 +21,9 @@ namespace Strek4Mayor.Models
         }
 
         public System.Data.Entity.DbSet<Strek4Mayor.Models.QandA> QandAs { get; set; }
-
         public System.Data.Entity.DbSet<Strek4Mayor.Models.Donation> Donations { get; set; }
-    
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Employment> Employments { get; set; }
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Donor> Donors { get; set; }
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.User> Users { get; set; }
     }
 }

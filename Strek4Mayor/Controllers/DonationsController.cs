@@ -18,24 +18,10 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: Donations
-        public ActionResult Index()
+        public ActionResult List()
         {
-            return View(db.Donations.ToList());
-        }
-
-        // GET: Donations/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donation donation = db.Donations.Find(id);
-            if (donation == null)
-            {
-                return HttpNotFound();
-            }
-            return View(donation);
+            List<Donation> donations = db.Donations.Include(d => d.Donor.Employment).ToList();
+            return View(donations);
         }
 
         // GET: Donations/Create
@@ -51,114 +37,29 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public void Make([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
+            Employment employment=new Employment { Employer=donationVM.Employer,
+                Occupation=donationVM.Occupation, Unemployed=donationVM.NoEmployment };
+            db.Employments.Add(employment);
+            db.SaveChanges();
             Response.Clear();
-
             StringBuilder sb = new StringBuilder();
             sb.Append("<html>");
             sb.AppendFormat(@"<body onload='document.forms[""form""].submit()'>");
             sb.AppendFormat("<form name='form' action='{0}' method='post'>", "https://www.sandbox.paypal.com/cgi-bin/webscr");
-            sb.AppendFormat("<input type='hidden' name='cmd' value='{0}'>", "_s-xclick");
-            switch (donationVM.Amount)
-            {
-                case 5:
-                    sb.AppendFormat("<input type='hidden' name='hosted_button_id' value='{0}'>", "JYH9SAUTZPGFW");
-                    break;
-                case 10:
-                    sb.AppendFormat("<input type='hidden' name='hosted_button_id' value='{0}'>", "36EGVJY9Q75W4");
-                    break;
-                case 20:
-                    sb.AppendFormat("<input type='hidden' name='hosted_button_id' value='{0}'>", "BGZKDHEJAS4UW");
-                    break;
-                case 50:
-                    sb.AppendFormat("<input type='hidden' name='hosted_button_id' value='{0}'>", "5QMULVXLPYE2U");
-                    break;
-                case 100:
-                    sb.AppendFormat("<input type='hidden' name='hosted_button_id' value='{0}'>", "B5PYHRYAAD2GA");
-                    break;
-                default:
-                    sb.AppendFormat("<input type='hidden' name='hosted_button_id' value='{0}'>", "6ZA9ACTF6BHWU");
-                    break;
-            }
+            sb.AppendFormat("<input type='hidden' name='custom' value='{0}'>", employment.EmploymentID.ToString());
+            sb.AppendFormat("<input type='hidden' name='cmd' value='{0}'>", "_donations");
+            sb.AppendFormat("<input type='hidden' name='business' value='{0}'>", "daryljones541-facilitator@gmail.com");
+            sb.AppendFormat("<input type='hidden' name='lc' value='{0}'>", "US");
+            sb.AppendFormat("<input type='hidden' name='item_name' value='{0}'>", "Strek4Mayor");
+            sb.AppendFormat("<input type='hidden' name='no_note' value='{0}'>", "1");
+            sb.AppendFormat("<input type='hidden' name='no_shipping' value='{0}'>", "2");
+            sb.AppendFormat("<input type='hidden' name='currency_code' value='{0}'>", "USD");
+            sb.AppendFormat("<input type='hidden' name='amount' value='{0}'>", donationVM.Amount.ToString());
             sb.Append("</form>");
             sb.Append("</body>");
             sb.Append("</html>");
-
             Response.Write(sb.ToString());
-
             Response.End();
-            /*
-            using (var wb = new WebClient())
-            {
-                var data = new NameValueCollection();
-                data["os0"] = donationVM.Occupation;
-                data["os1"] = donationVM.Employer;
-                data["amount"] = donationVM.Amount.ToString();
-                data["return"] = Url.Action("Complete", "Donations");
-                data["notify_url"] = Url.Action("IPN", "Donations");
-                data["cancel_return"] = Url.Action("Cancel", "Donations");
-                data["currency_code"] = Url.Action("USD");
-                data["cmd"] = "_donations";
-                data["hosted_button_id"] = "3PT462UMQ3HA2";
-                var response = wb.UploadValues("https://www.sandbox.paypal.com/cgi-bin/webscr", "POST", data);
-            }
-             * */
-        }
-
-        // GET: Donations/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donation donation = db.Donations.Find(id);
-            if (donation == null)
-            {
-                return HttpNotFound();
-            }
-            return View(donation);
-        }
-
-        // POST: Donations/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DonationID,Amount")] Donation donation)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(donation).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(donation);
-        }
-
-        // GET: Donations/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donation donation = db.Donations.Find(id);
-            if (donation == null)
-            {
-                return HttpNotFound();
-            }
-            return View(donation);
-        }
-
-        // POST: Donations/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Donation donation = db.Donations.Find(id);
-            db.Donations.Remove(donation);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         public ActionResult Complete()
@@ -166,22 +67,6 @@ namespace Strek4Mayor.Controllers
             try
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-                /*
-                using (var wb = new WebClient())
-                {
-                    var data = new NameValueCollection();
-                    data["tx"] = Request.QueryString["tx"];
-                    data["at"] = "idnKptTL9518CH6VW-ux0enRTDBGXHWAU0I87iebhVQ0p6NGqO2D0BQStLG";
-                    data["cmd"] = "_notify-synch";
-                    var response = wb.UploadValues("https://www.sandbox.paypal.com/cgi-bin/webscr", "POST", data);
-                    string transactionData = "";
-                    foreach (var r in response)
-                    {
-                        transactionData+=r;
-                    }
-                    ViewBag.data = transactionData;
-                }
-                 */
                 string authToken = "idnKptTL9518CH6VW-ux0enRTDBGXHWAU0I87iebhVQ0p6NGqO2D0BQStLG";
                 string txToken = Request.QueryString["tx"];
                 string query = "cmd=_notify-synch&tx=" + txToken + "&at=" + authToken;
@@ -195,7 +80,6 @@ namespace Strek4Mayor.Controllers
                 req.Method = "POST";
                 req.ContentType = "application/x-www-form-urlencoded";
                 req.ContentLength = query.Length;
-
 
                 //Send the request to PayPal and get the response
                 StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
@@ -217,25 +101,56 @@ namespace Strek4Mayor.Controllers
                         while ((line = reader.ReadLine()) != null)
                         {
                             results.Add(line.Split('=')[0], line.Split('=')[1]);
-
                         }
+                        int employmentID;
+                        if (int.TryParse(results["custom"].Trim(), out employmentID))
+                        {
+                            Employment employment=db.Employments.Find(employmentID);
+                            if (employment != null)
+                            {
+                                Donor donor = new Donor
+                                {
+                                    Employment = employment,
+                                    FirstName = HttpUtility.UrlDecode(results["first_name"]),
+                                    LastName = HttpUtility.UrlDecode(results["last_name"]),
+                                    Address = HttpUtility.UrlDecode(results["address_street"]),
+                                    City = HttpUtility.UrlDecode(results["address_city"]),
+                                    State = HttpUtility.UrlDecode(results["address_state"]),
+                                    ZipCode = HttpUtility.UrlDecode(results["address_zip"]),
+                                    Email = HttpUtility.UrlDecode(results["payer_email"]),
+                                };
+                                db.Donors.Add(donor);
+                                db.SaveChanges();
+                                Donation donation = new Donation
+                                {
+                                    Date = HttpUtility.UrlDecode(results["payment_date"]),
+                                    Amount = HttpUtility.UrlDecode(results["mc_gross"]),
+                                    TransactionFee = HttpUtility.UrlDecode(results["mc_fee"]),
+                                    Donor=donor
+                                };
+                                db.Donations.Add(donation);
+                                db.SaveChanges();
+                                ViewBag.Amount = donation.Amount;
+                            }                           
+                        }
+                        /*
                         string payPalResponse = "";
                         foreach (KeyValuePair<string, string> result in results)
                         {
                             payPalResponse += "<li>" + result.Key + " = " + result.Value + "</li>";
                         }
                         ViewBag.data = payPalResponse;
+                         */
                     }
                     else if (line == "FAIL")
                     {
-                        // Log for manual investigation
-                        ViewBag.data="Unable to retrive transaction detail";
+                        ViewBag.data = "PayPal returned FAIL.";
                     }
                 }
                 else
                 {
                     //unknown error
-                    ViewBag.data="ERROR!";
+                    ViewBag.data="Unknown error";
                 }            
             }
             catch (Exception e)
@@ -250,7 +165,7 @@ namespace Strek4Mayor.Controllers
         {
             return View();
         }
-
+        /*
         public void IPN()
         {
             var formVals = new Dictionary<string, string>();
@@ -263,10 +178,10 @@ namespace Strek4Mayor.Controllers
             if (response == "VERIFIED")
             {
                 Donation donation = new Donation();
-                donation.FirstName = Request["first_name"];
-                donation.LastName = Request["last_name"];
+                donation.Donor.FirstName = Request["first_name"];
+                donation.Donor.LastName = Request["last_name"];
                 donation.Amount = Request["mc_gross"];
-                donation.Address = Request["address_street"];
+                donation.Donor.Address = Request["address_street"];
                 donation.City = Request["address_city"];
                 donation.ZipCode = Request["address_zip"];
                 donation.Email = Request["payer_email"];
@@ -318,7 +233,7 @@ namespace Strek4Mayor.Controllers
 
             return response;
         }
-
+        */
         protected override void Dispose(bool disposing)
         {
             if (disposing)

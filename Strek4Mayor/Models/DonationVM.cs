@@ -8,8 +8,9 @@ namespace Strek4Mayor.Models
 {
     public class DonationVM
     {
-        [Required(ErrorMessage = "Please select the amount you want to donate or choose other.")]
-        public int Amount { get; set; }
+        [Required(ErrorMessage = "Please select or enter the amount you want to donate.")]
+        [DataType(DataType.Currency)]
+        public decimal Amount { get; set; }
         [Required, StringLength(200)]
         public string Employer { get; set; }
         [Required, StringLength(200)]

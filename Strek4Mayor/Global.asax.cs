@@ -14,7 +14,7 @@ namespace Strek4Mayor
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new QandADbInitializer());
+            //Database.SetInitializer(new QandADbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

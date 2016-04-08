@@ -157,15 +157,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DonationsController.cs" />
+    <Compile Include="Controllers\EmploymentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\DbDropCreateOnModelChange.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\DonationVM.cs" />
+    <Compile Include="Models\Donor.cs" />
+    <Compile Include="Models\Employment.cs" />
     <Compile Include="Models\QandA.cs" />
     <Compile Include="Models\QandADbInitializer.cs" />
     <Compile Include="Models\Strek4MayorContext.cs" />
@@ -188,6 +190,11 @@
     <Content Include="Pictures\BrightFlag4.jpg" />
     <Content Include="Pictures\BrightFlag5.jpg" />
     <Content Include="Pictures\business2.jpg" />
+    <Content Include="Pictures\DarkFlag1.jpg" />
+    <Content Include="Pictures\DarkFlag2.jpg" />
+    <Content Include="Pictures\DarkFlag3.jpg" />
+    <Content Include="Pictures\DarkFlag4.jpg" />
+    <Content Include="Pictures\DarkFlag5.jpg" />
     <Content Include="Pictures\drmayor2.jpg" />
     <Content Include="Pictures\Flag.JPG" />
     <Content Include="Pictures\Flag1.jpg" />
@@ -201,7 +208,9 @@
     <Content Include="Pictures\willy2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Strek4Mayor - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\donation.js" />
@@ -238,13 +247,11 @@
     <Content Include="Views\QandA\Edit.cshtml" />
     <Content Include="Views\QandA\Index.cshtml" />
     <Content Include="Views\Donations\Make.cshtml" />
-    <Content Include="Views\Donations\Delete.cshtml" />
-    <Content Include="Views\Donations\Details.cshtml" />
-    <Content Include="Views\Donations\Edit.cshtml" />
-    <Content Include="Views\Donations\Index.cshtml" />
     <Content Include="Views\Donations\Complete.cshtml" />
     <Content Include="Views\Donations\Cancel.cshtml" />
     <Content Include="Views\Donations\Create.cshtml" />
+    <Content Include="Views\Donations\List.cshtml" />
+    <Content Include="Views\Employments\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
