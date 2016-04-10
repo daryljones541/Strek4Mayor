@@ -5,6 +5,7 @@
 
 # Due to the dumb way I implemented this, I'm going to clarify what this stuff means.
 # 
+# ✔ = completed (copy and paste this symbol)
 # pts = how many points Allen and Matt guestimated each part is worth
 # (P 1-3) = top priority to low priority
 # (P 4) = Not a priority, but a nice quality of life addition AKA: I'm bored and want to try something
