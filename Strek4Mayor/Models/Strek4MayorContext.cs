@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace Strek4Mayor.Models
         }
 
         public System.Data.Entity.DbSet<Strek4Mayor.Models.QandA> QandAs { get; set; }
-    
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Donation> Donations { get; set; }
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Employment> Employments { get; set; }
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Donor> Donors { get; set; }
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.User> Users { get; set; }
     }
 }

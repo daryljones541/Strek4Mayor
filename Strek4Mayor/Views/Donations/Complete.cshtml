@@ -1,0 +1,18 @@
+﻿@model Strek4Mayor.Models.Donation
+
+@{
+    ViewBag.Title = "Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Complete</h2>
+
+Thank you for your $@ViewBag.Amount donation. Your transaction has been completed,
+and a receipt for your donation has been emailed to you. You may log into your account 
+at www.paypal.com to view details of this transaction.
+
+<hr />
+
+@Html.Raw(ViewBag.data)
+
+
