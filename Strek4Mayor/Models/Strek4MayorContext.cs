@@ -24,6 +24,7 @@ namespace Strek4Mayor.Models
         public System.Data.Entity.DbSet<Strek4Mayor.Models.Donation> Donations { get; set; }
         public System.Data.Entity.DbSet<Strek4Mayor.Models.Employment> Employments { get; set; }
         public System.Data.Entity.DbSet<Strek4Mayor.Models.Donor> Donors { get; set; }
-        public System.Data.Entity.DbSet<Strek4Mayor.Models.User> Users { get; set; }
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Person> Users { get; set; }
+        public System.Data.Entity.DbSet<Strek4Mayor.Models.Event> Events { get; set; }
     }
 }

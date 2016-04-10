@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DonationsController.cs" />
     <Compile Include="Controllers\EmploymentsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,10 +169,11 @@
     <Compile Include="Models\DonationVM.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\Employment.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\QandA.cs" />
     <Compile Include="Models\QandADbInitializer.cs" />
     <Compile Include="Models\Strek4MayorContext.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -254,6 +256,11 @@
     <Content Include="Views\Donations\Create.cshtml" />
     <Content Include="Views\Donations\List.cshtml" />
     <Content Include="Views\Employments\List.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

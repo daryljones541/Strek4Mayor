@@ -161,4 +161,3 @@ C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Se
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.dll
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.pdb
-C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache

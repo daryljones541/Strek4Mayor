@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Strek4Mayor.Models
 {
-    public class User
+    public class Person
     {
         public int Id { get; set; }
         public string UserName { get; set; }
