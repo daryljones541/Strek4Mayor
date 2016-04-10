@@ -37,6 +37,11 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public void Make([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
+            if (donationVM.NoEmployment == true)
+            {
+                donationVM.Occupation = "";
+                donationVM.Employer = "";
+            }
             Employment employment=new Employment { Employer=donationVM.Employer,
                 Occupation=donationVM.Occupation, Unemployed=donationVM.NoEmployment };
             db.Employments.Add(employment);
