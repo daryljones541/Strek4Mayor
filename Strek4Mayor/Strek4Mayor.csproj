@@ -158,8 +158,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DonationsController.cs" />
     <Compile Include="Controllers\EmploymentsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,9 +170,13 @@
     <Compile Include="Models\DonationVM.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\Employment.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\QandA.cs" />
     <Compile Include="Models\QandADbInitializer.cs" />
+    <Compile Include="Models\RegisterVM.cs" />
     <Compile Include="Models\Strek4MayorContext.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -178,10 +184,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="credits.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pictures\1024px-American_Flag_Close.JPG" />
     <Content Include="Pictures\15.01.27.emg_.as_.StefanStrek4.jpg" />
     <Content Include="Pictures\BlackAndWhitePortrait.jpg" />
     <Content Include="Pictures\BrightFlag1.jpg" />
@@ -190,18 +198,19 @@
     <Content Include="Pictures\BrightFlag4.jpg" />
     <Content Include="Pictures\BrightFlag5.jpg" />
     <Content Include="Pictures\business2.jpg" />
-    <Content Include="Pictures\DarkFlag1.jpg" />
-    <Content Include="Pictures\DarkFlag2.jpg" />
-    <Content Include="Pictures\DarkFlag3.jpg" />
-    <Content Include="Pictures\DarkFlag4.jpg" />
-    <Content Include="Pictures\DarkFlag5.jpg" />
+    <Content Include="Pictures\DarkFlag1.png" />
+    <Content Include="Pictures\DarkFlag2.png" />
+    <Content Include="Pictures\DarkFlag3.png" />
+    <Content Include="Pictures\DarkFlag4.png" />
+    <Content Include="Pictures\DarkFlag5.png" />
+    <Content Include="Pictures\DarkFlag6.png" />
     <Content Include="Pictures\drmayor2.jpg" />
-    <Content Include="Pictures\Flag.JPG" />
-    <Content Include="Pictures\Flag1.jpg" />
-    <Content Include="Pictures\Flag2.jpg" />
-    <Content Include="Pictures\Flag3.jpg" />
-    <Content Include="Pictures\Flag4.jpg" />
-    <Content Include="Pictures\Flag5.jpg" />
+    <Content Include="Pictures\Flag1.png" />
+    <Content Include="Pictures\Flag2.png" />
+    <Content Include="Pictures\Flag3.png" />
+    <Content Include="Pictures\Flag4.png" />
+    <Content Include="Pictures\Flag5.png" />
+    <Content Include="Pictures\Flag6.png" />
     <Content Include="Pictures\hankking1.jpg" />
     <Content Include="Pictures\hats.jpg" />
     <Content Include="Pictures\paul2.jpg" />
@@ -252,6 +261,17 @@
     <Content Include="Views\Donations\Create.cshtml" />
     <Content Include="Views\Donations\List.cshtml" />
     <Content Include="Views\Employments\List.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Users\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

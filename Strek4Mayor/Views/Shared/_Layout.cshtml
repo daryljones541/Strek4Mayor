@@ -40,46 +40,54 @@
             line-height: 6vh;
             text-align: center;
             vertical-align: middle;
-            width: 20%;
+            width: 16.66%;
         }
         .tile-1 {
-            background: url(@Url.Content("~/Pictures/Flag1.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag1.png")) no-repeat;
             background-size: cover;
         }
         .tile-2 {
-            background: url(@Url.Content("~/Pictures/Flag2.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag2.png")) no-repeat;
             background-size: cover;
         }
         .tile-3 {
-            background: url(@Url.Content("~/Pictures/Flag3.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag3.png")) no-repeat;
             background-size: cover;
         }
         .tile-4 {
-            background: url(@Url.Content("~/Pictures/Flag4.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag4.png")) no-repeat;
             background-size: cover;
         }
         .tile-5 {
-            background: url(@Url.Content("~/Pictures/Flag5.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag5.png")) no-repeat;
+            background-size: cover;
+        }
+        .tile-6 {
+            background: url(@Url.Content("~/Pictures/Flag6.png")) no-repeat;
             background-size: cover;
         }
         .tile-1:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag1.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag1.png")) no-repeat;
             background-size: cover;
         }
         .tile-2:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag2.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag2.png")) no-repeat;
             background-size: cover;
         }
         .tile-3:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag3.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag3.png")) no-repeat;
             background-size: cover;
         }
         .tile-4:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag4.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag4.png")) no-repeat;
             background-size: cover;
         }
         .tile-5:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag5.jpg")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag5.png")) no-repeat;
+            background-size: cover;
+        }
+        .tile-6:hover {
+            background: url(@Url.Content("~/Pictures/DarkFlag6.png")) no-repeat;
             background-size: cover;
         }
         .border-right {
@@ -89,8 +97,24 @@
         #container {
             margin-top: 4%;
         }
-        #paypal {
+        .right-panel {
+            background: #EEE8AA;
+            border: 1px solid #808080;
+            border-radius: 10px;
+            clear: right;
             float: right;
+            padding: 20px;
+            text-align: center;
+        }
+        .admin {
+            margin-top: 20px;
+        }
+        .admin h3 {
+            margin-top: 0;
+        }
+        .admin button {
+            clear: left;
+            margin: 10px;
         }
     </style>
 </head>
@@ -98,39 +122,65 @@
     <div id="navbar">
         <a href="@Url.Action("Index", "Home")">
             <div class="navlink border-right left-curve tile-1">
-                On The Issues
+                Home
             </div>
         </a>
         <a href="@Url.Action("Index", "Home")">
             <div class="navlink border-right tile-2">
+                On The Issues
+            </div>
+        </a>
+        <a href="@Url.Action("Index", "Home")">
+            <div class="navlink border-right tile-3">
                 In The News
             </div>
         </a>
         <a href="@Url.Action("Index", "QandA")">
-            <div class="navlink border-right tile-3">
+            <div class="navlink border-right tile-4">
                 Q & A
             </div>
         </a>
-        <a href="@Url.Action("Index", "Home")">
-            <div class="navlink border-right tile-4">
+        <a href="@Url.Action("Index", "Events")">
+            <div class="navlink border-right tile-5">
                 Events
             </div>
         </a>
         <a href="@Url.Action("Index", "Home")">
-            <div class="navlink right-curve tile-5">
+            <div class="navlink right-curve tile-6">
                 Volunteer
             </div>
         </a>
     </div>
 
     <div id="container" class="container body-content">
-        <div id="paypal">
+        <div class="right-panel">
             <a href='@Url.Action("Make", "Donations")'>
                 <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!">
             </a>
+            <div style="margin-top:20px;">
+                @*if (User.Identity.IsAuthenticated)*@
+                @if (Session["user"]!=null)
+                {
+                    <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>
+                }
+                else
+                {
+                    <button onclick="location.href='@Url.Action("Login", "Users")';return false;">Login</button>
+                    <button onclick="location.href='@Url.Action("Register", "Users")';return false;">Register</button>
+                }
+            </div>
         </div>
+        @if (Session["admin"] != null) {
+            if ((bool)Session["admin"] == true) {
+                <div class="right-panel admin">
+                    <h3>Admin Menu</h3>
+                    <button onclick="location.href='@Url.Action("List", "Employments")';return false;">Employment</button>
+                    <button onclick="location.href='@Url.Action("List", "Donations")';return false;">Donations</button>
+                </div>
+            }
+        }
         @RenderBody()
-        <footer style="margin-top:20px;">
+        <footer style="margin-top:20px;clear:left;">
             <p>&copy; @DateTime.Now.Year - Strek For Mayor</p>
         </footer>
     </div>

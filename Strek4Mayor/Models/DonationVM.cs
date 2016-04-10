@@ -9,8 +9,8 @@ namespace Strek4Mayor.Models
     public class DonationVM
     {
         [Required(ErrorMessage = "Please select or enter the amount you want to donate.")]
-        [DataType(DataType.Currency)]
-        public decimal Amount { get; set; }
+        [RegularExpression(@"^\d+\.?\d{0,2}$", ErrorMessage = "Amount must be a number and can't have more than 2 decimal places")]
+        public string Amount { get; set; }
         [Required, StringLength(200)]
         public string Employer { get; set; }
         [Required, StringLength(200)]
