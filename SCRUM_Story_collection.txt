@@ -1,5 +1,8 @@
 #CURRENT SCRUM-BAG: Allen
-#(List in Weekly_Schedule.txt)
+#Week 2,3,10: Allen
+#Week 4,5,11: Matt
+#Week 6,7: Daryl
+#Week 8,9: Hunter
 
 #IF YOU GUYS WANT TO CHANGE SOMETHING HERE, EMAIL CURRENT SCRUM-BAG. DON'T WORRY, HE'S A NICE GUY.
 
