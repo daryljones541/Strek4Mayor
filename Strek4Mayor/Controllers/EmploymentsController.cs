@@ -15,6 +15,7 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: Employments
+        [Authorize(Roles = "Admin")]
         public ActionResult List()
         {
             return View(db.Employments.ToList());

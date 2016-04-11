@@ -18,6 +18,7 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: Donations
+        [Authorize(Roles = "Admin")]
         public ActionResult List()
         {
             List<Donation> donations = db.Donations.Include(d => d.Donor.Employment).ToList();

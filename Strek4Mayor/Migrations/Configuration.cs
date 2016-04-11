@@ -1,12 +1,12 @@
 namespace Strek4Mayor.Migrations
 {
     using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Strek4Mayor.Models;
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Strek4Mayor.Models;
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Strek4Mayor.Models.Strek4MayorContext>
     {
@@ -29,7 +29,7 @@ using System.Linq;
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
+            /*
             DateTime date1 = new DateTime(2015, 02, 4, 0, 0, 0);
             DateTime date2 = new DateTime(2012, 04, 12, 0, 0, 0);
 
@@ -55,24 +55,24 @@ using System.Linq;
 
             context.QandAs.Add(example1);
             context.QandAs.Add(example2);
-             
+
             var store = new UserStore<User>(context);
             var userManager = new UserManager<User>(store);
             //if (context.Users.Where(u => u.UserName == "user1") == null)
             //{
-                context.Roles.Add(new IdentityRole() { Name = "Admin" });
-                context.Roles.Add(new IdentityRole() { Name = "Standard" });
-                User user1 = new User
-                {
-                    UserName = "user1",
-                    Name = "Stefan Strek",
-                    Email = "user1@test.com",
-                    Newsletter = false
-                };
-                userManager.Create(user1, "Password1");
-                userManager.AddToRole(user1.Id, "Admin");
+            context.Roles.Add(new IdentityRole() { Name = "Admin" });
+            context.Roles.Add(new IdentityRole() { Name = "Standard" });
+            User user1 = new User
+            {
+                UserName = "user1",
+                Name = "Stefan Strek",
+                Email = "user1@test.com",
+                Contact = false
+            };
+            userManager.Create(user1, "Password1");
+            userManager.AddToRole(user1.Id, "Admin");
             //}
-             
+            */
         }
     }
 }

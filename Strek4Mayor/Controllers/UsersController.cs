@@ -24,7 +24,7 @@ namespace Strek4Mayor.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.IdentityUsers.ToList());
+            return View(db.Users.ToList());
         }
 
         // GET: Users/Details/5
@@ -34,7 +34,7 @@ namespace Strek4Mayor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.IdentityUsers.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -83,7 +83,40 @@ namespace Strek4Mayor.Controllers
                     user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 GetAuthenticationManager().SignIn(identity);
-                FormsAuthentication.SetAuthCookie(user.UserName, true);
+
+
+                Session["user"] = user.Name;
+                var manager = new UserManager<User>(
+                        new UserStore<User>(new Strek4MayorContext()));
+                if (manager.IsInRole(user.Id, "Admin"))
+                {
+                    Session["admin"] = true;
+                }
+                else
+                {
+                    Session["admin"] = false;
+                }
+
+                return Redirect(GetRedirectUrl(""));
+            }
+
+            // user authN failed
+            ModelState.AddModelError("", "Invalid email or password");
+            return View();
+            /*
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var user = userManager.Find(model.Username, model.Password);
+
+            if (user != null)
+            {
+                var identity = userManager.CreateIdentity(
+                    user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                GetAuthenticationManager().SignIn(identity);
 
                 if (model.Remember)
                 {
@@ -120,6 +153,17 @@ namespace Strek4Mayor.Controllers
             // user authN failed
             ModelState.AddModelError("", "Invalid email or password");
             return View();
+            */
+        }
+
+        private string GetRedirectUrl(string returnUrl)
+        {
+            if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
+            {
+                return Url.Action("index", "home");
+            }
+
+            return returnUrl;
         }
 
         [AllowAnonymous]
@@ -143,7 +187,7 @@ namespace Strek4Mayor.Controllers
                 UserName = model.Username,
                 Name = model.Name,
                 Email = model.Email,
-                Newsletter = model.Newsletter
+                Contact = model.Newsletter
             };
 
             var result = userManager.Create(user, model.Password);
@@ -189,7 +233,7 @@ namespace Strek4Mayor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.IdentityUsers.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -220,7 +264,7 @@ namespace Strek4Mayor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.IdentityUsers.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -233,8 +277,8 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            User user = db.IdentityUsers.Find(id);
-            db.IdentityUsers.Remove(user);
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

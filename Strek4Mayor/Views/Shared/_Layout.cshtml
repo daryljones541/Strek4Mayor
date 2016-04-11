@@ -157,9 +157,9 @@
                 <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!">
             </a>
             <div style="margin-top:20px;">
-                @*if (User.Identity.IsAuthenticated)*@
-                @if (Session["user"]!=null)
+                @if (User.Identity.IsAuthenticated)
                 {
+                    //@HttpContext.Current.User.Identity.Name
                     <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>
                 }
                 else
