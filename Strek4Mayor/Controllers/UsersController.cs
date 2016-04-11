@@ -47,6 +47,8 @@ namespace Strek4Mayor.Controllers
         public ActionResult Login()
         {
             var viewModel = new LoginVM();
+            var getURI = Request.QueryString;
+            if (getURI["ReturnUrl"] != null) viewModel.ReturnUrl = HttpUtility.UrlDecode(getURI["ReturnUrl"]);
             HttpCookie myCookie = Request.Cookies["strek4mayor"];
             if (myCookie != null)
             {
@@ -68,42 +70,8 @@ namespace Strek4Mayor.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult LogIn(LoginVM model, FormCollection form)
+        public ActionResult LogIn([Bind(Include = "Username,Password,Remember,ReturnUrl")]LoginVM model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            var user = userManager.Find(model.Username, model.Password);
-
-            if (user != null)
-            {
-                var identity = userManager.CreateIdentity(
-                    user, DefaultAuthenticationTypes.ApplicationCookie);
-
-                GetAuthenticationManager().SignIn(identity);
-
-
-                Session["user"] = user.Name;
-                var manager = new UserManager<User>(
-                        new UserStore<User>(new Strek4MayorContext()));
-                if (manager.IsInRole(user.Id, "Admin"))
-                {
-                    Session["admin"] = true;
-                }
-                else
-                {
-                    Session["admin"] = false;
-                }
-
-                return Redirect(GetRedirectUrl(""));
-            }
-
-            // user authN failed
-            ModelState.AddModelError("", "Invalid email or password");
-            return View();
-            /*
             if (!ModelState.IsValid)
             {
                 return View();
@@ -129,31 +97,12 @@ namespace Strek4Mayor.Controllers
                     Response.Cookies.Add(myCookie);
                 }
 
-                Session["user"] = user.Name;
-                var manager = new UserManager<User>(
-                        new UserStore<User>(new Strek4MayorContext()));
-                if (manager.IsInRole(user.Id, "Admin"))
-                {
-                    Session["admin"] = true;
-                }
-                else
-                {
-                    Session["admin"] = null;
-                }
-                string controller = (string)Session["controller"];
-                string action = (string)Session["action"];
-                if (controller == null || action == null) return RedirectToAction("Index", "Home");
-                else
-                {
-                    if (Session["parameter"] == null) return RedirectToAction(action, controller);
-                    else return RedirectToAction(action + "/" + (string)Session["parameter"], controller);
-                }
+                return Redirect(GetRedirectUrl(model.ReturnUrl));
             }
 
-            // user authN failed
+            // user authentication failed
             ModelState.AddModelError("", "Invalid email or password");
             return View();
-            */
         }
 
         private string GetRedirectUrl(string returnUrl)
@@ -187,7 +136,7 @@ namespace Strek4Mayor.Controllers
                 UserName = model.Username,
                 Name = model.Name,
                 Email = model.Email,
-                Contact = model.Newsletter
+                Contact = model.Contact
             };
 
             var result = userManager.Create(user, model.Password);

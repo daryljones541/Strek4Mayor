@@ -169,14 +169,13 @@
                 }
             </div>
         </div>
-        @if (Session["admin"] != null) {
-            if ((bool)Session["admin"] == true) {
+        @if (User.IsInRole("Admin")) 
+        {
                 <div class="right-panel admin">
                     <h3>Admin Menu</h3>
                     <button onclick="location.href='@Url.Action("List", "Employments")';return false;">Employment</button>
                     <button onclick="location.href='@Url.Action("List", "Donations")';return false;">Donations</button>
                 </div>
-            }
         }
         @RenderBody()
         <footer style="margin-top:20px;clear:left;">

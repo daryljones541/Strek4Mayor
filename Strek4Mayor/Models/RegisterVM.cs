@@ -21,7 +21,7 @@ namespace Strek4Mayor.Models
 
         public string Email { get; set; }
 
-        [DisplayName("Subscribe to Newsletter")]
-        public bool Newsletter { get; set; }
+        [DisplayName("Permission to e-mail you")]
+        public bool Contact { get; set; }
     }
 }

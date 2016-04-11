@@ -15,8 +15,10 @@
         padding: 5px;
     }
     .amount-button span:hover {
-        background-color: greenyellow;
         cursor: pointer;
+    }
+    .highlight {
+        background-color: greenyellow !important;
     }
 </style>
 
@@ -38,11 +40,11 @@
                 @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-8 amount-button">
-                <span id="5">$5</span>
-                <span id="10">$10</span>
-                <span id="20">$20</span>
-                <span id="50">$50</span>
-                <span id="100">$100</span>
+                <span id="5" class="dollar">$5</span>
+                <span id="10" class="dollar">$10</span>
+                <span id="20" class="dollar">$20</span>
+                <span id="50" class="dollar">$50</span>
+                <span id="100" class="dollar">$100</span>
             </div>
         </div>
 

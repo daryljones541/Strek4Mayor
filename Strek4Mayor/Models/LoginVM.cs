@@ -17,5 +17,7 @@ namespace Strek4Mayor.Models
         public string Password { get; set; }
         [DisplayName("Remember Me")]
         public bool Remember { get; set; }
+        [HiddenInput(DisplayValue = false)]
+        public string ReturnUrl { get; set; }
     }
 }
