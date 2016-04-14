@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+    <link href="@Url.Content("~/Content/issuesCSS.css")" rel="stylesheet" type="text/css" />
+    <style>
+        #navbar {
+            background: white url(@Url.Content("~/Pictures/Flag.JPG"));
+	        background-size: cover;
+	        border-radius: 60px;
+	        border: 1px solid #808080;
+	        box-shadow: 10px 10px 5px rgba(0,0,0,0.7);
+	        height: 6vh;
+	        left: 2%;
+	        top: 2%;
+	        position: fixed;
+	        width: 96vw;
+        }
+        #navbar a {
+            color: black;
+            font-size: 150%;
+            font-weight: bold;
+        }
+        .navlink {
+            float: left;
+            height: 100%;
+            line-height: 6vh;
+            text-align: center;
+            vertical-align: middle;
+            width: 20%;
+        }
+        .border-right {
+            border-right: 1px solid black;
+        }
+        #container {
+            margin-top: 4%;
+        }
+        #paypal {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div class="navlink border-right">
+            @Html.ActionLink("On The Issues", "Index", "Home")
+        </div>
+        <div class="navlink border-right">
+            @Html.ActionLink("In The News", "Index", "Home")
+        </div>
+        <div class="navlink border-right">
+            @Html.ActionLink("Q & A", "Index", "Home")
+        </div>
+        <div class="navlink border-right">
+            @Html.ActionLink("Events", "Index", "Home")
+        </div>
+        <div class="navlink">
+            @Html.ActionLink("Volunteer", "Index", "Home")
+        </div>
+    </div>
+        @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
