@@ -1,8 +1,8 @@
 A-TEAM ASSIGNMENTS:(current)
-Daryl: DONATE
-Matt: On-TheIssues
+Daryl: DONATE, Calendar, Set up accounts
+Matt: On-TheIssues, Vollunteer
 Hunter: Q+A
-Allen: Master + Home(about Stefan for now) Set up accounts
+Allen: Master + Home(about Stefan for now), In-The-News
 
 Week 1:
 - Have a working Master page (shared Layout.cshtml)
