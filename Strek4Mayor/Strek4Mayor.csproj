@@ -171,6 +171,7 @@
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\Employment.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventVM.cs" />
     <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\QandA.cs" />
     <Compile Include="Models\QandADbInitializer.cs" />
@@ -222,10 +223,13 @@
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\event.js" />
     <Content Include="Scripts\donation.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.12.3.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
+using System.Web.UI.WebControls;
 
 namespace Strek4Mayor.Controllers
 {
@@ -38,7 +39,11 @@ namespace Strek4Mayor.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            return View();
+            EventVM eventVM = new EventVM();
+            PopulateTime(eventVM);
+            eventVM.Date = DateTime.Now.AddDays(1);
+            eventVM.TimeSelection = 30;
+            return View(eventVM);
         }
 
         // POST: Events/Create
@@ -46,16 +51,45 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,Date,Location,Title,Description")] Event @event)
+        public ActionResult Create([Bind(Include = "Date,Location,Title,Description,TimeSelection")] EventVM eventVM)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(@event);
+                PopulateTime(eventVM);
+                DateTime date = eventVM.Date;
+                TimeSpan time = Convert.ToDateTime(eventVM.Time[eventVM.TimeSelection].Text).TimeOfDay;
+                date = date.Add(time);
+                Event addEvent=new Event
+                { 
+                    Date=date, 
+                    Description=eventVM.Description,
+                    Location=eventVM.Location,
+                    Title=eventVM.Title
+                };
+                db.Events.Add(addEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            else {
+                PopulateTime(eventVM);
+            }
+            return View(eventVM);
+        }
 
-            return View(@event);
+        private EventVM PopulateTime(EventVM eventVM)
+        {
+            eventVM.Time = new List<SelectListItem>();
+            DateTime times = DateTime.ParseExact("00:00", "HH:mm", null);
+            DateTime endTime = DateTime.ParseExact("23:30", "HH:mm", null);
+            TimeSpan interval = new TimeSpan(0, 30, 0);
+            int position = 0;
+            while (times <= endTime)
+            {
+                eventVM.Time.Add(new SelectListItem() { Text = times.ToShortTimeString(), Value = position.ToString() });
+                times = times.Add(interval);
+                position++;
+            }
+            return eventVM;
         }
 
         // GET: Events/Edit/5
