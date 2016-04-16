@@ -106,8 +106,13 @@
             border: 1px solid #808080;
             border-radius: 10px;
             float: right;
-            padding: 20px;
+            font-size: 1.2vw;
+            padding: 2%;
             text-align: center;
+            width: 20vw;
+        }
+        .right-panel img {
+            width: 95%;
         }
         .admin {
             margin-right: 20px;
@@ -163,8 +168,11 @@
             <div style="margin-top:20px;">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    //@HttpContext.Current.User.Identity.Name
-                    <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>
+                    if (User.IsInRole("Admin"))
+                    {
+                        <button onclick="location.href='@Url.Action("Index", "Admin")';return false;">Admin</button>
+                    }
+                    <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>                   
                 }
                 else
                 {
@@ -173,14 +181,6 @@
                 }
             </div>
         </div>
-        @if (User.IsInRole("Admin")) 
-        {
-                <div class="right-panel admin">
-                    <h3>Admin Menu</h3>
-                    <button onclick="location.href='@Url.Action("List", "Employments")';return false;">Employment</button>
-                    <button onclick="location.href='@Url.Action("List", "Donations")';return false;">Donations</button>
-                </div>
-        }
         @RenderBody()
         <footer style="margin-top:20px;clear:left;">
             <p>&copy; @DateTime.Now.Year - Strek For Mayor</p>
