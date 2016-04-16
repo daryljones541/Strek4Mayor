@@ -1,0 +1,89 @@
+﻿*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.clear{
+    clear:both;
+}
+
+#wrapper {
+    margin: auto;
+    width: 1420px;
+    height: 725px;
+}
+
+#issue1
+{
+    margin: auto;
+    width: 1000px;
+    height: 250px;
+}
+
+#issue2
+{
+    margin: auto;
+    width: 1000px;
+    height: 225px;
+}
+
+#issue3
+{
+    margin: auto;
+    width: 1000px;
+    height: 225px;
+}
+
+#image1{
+    width: 500px;
+    Height: 225px;
+    float:left;
+}   
+
+#image2{
+    width: 500px;
+    height: 225px;
+    float:left;
+}
+
+#image3 {
+    width: 500px;
+    height: 225px;
+    float: left;
+}
+#issueText1{
+    width: 500px;
+    height: 225px;
+    float:right;
+}
+
+#issueText2 {
+    width: 500px;
+    height: 225px;
+    float: right;
+}
+#issueText3 {
+    width: 500px;
+    height: 225px;
+    float: right;
+}
+
+#Ctextstyles{
+    text-align:center;
+}
+
+#Atextstyles{
+    text-align:center;
+}
+
+#Htextstyles{
+    text-align:center;
+}
+h2{
+    text-align:center;
+    text-decoration: underline;
+}
+
+.headingpadding{
+    padding-top: 45px;
+}

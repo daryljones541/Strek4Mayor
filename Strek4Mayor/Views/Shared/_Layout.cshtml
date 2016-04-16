@@ -16,8 +16,9 @@
 	        border: 1px solid #808080;
 	        box-shadow: 10px 10px 5px rgba(0,0,0,0.7);
 	        height: 6vh;
-	        left: 2%;
-	        top: 2%;
+	        left: 2vw;
+            right: 2vw;
+	        top: 2vh;
 	        position: fixed;
 	        width: 96vw;
         }
@@ -98,21 +99,26 @@
             border-right: 1px solid black;
             background-size: cover;
         }
-        #container {
-            margin-top: 4%;
-        }
-        .right-panel {
+        #right-panel {
             background: #EEE8AA;
             border: 1px solid #808080;
             border-radius: 10px;
-            float: right;
             font-size: 1.2vw;
             padding: 2%;
+            position: fixed;
+            right: 2vw;
             text-align: center;
+            top: 10vh;
             width: 20vw;
         }
-        .right-panel img {
-            width: 95%;
+        #left-panel {
+            background: url(@Url.Content("~/Pictures/SephanBanner.png"));
+            background-size: contain;
+            border-radius: 10px;
+            left: 2vw;
+            position: fixed;
+            top: 10vh;
+            width: 74vw;
         }
         .admin {
             margin-right: 20px;
@@ -133,7 +139,7 @@
                 Home
             </div>
         </a>
-        <a href="@Url.Action("Index", "Home")">
+        <a href="@Url.Action("Index", "Issues")">
             <div class="navlink border-right tile-2">
                 On The Issues
             </div>
@@ -161,31 +167,36 @@
     </div>
 
     <div id="container" class="container body-content">
-        <div class="right-panel">
-            <a href='@Url.Action("Make", "Donations")'>
-                <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!">
-            </a>
-            <div style="margin-top:20px;">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    if (User.IsInRole("Admin"))
-                    {
-                        <button onclick="location.href='@Url.Action("Index", "Admin")';return false;">Admin</button>
-                    }
-                    <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>                   
-                }
-                else
-                {
-                    <button onclick="location.href='@Url.Action("Login", "Users")';return false;">Login</button>
-                    <button onclick="location.href='@Url.Action("Register", "Users")';return false;">Register</button>
-                }
-            </div>
-        </div>
-        @RenderBody()
-        <footer style="margin-top:20px;clear:left;">
-            <p>&copy; @DateTime.Now.Year - Strek For Mayor</p>
-        </footer>
-    </div>
+        <a href='@Url.Action("Index", "Home")'>
+            <div id="left-panel">
 
+            </div>
+        </a>
+            <div id="right-panel">
+                <a href='@Url.Action("Make", "Donations")'>
+                    <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!">
+                </a>
+                <div style="margin-top:20px;">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <button onclick="location.href='@Url.Action("Index", "Admin")';return false;">Admin</button>
+                        }
+                        <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>
+                    }
+                    else
+                    {
+                        <button onclick="location.href='@Url.Action("Login", "Users")';return false;">Login</button>
+                        <button onclick="location.href='@Url.Action("Register", "Users")';return false;">Register</button>
+                    }
+                </div>
+            </div>
+            @RenderBody()
+            <footer style="margin-top:20px;clear:left;">
+                <p>&copy; @DateTime.Now.Year - Strek For Mayor</p>
+            </footer>
+</div>
+    <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>
 </html>

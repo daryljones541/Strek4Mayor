@@ -18,7 +18,8 @@ namespace Strek4Mayor.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            List<Event> events = db.Events.OrderBy(x => x.Date).ToList();
+            return View(events);
         }
 
         // GET: Events/Details/5

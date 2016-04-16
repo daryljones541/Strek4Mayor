@@ -161,6 +161,7 @@
     <Compile Include="Controllers\EmploymentsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IssuesController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -186,6 +187,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\issuesCSS.css" />
     <Content Include="credits.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -193,6 +195,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Pictures\1024px-American_Flag_Close.JPG" />
     <Content Include="Pictures\15.01.27.emg_.as_.StefanStrek4.jpg" />
+    <Content Include="Pictures\animals.png" />
     <Content Include="Pictures\BlackAndWhitePortrait.jpg" />
     <Content Include="Pictures\BrightFlag1.jpg" />
     <Content Include="Pictures\BrightFlag2.jpg" />
@@ -200,6 +203,7 @@
     <Content Include="Pictures\BrightFlag4.jpg" />
     <Content Include="Pictures\BrightFlag5.jpg" />
     <Content Include="Pictures\business2.jpg" />
+    <Content Include="Pictures\committee.png" />
     <Content Include="Pictures\DarkFlag1.png" />
     <Content Include="Pictures\DarkFlag2.png" />
     <Content Include="Pictures\DarkFlag3.png" />
@@ -215,8 +219,11 @@
     <Content Include="Pictures\Flag6.png" />
     <Content Include="Pictures\hankking1.jpg" />
     <Content Include="Pictures\hats.jpg" />
+    <Content Include="Pictures\housing.png" />
     <Content Include="Pictures\paul2.jpg" />
+    <Content Include="Pictures\SephanBanner.png" />
     <Content Include="Pictures\willy2.jpg" />
+    <Content Include="Scripts\banner.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP %282%29.pubxml" />
@@ -278,6 +285,7 @@
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Issues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
