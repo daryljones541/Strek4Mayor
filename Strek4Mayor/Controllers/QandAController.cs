@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using Strek4Mayor.Models;
 using Microsoft.AspNet.Identity;
 using System.Web.Security;
+using BotDetect.Web.UI;
+using BotDetect.Web.Mvc;
 
 namespace Strek4Mayor.Controllers
 {
@@ -48,13 +50,15 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
+        [CaptchaValidation("CaptchaCode", "Create", "Incorrect CAPTCHA code!")]
         public ActionResult Create([Bind(Include="QandAId,Body,Title,MessageStatus,Member,Date")] QandA qanda)
         {
             if (ModelState.IsValid)
             {
                 db.QandAs.Add(qanda);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin");
             }
 
             return View(qanda);
@@ -125,7 +129,27 @@ namespace Strek4Mayor.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
+        // POST: /QandA/Admin
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Admin([Bind(Include = "QandAId,Body,Title,MessageStatus,Member,Date,Answer")] QandA qanda)
+        {
+            if (ModelState.IsValid)
+            {
+                db.QandAs.Add(qanda);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(qanda);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
