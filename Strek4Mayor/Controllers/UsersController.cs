@@ -22,12 +22,14 @@ namespace Strek4Mayor.Controllers
                 new UserStore<User>(new Strek4MayorContext()));
 
         // GET: Users
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Users.ToList());
         }
 
         // GET: Users/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -96,23 +98,17 @@ namespace Strek4Mayor.Controllers
                     myCookie.Expires = System.DateTime.Now.AddHours(336);
                     Response.Cookies.Add(myCookie);
                 }
-
-                return Redirect(GetRedirectUrl(model.ReturnUrl));
+                if (string.IsNullOrEmpty(model.ReturnUrl) || !Url.IsLocalUrl(model.ReturnUrl))
+                {
+                    if (userManager.IsInRole(user.Id, "Admin")) return RedirectToAction("Index", "Admin");
+                    else return RedirectToAction("Index", "Home");
+                }
+                return Redirect(model.ReturnUrl);
             }
 
             // user authentication failed
             ModelState.AddModelError("", "Invalid email or password");
             return View();
-        }
-
-        private string GetRedirectUrl(string returnUrl)
-        {
-            if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
-            {
-                return Url.Action("index", "home");
-            }
-
-            return returnUrl;
         }
 
         [AllowAnonymous]
@@ -182,12 +178,16 @@ namespace Strek4Mayor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            if (User.Identity.GetUserId() == id || User.IsInRole("Admin"))
             {
-                return HttpNotFound();
+                User user = db.Users.Find(id);
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(user);
             }
-            return View(user);
+            else return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
         }
 
         // POST: Users/Edit/5
@@ -195,18 +195,34 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] User user)
+        public ActionResult Edit([Bind(Include = "Id,Email,UserName,Name,Contact")] User user, string id)
         {
-            if (ModelState.IsValid)
+            if (id == null)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            if (User.Identity.GetUserId() == id || User.IsInRole("Admin"))
+            {
+                User oldUser = db.Users.Find(id);
+                if (oldUser == null)
+                {
+                    return HttpNotFound();
+                }
+                oldUser.Email=user.Email;
+                oldUser.Contact=user.Contact;
+                oldUser.UserName=user.UserName;
+                oldUser.Name=user.Name;
+                db.Entry(oldUser).State = EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Message = "Changes saved.";
+            }
+            else return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
+
             return View(user);
         }
 
         // GET: Users/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -234,8 +250,6 @@ namespace Strek4Mayor.Controllers
 
         public ActionResult LogOut()
         {
-            Session["admin"] = null;
-            Session["user"] = null;
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
 
@@ -248,6 +262,44 @@ namespace Strek4Mayor.Controllers
                 if (Session["parameter"] == null) return RedirectToAction(action, controller);
                 else return RedirectToAction(action + "/" + (string)Session["parameter"], controller);
             }
+        }
+
+        public ActionResult ChangePassword(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (User.Identity.GetUserId() == id || User.IsInRole("Admin"))
+            {
+                ChangePasswordVM viewModel = new ChangePasswordVM();
+                return View(viewModel);
+            }
+            else return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword([Bind(Include = "NewPassword,OldPassword,ConfirmPassword")] ChangePasswordVM viewModel, string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (User.Identity.GetUserId() == id || User.IsInRole("Admin"))
+            {
+                User dbUser = db.Users.Find(id);
+                var user = userManager.Find(dbUser.UserName, viewModel.OldPassword);
+                if (user != null)
+                {
+                    userManager.RemovePassword(user.Id);
+                    userManager.AddPassword(user.Id, viewModel.NewPassword);
+                    ViewBag.Message = "Password successfully update.";
+                }
+                else ViewBag.Message = "Incorrect old password.";
+                return View(viewModel);
+            }
+            else return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
         }
 
         protected override void Dispose(bool disposing)

@@ -168,6 +168,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ChangePasswordVM.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\DonationVM.cs" />
     <Compile Include="Models\Donor.cs" />
@@ -288,6 +289,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Issues\Index.cshtml" />
     <Content Include="Views\Donations\FullList.cshtml" />
+    <Content Include="Views\Users\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
