@@ -1,9 +1,14 @@
 ﻿@model IEnumerable<Strek4Mayor.Models.Event>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Event List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<head>
+    <title></title>
+    <link href="~/Content/tables.css" rel="stylesheet" type="text/css" />
+</head>
 
 <h2>Event List</h2>
 @if (User.IsInRole("Admin"))
@@ -26,7 +31,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th></th>
+        }
     </tr>
 
 @foreach (var item in Model) {
@@ -44,14 +52,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td>
-                @if (User.IsInRole("Admin")) 
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) 
-                    @Html.Raw("|")
-                    @Html.ActionLink("Delete", "Delete", new { id=item.EventID })
-                }
-            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                
+                        @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) 
+                        @Html.Raw("|")
+                        @Html.ActionLink("Delete", "Delete", new { id=item.EventID })        
+                </td>
+            }
         </tr>
     }
 }

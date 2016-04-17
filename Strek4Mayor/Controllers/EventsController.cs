@@ -16,7 +16,7 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: Events
-        public ActionResult Index()
+        public ActionResult List()
         {
             List<Event> events = db.Events.OrderBy(x => x.Date).ToList();
             return View(events);

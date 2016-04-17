@@ -188,6 +188,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\issuesCSS.css" />
+    <Content Include="Content\tables.css" />
     <Content Include="credits.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -271,13 +272,13 @@
     <Content Include="Views\Donations\Complete.cshtml" />
     <Content Include="Views\Donations\Cancel.cshtml" />
     <Content Include="Views\Donations\Create.cshtml" />
-    <Content Include="Views\Donations\List.cshtml" />
+    <Content Include="Views\Donations\RedactedList.cshtml" />
     <Content Include="Views\Employments\List.cshtml" />
     <Content Include="Views\Events\Create.cshtml" />
     <Content Include="Views\Events\Delete.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Events\List.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
@@ -286,6 +287,7 @@
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Issues\Index.cshtml" />
+    <Content Include="Views\Donations\FullList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,6 +10,7 @@ using Strek4Mayor.Models;
 using System.Text;
 using System.IO;
 using System.Collections.Specialized;
+using System.Web.Security;
 
 namespace Strek4Mayor.Controllers
 {
@@ -19,9 +20,30 @@ namespace Strek4Mayor.Controllers
 
         // GET: Donations
         [Authorize(Roles = "Admin")]
-        public ActionResult List()
+        public ActionResult RedactedList()
         {
             List<Donation> donations = db.Donations.Include(d => d.Donor.Employment).ToList();
+            ViewBag.Number = donations.Count();
+            var gross = donations.Sum(d => Convert.ToDecimal(d.Amount));
+            var fee = donations.Sum(d => Convert.ToDecimal(d.TransactionFee));
+            ViewBag.Gross = gross;
+            ViewBag.Fee = fee;
+            ViewBag.Net = gross - fee;
+            return View(donations);
+        }
+
+        // GET: Donations
+        [Authorize(Roles = "Admin")]
+        [RequireHttps]
+        public ActionResult FullList()
+        {
+            List<Donation> donations = db.Donations.Include(d => d.Donor.Employment).ToList();
+            ViewBag.Number = donations.Count();
+            var gross = donations.Sum(d => Convert.ToDecimal(d.Amount));
+            var fee = donations.Sum(d => Convert.ToDecimal(d.TransactionFee));
+            ViewBag.Gross = gross;
+            ViewBag.Fee = fee;
+            ViewBag.Net = gross - fee;
             return View(donations);
         }
 
@@ -119,7 +141,7 @@ namespace Strek4Mayor.Controllers
                                     Employment = employment,
                                     FirstName = HttpUtility.UrlDecode(results["first_name"]),
                                     LastName = HttpUtility.UrlDecode(results["last_name"]),
-                                    Address = HttpUtility.UrlDecode(results["address_street"]),
+                                    Address = HttpUtility.UrlDecode(results["address_state"]),
                                     City = HttpUtility.UrlDecode(results["address_city"]),
                                     State = HttpUtility.UrlDecode(results["address_state"]),
                                     ZipCode = HttpUtility.UrlDecode(results["address_zip"]),
@@ -171,7 +193,8 @@ namespace Strek4Mayor.Controllers
         {
             return View();
         }
-        /*
+        [RequireHttps]
+        [HttpPost]
         public void IPN()
         {
             var formVals = new Dictionary<string, string>();
@@ -183,16 +206,37 @@ namespace Strek4Mayor.Controllers
 
             if (response == "VERIFIED")
             {
-                Donation donation = new Donation();
-                donation.Donor.FirstName = Request["first_name"];
-                donation.Donor.LastName = Request["last_name"];
-                donation.Amount = Request["mc_gross"];
-                donation.Donor.Address = Request["address_street"];
-                donation.City = Request["address_city"];
-                donation.ZipCode = Request["address_zip"];
-                donation.Email = Request["payer_email"];
-                db.Donations.Add(donation);
-                db.SaveChanges();
+                int custom = Convert.ToInt32(Request["custom"]);
+                var employment=db.Employments.Find(custom);
+                if (employment != null)
+                {
+                    var donor = db.Donors.SingleOrDefault(d => d.Employment == employment);
+                    if (donor == null)
+                    {
+                        Donor newDonor = new Donor
+                                    {
+                                        Employment = employment,
+                                        FirstName = Request["first_name"],
+                                        LastName = Request["last_name"],
+                                        Address = Request["address_street"],
+                                        City = Request["address_city"],
+                                        State = Request["address_state"],
+                                        ZipCode = Request["address_zip"],
+                                        Email = Request["payer_email"],
+                                    };
+                        db.Donors.Add(newDonor);
+                        db.SaveChanges();
+                        Donation donation = new Donation
+                        {
+                            Date = Request["payment_date"],
+                            Amount = Request["mc_gross"],
+                            TransactionFee = Request["mc_fee"],
+                            Donor = donor
+                        };
+                        db.Donations.Add(donation);
+                        db.SaveChanges();
+                    }
+                }
             }
         }
 
@@ -239,7 +283,7 @@ namespace Strek4Mayor.Controllers
 
             return response;
         }
-        */
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
