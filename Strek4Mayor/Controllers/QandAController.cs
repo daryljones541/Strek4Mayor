@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
+using Microsoft.AspNet.Identity;
+using System.Web.Security;
 
 namespace Strek4Mayor.Controllers
 {
@@ -46,7 +48,7 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="QandAId,Body,Title,MessageStatus")] QandA qanda)
+        public ActionResult Create([Bind(Include="QandAId,Body,Title,MessageStatus,Member,Date")] QandA qanda)
         {
             if (ModelState.IsValid)
             {
@@ -78,11 +80,19 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="QandAId,Body,Title,MessageStatus")] QandA qanda)
+        public ActionResult Edit([Bind(Include="QandAId,Body,Title,MessageStatus,Member,Date,Answer")] QandA qanda)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(qanda).State = EntityState.Modified;
+                var edit = db.QandAs.First(q => q.QandAId == qanda.QandAId);
+                edit.QandAId = qanda.QandAId;
+                edit.Title = qanda.Title;
+                edit.Member = qanda.Member;
+                edit.Date = DateTime.Now;
+                edit.Body = qanda.Body;
+                edit.Answer = qanda.Answer;
+                edit.MessageStatus = qanda.MessageStatus;
+               // db.Entry(qanda).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -115,6 +125,7 @@ namespace Strek4Mayor.Controllers
             return RedirectToAction("Index");
         }
 
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
