@@ -69,7 +69,7 @@ namespace Strek4Mayor.Controllers
                 };
                 db.Events.Add(addEvent);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             else {
                 PopulateTime(eventVM);
@@ -119,7 +119,7 @@ namespace Strek4Mayor.Controllers
             {
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(@event);
         }
@@ -147,7 +147,7 @@ namespace Strek4Mayor.Controllers
             Event @event = db.Events.Find(id);
             db.Events.Remove(@event);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         protected override void Dispose(bool disposing)

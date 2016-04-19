@@ -168,7 +168,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ChangePasswordVM.cs" />
+    <Compile Include="Models\ChangePasswordVM.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\DonationVM.cs" />
     <Compile Include="Models\Donor.cs" />
@@ -224,6 +226,7 @@
     <Content Include="Pictures\housing.png" />
     <Content Include="Pictures\paul2.jpg" />
     <Content Include="Pictures\SephanBanner.png" />
+    <Content Include="Pictures\StefanBannerV2.png" />
     <Content Include="Pictures\willy2.jpg" />
     <Content Include="Scripts\banner.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -248,6 +251,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Donations\FullList.cshtml" />
+    <Content Include="Views\Donations\RedactedList.cshtml" />
+    <Content Include="Views\Users\ChangePassword.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -273,7 +279,6 @@
     <Content Include="Views\Donations\Complete.cshtml" />
     <Content Include="Views\Donations\Cancel.cshtml" />
     <Content Include="Views\Donations\Create.cshtml" />
-    <Content Include="Views\Donations\RedactedList.cshtml" />
     <Content Include="Views\Employments\List.cshtml" />
     <Content Include="Views\Events\Create.cshtml" />
     <Content Include="Views\Events\Delete.cshtml" />
@@ -288,8 +293,6 @@
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Issues\Index.cshtml" />
-    <Content Include="Views\Donations\FullList.cshtml" />
-    <Content Include="Views\Users\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -102,8 +102,7 @@
         }
         #right-panel {
             background: #EEE8AA;
-            border: 1px solid orange;
-   
+            border: 1px solid orange;   
             font-size: 1.2vw;
             padding: 2%;
             position: fixed;
@@ -113,12 +112,14 @@
             width: 20vw;
         }
         #left-panel {
-            background: url(@Url.Content("~/Pictures/SephanBanner.png"));
-            background-size: contain;
             left: 2vw;
             position: fixed;
             top: 10vh;
             width: 75vw;
+        }
+        #left-panel img {
+            max-width: 100%;
+            text-align: center;
         }
         .admin {
             margin-right: 20px;
@@ -169,7 +170,7 @@
     <div id="container" class="container body-content">
         <a href='@Url.Action("Index", "Home")'>
             <div id="left-panel">
-
+                <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
             </div>
         </a>
             <div id="right-panel">
