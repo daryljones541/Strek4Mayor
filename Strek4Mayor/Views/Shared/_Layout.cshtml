@@ -12,6 +12,33 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
+		html{
+            background-color: #a0d8f3;
+        }
+        body {
+            /*background: #fefdfb;*/
+            background-color: #FCF5EB;
+            width: 1000px;
+            margin: 20px auto;
+            padding: 40px;
+            font-family: sans-serif;
+        }
+        h1 {
+            font-family: sans-serif;
+            color: #DB2929;
+        }
+
+        #navbar {
+	        border-radius: 60px;
+	        border: 1px solid #808080;
+	        box-shadow: 10px 10px 5px rgba(0,0,0,0.7);
+	        height: 6vh;
+	        left: 2vw;
+            right: 2vw;
+	        top: 2vh;
+	        position: fixed;
+	        width: 96vw;
+        }
         #navbar {
 	        border-radius: 60px;
 	        border: 1px solid #808080;
@@ -199,7 +226,8 @@
             </div>
             @RenderBody()
             <footer style="margin-top:20px;clear:left;">
-                <p>&copy; @DateTime.Now.Year - Strek For Mayor</p>
+                <br /> 
+                <p align="center">&copy; @DateTime.Now.Year - Strek For Mayor</p>
             </footer>
 </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
