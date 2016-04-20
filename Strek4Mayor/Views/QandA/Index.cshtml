@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Strek4Mayor.Models.QandA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>I am always here to answer question and help out. Please don't be offensive or rude or your message will not be posted. I take criticism very well, and am always looking to better myself for the good people of Eugene.</h1>
+
+
+<p>
+    <input type="button" id="submit" style='width:300px' value="Ask Me a Question" onclick="location.href='@Url.Action("Create", "QandA")'" /> 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        <th>
+            @Html.Label("Posted by")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.MessageStatus == true)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Member)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answer)
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.QandAId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.QandAId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.QandAId })
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            </tr>
+        }
+    }
+
+</table>
+
