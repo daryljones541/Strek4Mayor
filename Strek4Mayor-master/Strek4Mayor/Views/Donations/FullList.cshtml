@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Strek4Mayor.Models.Donation>
+@{
+    ViewBag.Title = "Full List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title></title>
+    <link href="~/Content/tables.css" rel="stylesheet" type="text/css" />
+</head>
+
+<h2>Donations</h2>
+
+@Html.Label("Number of donations: ")
+@ViewBag.Number
+<br />
+@Html.Label("Total gross amount: $")
+@ViewBag.Gross
+<br />
+@Html.Label("Total fees: $")
+@ViewBag.Fee
+<br />
+@Html.Label("Total net amount: $")
+@ViewBag.Net
+<br />
+
+<h3>Full List</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donor.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donor.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donor.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donor.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donor.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donor.Employment.EmploymentID)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donor.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donor.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donor.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donor.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donor.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donor.Employment.EmploymentID)
+            </td>
+        </tr>
+    }
+
+</table>
