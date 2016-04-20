@@ -1,4 +1,4 @@
-﻿@model Strek4Mayor.Models.QandA
+﻿@m@model Strek4Mayor.Models.QandA
 
 @{
     ViewBag.Title = "Create";
@@ -8,10 +8,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>QandA</h4>
         <hr />
@@ -36,20 +36,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Body, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Body)
+                @Html.TextAreaFor(model => model.Body, 5, 50, null)
                 @Html.ValidationMessageFor(model => model.Body)
             </div>
         </div>
-
-       
-        @using BotDetect.Web.Mvc;
-        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
-              rel="stylesheet" type="text/css" />
-
-        @{ MvcCaptcha Create = new MvcCaptcha("Create"); }
-        @Html.Captcha(Create)
-        @Html.TextBox("CaptchaCode")
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

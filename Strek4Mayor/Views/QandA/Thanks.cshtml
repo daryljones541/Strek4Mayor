@@ -1,12 +1,11 @@
-﻿
+﻿@model Strek4Mayor.Models.QandA
+
 @{
     ViewBag.Title = "Thanks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Thank you for the question</h1>
+<h2>Thank for your question. Once reviewed your question will be answered as soon as possible</h2>
 </br>
-<h2>Your question will be reviewed and if applicable it will be answered as soon as possible</h2>
-</br>
-<input type="button" id="submit" style='width:300px' value="Return to Questions asked" onclick="location.href='@Url.Action("Index", "QandA")'" />  
+<input type="button" id="submit" style='width:300px' value="return to Question page" onclick="location.href='@Url.Action("Index", "QandA")'" /> 
 

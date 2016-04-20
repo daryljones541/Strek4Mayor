@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
-using BotDetect.Web.Mvc;
 
 namespace Strek4Mayor.Controllers
 {
@@ -53,9 +52,7 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        [CaptchaValidation("CaptchaCode", "Create", "Incorrect CAPTCHA code!")]
-        public ActionResult Create([Bind(Include="QandAId,Body,Title,Member")] QandA qanda)
+        public ActionResult Create([Bind(Include = "QandAId,Body,Title,Member")] QandA qanda)
         {
             if (ModelState.IsValid)
             {
@@ -63,18 +60,10 @@ namespace Strek4Mayor.Controllers
                 qanda.MessageStatus = false;
                 db.QandAs.Add(qanda);
                 db.SaveChanges();
-                MvcCaptcha.ResetCaptcha("Create");
-                return RedirectToAction("Thanks");
+                return RedirectToAction("Index");
             }
-            else
-            {
-                MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
-            }
-            
-
 
             return View(qanda);
-      
         }
 
         // GET: /QandA/Edit/5
@@ -97,7 +86,7 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="QandAId,Body,Title,MessageStatus")] QandA qanda)
+        public ActionResult Edit([Bind(Include = "QandAId,Member,Date,Body,Title,Answer,MessageStatus")] QandA qanda)
         {
             if (ModelState.IsValid)
             {

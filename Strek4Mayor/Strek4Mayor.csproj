@@ -303,6 +303,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Issues\Index.cshtml" />
     <Content Include="Views\Donations\Index.cshtml" />
+    <Content Include="Views\QandA\Admin.cshtml" />
+    <Content Include="Views\QandA\Answer.cshtml" />
+    <Content Include="Views\QandA\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
