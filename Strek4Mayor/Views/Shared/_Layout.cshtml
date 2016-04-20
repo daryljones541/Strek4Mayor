@@ -17,10 +17,11 @@
         }
         body {
             background-image: url("~/Pictures/BackgroundWall.png");
-            width: 1000px;
-            margin: 20px auto;
-            padding: 40px;
+            width: 85%;
+            margin: 2% auto;
             font-family: sans-serif;
+            padding-left: 3%;
+            padding-right: 3%;
         }
         h1 {
             font-family: sans-serif;
@@ -60,7 +61,7 @@
         }
         #navbar a {
             color: white;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             font-size: 2vw;
             font-weight: bold;
         }
@@ -127,9 +128,10 @@
             border-right: 1px solid black;
             background-size: cover;
         }
+        @*
         #right-panel {
             background: #EEE8AA;
-            border: 1px solid orange;   
+            border: 1px solid orange;
             font-size: 1.2vw;
             padding: 2%;
             position: absolute;
@@ -138,14 +140,17 @@
             top: 10vh;
             width: 20vw;
         }
+            *@
         #left-panel {
-            left: 2vw;
+            left:3vw;
             position: absolute;
+            right:3vw;
             top: 10vh;
         }
         #left-panel img {
             max-width: 100%;
             text-align: center;
+            width: 100%;
         }
         .admin {
             margin-right: 20px;
@@ -156,6 +161,20 @@
         .admin button {
             clear: left;
             margin: 10px;
+        }
+        .come-back-soon {
+            background: url(@Url.Content("~/Pictures/FlagRightHalf.jpg")) no-repeat;
+            background-size: cover;
+            float: left;
+            height: 100%;
+            line-height: 6vh;
+            text-align: center;
+            vertical-align: middle;
+            width: 50%;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            font-size: 2vw;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -171,6 +190,16 @@
                 On The Issues
             </div>
         </a>
+        <a href="@Url.Action("Index", "Donations")">
+            <div class="navlink tile-3 border-right">
+                Donate
+            </div>
+        </a>
+            <div class="come-back-soon right-curve">
+                More features coming soon.  Check back often.
+            </div>
+
+                @*
         <a href="@Url.Action("Index", "Home")">
             <div class="navlink border-right tile-3">
                 In The News
@@ -182,53 +211,52 @@
             </div>
         </a>
         <a href="@Url.Action("List", "Events")">
-            <div class="navlink border-right tile-5">
+            <div class="navlink right-curve tile-5">
                 Events
             </div>
-        </a>
-        <a href="@Url.Action("Index", "Home")">
-            <div class="navlink right-curve tile-6">
-                Volunteer
-            </div>
-        </a>
+                </a>
+                *@
     </div>
 
-    <div id="container" class="container body-content">
+    
         <a href='@Url.Action("Index", "Home")'>
             <div id="left-panel">
                 <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
             </div>
         </a>
-            <div id="right-panel">
-                <a href='@Url.Action("Make", "Donations")'>
-                    <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!">
-                </a>
-                <div style="margin-top:20px;">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        if (User.IsInRole("Admin"))
-                        {
-                            <button onclick="location.href='@Url.Action("Index", "Admin")';return false;">Admin</button>
-                        }
-                        else
-                        {
-                            <button onclick="location.href='@Url.Action("Edit", "Users", new { id = HttpContext.Current.User.Identity.GetUserId() })';return false;">Profile</button>
-                        }
-                        <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>
-                    }
-                    else
-                    {
-                        <button onclick="location.href='@Url.Action("Login", "Users")';return false;">Login</button>
-                        <button onclick="location.href='@Url.Action("Register", "Users")';return false;">Register</button>
-                    }
-                </div>
-            </div>
-            @RenderBody()
-            <footer style="margin-top:20px;clear:left;">
-                <br /> 
-                <p align="center">&copy; @DateTime.Now.Year - Strek For Mayor</p>
-            </footer>
-</div>
+        @*
+    <div id="right-panel">
+        <a href='@Url.Action("Make", "Donations")'>
+            <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!">
+        </a>
+        <div style="margin-top:20px;">
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    <button onclick="location.href='@Url.Action("Index", "Admin")';return false;">Admin</button>
+                }
+                else
+                {
+                    <button onclick="location.href='@Url.Action("Edit", "Users", new { id = HttpContext.Current.User.Identity.GetUserId() })';return false;">Profile</button>
+                }
+                <button onclick="location.href='@Url.Action("LogOut", "Users")';return false;">Logout</button>
+            }
+            else
+            {
+                <button onclick="location.href='@Url.Action("Login", "Users")';return false;">Login</button>
+                <button onclick="location.href='@Url.Action("Register", "Users")';return false;">Register</button>
+            }
+        </div>
+    </div>
+        *@
+    <div class="container body-content">
+        @RenderBody()
+        <footer style="margin-top:20px;clear:left;">
+            <br />
+            <p align="center">&copy; @DateTime.Now.Year - Strek For Mayor</p>
+        </footer>
+    </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>
 </html>
