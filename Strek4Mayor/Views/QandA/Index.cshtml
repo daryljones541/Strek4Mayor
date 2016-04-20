@@ -9,7 +9,7 @@
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <input type="button" id="submit" style='width:300px' value="Ask Me a Question" onclick="location.href='@Url.Action("Create", "QandA")'" />  
 </p>
 <table class="table">
     <tr>
@@ -28,9 +28,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Answer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MessageStatus)
         </th>
         <th></th>
     </tr>
@@ -56,9 +53,7 @@
             @Html.DisplayFor(modelItem => item.Answer)
 
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MessageStatus)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.QandAId }) |
             @Html.ActionLink("Details", "Details", new { id=item.QandAId }) |

@@ -1,0 +1,54 @@
+﻿@model Strek4Mayor.Models.QandA
+@{
+    ViewBag.Title = "Answer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Answer</h2>
+
+<div>
+    <h4>QandA</h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Member)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.Member)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.Title)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Body)
+            </dt>
+            <dd>
+                @Html.TextAreaFor(model => model.Body, 5, 50, null)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Answer)
+            </dt>
+            <dd>
+                @Html.TextAreaFor(model => model.Answer, 5, 50, null)
+                @Html.ValidationMessageFor(model => model.Answer)
+            </dd>
+        </dl>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    }
