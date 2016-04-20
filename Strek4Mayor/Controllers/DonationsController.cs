@@ -47,6 +47,11 @@ namespace Strek4Mayor.Controllers
             return View(donations);
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         // GET: Donations/Create
         public ActionResult Make()
         {

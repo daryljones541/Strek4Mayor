@@ -16,8 +16,9 @@
             background-color: #a0d8f3;
         }
         body {
-            background-image: url("~/Pictures/BackgroundWall.png");
-            width: 1000px;
+            background: url(@Url.Content("~/Pictures/BackgroundWall.png"));
+            background-repeat: repeat-y;
+            width: 80%;
             margin: 20px auto;
             padding: 40px;
             font-family: sans-serif;
@@ -25,6 +26,7 @@
         h1 {
             font-family: sans-serif;
             color: #DB2929;
+            text-align: center;
         }
 
         #navbar {
@@ -75,6 +77,15 @@
             vertical-align: middle;
             width: 16.66%;
         }
+        .navlinkdisabled{
+            float: left;
+            height: 100%;
+            line-height: 6vh;
+            text-align: center;
+            vertical-align: middle;
+            width: 16.66%;
+            color: #7D7D7B;
+        }
         .tile-1 {
             background: url(@Url.Content("~/Pictures/Flag1.png")) no-repeat;
             background-size: cover;
@@ -84,15 +95,15 @@
             background-size: cover;
         }
         .tile-3 {
-            background: url(@Url.Content("~/Pictures/Flag3.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag3.png")) no-repeat;
             background-size: cover;
         }
         .tile-4 {
-            background: url(@Url.Content("~/Pictures/Flag4.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag4.png")) no-repeat;
             background-size: cover;
         }
         .tile-5 {
-            background: url(@Url.Content("~/Pictures/Flag5.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag5.png")) no-repeat;
             background-size: cover;
         }
         .tile-6 {
@@ -139,7 +150,7 @@
             width: 20vw;
         }
         #left-panel {
-            left: 2vw;
+            
             position: absolute;
             top: 10vh;
         }
@@ -172,23 +183,23 @@
             </div>
         </a>
         <a href="@Url.Action("Index", "Home")">
-            <div class="navlink border-right tile-3">
+            <div class="navlinkdisabled border-right tile-3">
                 In The News
             </div>
         </a>
-        <a href="@Url.Action("Index", "QandA")">
-            <div class="navlink border-right tile-4">
+        <a href="@Url.Action("Index", "Home")">
+            <div class="navlinkdisabled border-right tile-4">
                 Q & A
             </div>
         </a>
         <a href="@Url.Action("List", "Events")">
-            <div class="navlink border-right tile-5">
+            <div class="navlinkdisabled border-right tile-5">
                 Events
             </div>
         </a>
-        <a href="@Url.Action("Index", "Home")">
+        <a href="@Url.Action("Index", "Donations")">@*Donations replacing Volunteer for now*@
             <div class="navlink right-curve tile-6">
-                Volunteer
+                Donate
             </div>
         </a>
     </div>
@@ -199,7 +210,8 @@
                 <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
             </div>
         </a>
-            <div id="right-panel">
+            @*HIDING DONATE PANEL. DONE WITH DONATE NAV BAR FOR NOW.*@
+            @*<div id="right-panel">
                 <a href='@Url.Action("Make", "Donations")'>
                     <img src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal - The safer, easier way to pay online!">
                 </a>
@@ -222,12 +234,13 @@
                         <button onclick="location.href='@Url.Action("Register", "Users")';return false;">Register</button>
                     }
                 </div>
-            </div>
+            </div>*@
             @RenderBody()
-            <footer style="margin-top:20px;clear:left;">
-                <br /> 
-                <p align="center">&copy; @DateTime.Now.Year - Strek For Mayor</p>
-            </footer>
+        <footer style="margin-top:20px;clear:left;font-size:x-small;">
+            <br />
+            <p align="center">&copy; @DateTime.Now.Year - Thoughtful Locals for Strong Communities</p>
+            <p align="center"><a href="mailto:Stefan.G.Strek@gmail.com" target="_top">Stefan.G.Strek@gmail.com</a></p>
+        </footer>
 </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>
