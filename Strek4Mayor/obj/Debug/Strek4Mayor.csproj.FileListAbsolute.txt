@@ -219,3 +219,4 @@ C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.d
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.pdb
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.dll
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.Web.Mvc.dll
+C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache
