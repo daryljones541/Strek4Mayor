@@ -1,9 +1,9 @@
-﻿.issueImage {
+﻿#housingimg, #animalsimg, #committeeimg {
     width: 50%;
     float:left;
 }
 
-.issueImage img {
+img {
     max-width: 100%;
 }
 
@@ -11,7 +11,7 @@
     clear: both;
 }
 
-.issueText {
+#houseingissueText, #animalsissueText, #committeeissueText {
     width: 50%;
     float:right;
 }
@@ -24,4 +24,5 @@ h2{
     text-align:center;
     text-decoration: underline;
 }
+
 
