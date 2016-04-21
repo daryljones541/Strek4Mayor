@@ -52,7 +52,7 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QandAId,Body,Title,Member")] QandA qanda)
+        public ActionResult Create([Bind(Include="QandAId,Body,Title,Member")] QandA qanda)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QandAId,Member,Date,Body,Title,Answer,MessageStatus")] QandA qanda)
+        public ActionResult Edit([Bind(Include="QandAId,Member,Date,Body,Title,Answer,MessageStatus")] QandA qanda)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace Strek4Mayor.Controllers
             return View(qanda);
         }
 
-        // GET: /QandA/Answer/5
+        // GET: /QandA/Edit/5
         public ActionResult Answer(int? id)
         {
             if (id == null)
@@ -112,7 +112,7 @@ namespace Strek4Mayor.Controllers
             return View(qanda);
         }
 
-        // POST: /QandA/Answer/5
+        // POST: /QandA/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

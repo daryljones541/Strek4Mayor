@@ -3,23 +3,27 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <head>
-    <title>Issues Page</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/issuesCSS.css")" />
 </head>
-<div id="wrapper">
-    <div id="issue1">
-        <div id="housingimg">
 
-            <img src="~/Pictures/housing.png" height="225" width="500" alt="housing picture" />
+<div>
+    
+    <div class="issue">
 
-        </div><!--end of housingimg div-->
+        <div class="issueImage">
 
-        <div id="houseingissueText">
+            <img src="~/Pictures/housing.png" alt="housing picture" />
 
-            <h2>Housing Assistance</h2>
+        </div><!--end of image1 div-->
 
-            <p>
+        <div class="issueText">
+
+            <h2 class="headingpadding">Housing Assistance</h2>
+
+            <p class="textstyles">
 
                 We have a vision that is based on a functional working model.
                 Our plan is to emulate the program operating out of Austin, TX known as "Front Steps".
@@ -29,56 +33,59 @@
 
             </p>
 
-        </div><!--end of houseingissueText div-->
-        <div class="clear"></div>
+        </div><!--end of issue1 div-->
+
     </div><!-- end of issue1 div-->
 
+    <div class="issue">
 
-    <div id="issue2">
-        <div id="animalsimg">
+        <div class="issueImage">
 
             <img src="~/Pictures/animals.png" height="225" width="500" alt="animal picture" />
 
-        </div><!--end of animalsimg div-->
+        </div><!--end of image2 div-->
 
-        <div id="animalsissueText">
+        <div class="issueText">
 
             <h2>Animal Assistance</h2>
 
-            <p>
-                We speak for those who cannot speak for themselves.Many homeless or low-income residents of our communities have animal companions
-                who don't get regular veterinary check-ups,
+            <p class="textstyles">
+
+                We speak for those who cannot speak for themselves.
+                Many homeless or low-income residents of our communities have animal companions who don't get regular veterinary check-ups,
                 this can lead to detrimental health situations for the animal companions of our city.
                 Our plan is to use city resources to establish a facility that networks with local veterinary students,
                 these students would receive vital training in their chosen profession through both customer relations and
                 practicing routine veterinary care. The Strek Campaign believes this is a cost-effective way to provide a much needed
-                community service.By helping animals, we can help the people who depend on those animals for emotional support.
+                community service.
+                By helping animals, we can help the people who depend on those animals for emotional support.
+
             </p>
 
-        </div><!--end of animalsissueText div-->
-        <div class="clear"></div>
+        </div><!--end of issueText2 div-->
+
     </div><!-- end of issue2 div-->
 
-    <div id="issue3">
-        <div id="committeeimg">
+    <div class="issue">
+
+        <div class="issueImage">
 
             <img src="~/Pictures/committee.png" height="225" width="500" alt="committee picture" />
 
-        </div><!--end of committeeimg div-->
+        </div><!--end of image3 div-->
 
-        <div id="committeeissueText">
+        <div class="issueText">
 
             <h2 class="headingpadding">Community Development</h2>
 
-            <p>
+            <p class="textstyles">
 
                 We believe in open spaces. Areas like Saturday Market, Kesey Square and our public parks need to be safe, clean, and preserved as they are for future generations.
-                Eugene's availability of park space overshadows it's lack of public gathering space, we believe successful communities want public social areas and aim to bring a healthier,
-                more open environment across Eugene.
+                Eugene's availability of park space overshadows it's lack of public gathering space, we believe successful communities want public social areas and aim to bring a healthier, more open environment across Eugene.
 
             </p>
-            <div class="clear"></div>
-        </div><!--end of committeeissueText div-->
+
+        </div><!--end of issueText3 div-->
 
     </div><!-- end of issue3 div-->
-</div><!-- end of wrapper div-->
+</div>
