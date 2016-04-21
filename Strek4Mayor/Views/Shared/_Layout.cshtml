@@ -16,7 +16,7 @@
             background-color: #a0d8f3;
         }
         body {
-            background-image: url("~/Pictures/BackgroundWall.png");
+            background: url(@Url.Content("~/Pictures/BackgroundWall.png"));
             width: 85%;
             margin: 2% auto;
             font-family: sans-serif;
@@ -245,7 +245,8 @@
         @RenderBody()
         <footer style="margin-top:20px;clear:left;">
             <br />
-            <p align="center">&copy; @DateTime.Now.Year - TLS Communities</p>
+            <p align="center" style="font-size:x-small;"><i>Paid for by:</i> Thoughtful Locals for Strong Communities</p>
+            <p align="center" style="font-size:x-small;">Stefan.G.Strek@gmail.com</p>
         </footer>
     </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
