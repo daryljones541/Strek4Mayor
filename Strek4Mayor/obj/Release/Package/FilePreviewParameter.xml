@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="votestrek.com/myapp" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Allen\\Documents\\GitHub\\Strek4Mayor\\Strek4Mayor\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Allen\\Documents\\GitHub\\Strek4Mayor\\Strek4Mayor\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="votestrek.com/myapp/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Allen\\Documents\\GitHub\\Strek4Mayor\\Strek4Mayor\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="Strek4MayorContext-Web.config Connection String" description="Strek4MayorContext Connection String used in web.config by the application to access the database." value="Data Source=tcp:s08.winhost.com;Initial Catalog=DB_100761_streksite;User ID=DB_100761_streksite_user;Password=allenrocks420;Integrated Security=False;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Allen\\Documents\\GitHub\\Strek4Mayor\\Strek4Mayor\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Strek4MayorContext']/@connectionString" />
+  </parameter>
+</parameters>

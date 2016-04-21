@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Strek4Mayor.Models.Employment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title></title>
+    <link href="~/Content/tables.css" rel="stylesheet" type="text/css" />
+</head>
+
+<h2>Employment List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmploymentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unemployed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Occupation)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmploymentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unemployed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Occupation)
+        </td>
+    </tr>
+}
+
+</table>

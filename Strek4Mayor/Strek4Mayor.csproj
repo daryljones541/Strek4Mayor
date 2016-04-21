@@ -243,6 +243,14 @@
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\votestrek.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\event.js" />
     <Content Include="Scripts\donation.js" />

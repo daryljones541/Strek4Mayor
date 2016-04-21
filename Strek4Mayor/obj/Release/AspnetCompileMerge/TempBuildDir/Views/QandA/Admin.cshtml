@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Strek4Mayor.Models.QandA>
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>   
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.MessageStatus == false) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+
+            </td>
+            <td>
+                @Html.ActionLink("Answer", "Answer", new { id = item.QandAId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.QandAId })
+            </td>
+        </tr>
+        }
+    }
+
+</table>
