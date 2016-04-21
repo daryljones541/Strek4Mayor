@@ -41,9 +41,9 @@
 3 pts	✔: 1	(p 1)Images for issues
 12 pts 			(p 2)(CRUD version)
 
-#11 TTL			(P 2)Volunteer acceptance (allow users to submit relevant data for contact and checkbox what they want to do)
+#15 TTL			(P 2)Volunteer acceptance (allow users to submit relevant data for contact and checkbox what they want to do)
 5 pts			(p 2)front end
-6 pts			(P 2)(DB backend)
+10 pts			✔(P 2)(DB backend)
 
 #18 TTL			(P 2)in-the-news (list of recent articles displayed for guest)
 12 pts			(P 2)(CRUD)
@@ -61,8 +61,8 @@
 5 pts			(p 4)Have a large button at the top that can be pressed and the interface to sub a Q will unhide itself
 
 #21 TTL			(P 2)Calendar (Event entities displayed for guests)
-6 pts			(P 2)list of events first iteration (static)
-8 pts 			(P 2)CRUD version that lists events in order of date
+6 pts			✔(P 2)list of events first iteration (static)
+8 pts 			✔(P 2)CRUD version that lists events in order of date
 8 pts			(P 3)Full blown calendar that shows events in on their respective days(Brian said we can use a plugin/widget)
 
 #10 TTL			(p 1)Home page (displayed for guest)
