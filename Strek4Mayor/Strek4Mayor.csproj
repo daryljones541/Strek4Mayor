@@ -208,10 +208,16 @@
     <Content Include="Pictures\BackgroundWall.png" />
     <Content Include="Pictures\BlackAndWhitePortrait.jpg" />
     <Content Include="Pictures\BrightFlag1.jpg" />
+    <Content Include="Pictures\BrightFlag1.png" />
     <Content Include="Pictures\BrightFlag2.jpg" />
+    <Content Include="Pictures\BrightFlag2.png" />
     <Content Include="Pictures\BrightFlag3.jpg" />
+    <Content Include="Pictures\BrightFlag3.png" />
     <Content Include="Pictures\BrightFlag4.jpg" />
+    <Content Include="Pictures\BrightFlag4.png" />
     <Content Include="Pictures\BrightFlag5.jpg" />
+    <Content Include="Pictures\BrightFlag5.png" />
+    <Content Include="Pictures\BrightFlag6.png" />
     <Content Include="Pictures\business2.jpg" />
     <Content Include="Pictures\committee.png" />
     <Content Include="Pictures\DarkFlag1.png" />
