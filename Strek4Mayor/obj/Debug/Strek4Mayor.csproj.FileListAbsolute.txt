@@ -217,3 +217,9 @@ C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Secu
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.dll
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.pdb
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\System.Net.Http.Formatting.dll
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\System.Web.Http.dll
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\System.Web.Http.WebHost.dll
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\System.Net.Http.Formatting.xml
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\System.Web.Http.xml
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\System.Web.Http.WebHost.xml
