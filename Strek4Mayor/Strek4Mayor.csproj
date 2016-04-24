@@ -205,6 +205,7 @@
     <Content Include="Pictures\1024px-American_Flag_Close.JPG" />
     <Content Include="Pictures\15.01.27.emg_.as_.StefanStrek4.jpg" />
     <Content Include="Pictures\animals.png" />
+    <Content Include="Pictures\animals2.png" />
     <Content Include="Pictures\BackgroundWall.png" />
     <Content Include="Pictures\BlackAndWhitePortrait.jpg" />
     <Content Include="Pictures\BrightFlag1.png" />
@@ -215,6 +216,7 @@
     <Content Include="Pictures\BrightFlag6.png" />
     <Content Include="Pictures\business2.jpg" />
     <Content Include="Pictures\committee.png" />
+    <Content Include="Pictures\committee2.png" />
     <Content Include="Pictures\DarkFlag1.png" />
     <Content Include="Pictures\DarkFlag2.png" />
     <Content Include="Pictures\DarkFlag3.png" />
@@ -232,6 +234,7 @@
     <Content Include="Pictures\hankking1.jpg" />
     <Content Include="Pictures\hats.jpg" />
     <Content Include="Pictures\housing.png" />
+    <Content Include="Pictures\housing2.png" />
     <Content Include="Pictures\paul2.jpg" />
     <Content Include="Pictures\SephanBanner.png" />
     <Content Include="Pictures\StefanBannerV2.png" />
@@ -244,19 +247,19 @@
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy.pubxml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\event.js" />
     <Content Include="Scripts\donation.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.12.3.min.js" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -278,7 +281,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\QandA\Create.cshtml" />
     <Content Include="Views\QandA\Delete.cshtml" />
     <Content Include="Views\QandA\Details.cshtml" />

@@ -1,35 +1,64 @@
 ﻿$().ready(function () {
-    var loaded = 1;
-    //measure();
+    measure();
     $(".tile-1").click(function () {
-        alert("1");
-        $("#view-box").load("/Home/Index");
+        $.ajax({
+            type: "GET",
+            url: "/Home/Index/",
+            dataType: "html",
+            success: function (data) { $('#view-box').html(data); },
+            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+        });
     });
     $(".tile-2").click(function () {
-        alert("2");
-        $('#view-box').load("/Home/About");
+        $.ajax({
+            type: "GET",
+            url: "/Home/About/",
+            dataType: "html",
+            success: function (data) { $('#view-box').html(data); },
+            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+        });
     });
     $(".tile-3").click(function () {
-        alert("3");
-        $('.body-content').load("/Issues/Index");
+        $.ajax({
+            type: "GET",
+            url: "/Issues/Index/",
+            dataType: "html",
+            success: function (data) { $('#view-box').html(data); },
+            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+        });
     });
     $(".tile-4").click(function () {
-        alert("4");
-        $('.body-content').load("/Donations/Index");
+        $.ajax({
+            type: "GET",
+            url: "/Donations/Index/",
+            dataType: "html",
+            success: function (data) { $('#view-box').html(data); },
+            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+        });
     });
     $(".tile-5").click(function () {
-        alert("5");
-        $('.body-content').load("/Events/List");
+        $.ajax({
+            type: "GET",
+            url: "/Events/List/",
+            dataType: "html",
+            success: function (data) { $('#view-box').html(data); },
+            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+        });
     });
     $(".tile-6").click(function () {
-        alert("6");
-        $('.body-content').load("QandA/Index");
+        $.ajax({
+            type: "GET",
+            url: "/QandA/Index/",
+            dataType: "html",
+            success: function (data) { $('#view-box').html(data); },
+            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+        });
     });
 });
 
-//$(window).resize(function () {
- //   measure();
-//});
+$(window).resize(function () {
+    measure();
+});
 
 function measure() {
     //var windowWidth = $(window).width();
@@ -44,5 +73,5 @@ function measure() {
     var panelHeight=$('#left-panel').outerHeight();
     var navbarHeight = $('#navbar').outerHeight();
     var totalHeight = (panelHeight + navbarHeight);
-    $('.container').css('paddingTop', totalHeight); 
+    $('body').css('paddingTop', totalHeight); 
 }
