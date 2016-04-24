@@ -1,10 +1,35 @@
 ﻿$().ready(function () {
-    measure();
+    var loaded = 1;
+    //measure();
+    $(".tile-1").click(function () {
+        alert("1");
+        $("#view-box").load("/Home/Index");
+    });
+    $(".tile-2").click(function () {
+        alert("2");
+        $('#view-box').load("/Home/About");
+    });
+    $(".tile-3").click(function () {
+        alert("3");
+        $('.body-content').load("/Issues/Index");
+    });
+    $(".tile-4").click(function () {
+        alert("4");
+        $('.body-content').load("/Donations/Index");
+    });
+    $(".tile-5").click(function () {
+        alert("5");
+        $('.body-content').load("/Events/List");
+    });
+    $(".tile-6").click(function () {
+        alert("6");
+        $('.body-content').load("QandA/Index");
+    });
 });
 
-$(window).resize(function () {
-    measure();
-});
+//$(window).resize(function () {
+ //   measure();
+//});
 
 function measure() {
     //var windowWidth = $(window).width();
