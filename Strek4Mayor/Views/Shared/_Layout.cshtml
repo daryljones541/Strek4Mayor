@@ -20,8 +20,7 @@
             width: 85%;
             margin: 2% auto;
             font-family: sans-serif;
-            padding-left: 3%;
-            padding-right: 3%;
+            padding: 30vh 3%;
         }
         h1 {
             font-family: sans-serif;
@@ -50,6 +49,7 @@
 	        position: fixed;
 	        width: 96vw;
             z-index: 1;
+            
         }
         .left-curve {
             border-top-left-radius: 60px;
@@ -59,13 +59,14 @@
             border-top-right-radius: 60px;
             border-bottom-right-radius: 60px;
         }
-        #navbar a {
+        .navlink a {
             color: white;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             font-size: 2vw;
             font-weight: bold;
         }
-        #navbar a:hover {
+        .navlink a:hover {
+            cursor: pointer;
             text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
             color: black;
             text-decoration: none;
@@ -182,34 +183,29 @@
 </head>
 <body>
     <div id="navbar">
-        <a href="@Url.Action("Index", "Home")">
+        
             <div class="navlink border-right left-curve tile-1">
-                Home
+                @Ajax.ActionLink("Home", "Index", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
             </div>
-        </a>
-        <a href="@Url.Action("About", "Home")">
+        
             <div class="navlink border-right tile-2">
-                About
+                @Ajax.ActionLink("About", "About", "Home", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
             </div>
-        </a>
-        <a href="@Url.Action("Index", "Issues")">
+
             <div class="navlink tile-3 border-right">
-                On The Issues
+                @Ajax.ActionLink("On The Issues", "Index", "Issues", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
             </div>
-        </a>
-        <a href="@Url.Action("Index", "Donations")">
+
             <div class="navlink border-right tile-4">
-                Donate
+                @Ajax.ActionLink("Donate", "Index", "Donations", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
             </div>
-        </a>
-        <a href="@Url.Action("List", "Events")">
+
             <div class="navlink border-right tile-5">
-                Calendar
+                @Ajax.ActionLink("Calendar", "List", "Events", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
             </div>
-        </a>
-        <a href="@Url.Action("Index", "QandA")">
+
             <div class="navlink right-curve tile-6">
-                Q & A
+                @Ajax.ActionLink("Q and A", "Index", "QandA", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
             </div>
     </div>   
         <a href='@Url.Action("Index", "Home")'>
@@ -243,7 +239,7 @@
         </div>
     </div>
         *@
-    <div class="container body-content">
+    <div id="view-box" class="container body-content">
         @RenderBody()
         <footer style="margin-top:20px;clear:left;">
             <br />
@@ -251,6 +247,6 @@
             <p align="center" style="font-size:x-small;">Stefan.G.Strek@gmail.com</p>
         </footer>
     </div>
-    <script src="@Url.Content("~/Scripts/banner.js")"></script>
+    @*<script src="@Url.Content("~/Scripts/banner.js")"></script>*@
 </body>
 </html>
