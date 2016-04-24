@@ -59,13 +59,13 @@
             border-top-right-radius: 60px;
             border-bottom-right-radius: 60px;
         }
-        .navlink a {
+        .navlink {
             color: white;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             font-size: 2vw;
             font-weight: bold;
         }
-        .navlink a:hover {
+        .navlink:hover {
             cursor: pointer;
             text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
             color: black;
@@ -185,27 +185,27 @@
     <div id="navbar">
         
             <div class="navlink border-right left-curve tile-1">
-                @Ajax.ActionLink("Home", "Index", "Home", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
+                Home
             </div>
         
             <div class="navlink border-right tile-2">
-                @Ajax.ActionLink("About", "About", "Home", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
+               About
             </div>
 
             <div class="navlink tile-3 border-right">
-                @Ajax.ActionLink("On The Issues", "Index", "Issues", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
+                On The Issues
             </div>
 
             <div class="navlink border-right tile-4">
-                @Ajax.ActionLink("Donate", "Index", "Donations", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
+                Donate
             </div>
 
             <div class="navlink border-right tile-5">
-                @Ajax.ActionLink("Calendar", "List", "Events", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
+                Calendar
             </div>
 
             <div class="navlink right-curve tile-6">
-                @Ajax.ActionLink("Q and A", "Index", "QandA", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "view-box" })
+                Q and A
             </div>
     </div>   
         <a href='@Url.Action("Index", "Home")'>
@@ -247,6 +247,6 @@
             <p align="center" style="font-size:x-small;">Stefan.G.Strek@gmail.com</p>
         </footer>
     </div>
-    @*<script src="@Url.Content("~/Scripts/banner.js")"></script>*@
+    <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>
 </html>

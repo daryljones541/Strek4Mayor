@@ -2,28 +2,64 @@
     var loaded = 1;
     //measure();
     $(".tile-1").click(function () {
-        alert("1");
-        $("#view-box").load("/Home/Index");
+        $.ajax({
+            type: "GET",
+            url: "/Home/Index/",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) { $('#view-box').html(data); },
+            error: errorFunc
+        });
+        //$("#view-box").load("/Home/Index");
     });
     $(".tile-2").click(function () {
-        alert("2");
-        $('#view-box').load("/Home/About");
+        $.ajax({
+            type: "GET",
+            url: "/Home/About/",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) { $('#view-box').html(data); },
+            error: errorFunc
+        });
+        //$('#view-box').load("/Home/About");
     });
     $(".tile-3").click(function () {
-        alert("3");
-        $('.body-content').load("/Issues/Index");
+        $.ajax({
+            type: "GET",
+            url: "/Issues/Index/",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) { $('#view-box').html(data); },
+            error: errorFunc
+        });
+        //$('.body-content').load("/Issues/Index");
     });
     $(".tile-4").click(function () {
-        alert("4");
-        $('.body-content').load("/Donations/Index");
+        $.ajax({
+            type: "GET",
+            url: "/Donations/Index/",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) { $('#view-box').html(data); },
+            error: errorFunc
+        });
+        //$('.body-content').load("/Donations/Index");
     });
     $(".tile-5").click(function () {
-        alert("5");
-        $('.body-content').load("/Events/List");
+        $.ajax({
+            type: "GET",
+            url: "/Events/List/",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) { $('#view-box').html(data); },
+            error: errorFunc
+        });
+        //$('.body-content').load("/Events/List");
     });
     $(".tile-6").click(function () {
-        alert("6");
-        $('.body-content').load("QandA/Index");
+        $.ajax({
+            type: "GET",
+            url: "/QandA/Index/",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) { $('#view-box').html(data); },
+            error: errorFunc
+        });
+        //$('.body-content').load("QandA/Index");
     });
 });
 
@@ -45,4 +81,8 @@ function measure() {
     var navbarHeight = $('#navbar').outerHeight();
     var totalHeight = (panelHeight + navbarHeight);
     $('.container').css('paddingTop', totalHeight); 
+}
+
+function errorFunc() {
+    alert("Cannot communicate with server.");
 }
