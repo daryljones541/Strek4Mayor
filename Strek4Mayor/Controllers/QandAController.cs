@@ -20,6 +20,11 @@ namespace Strek4Mayor.Controllers
             return View(db.QandAs.ToList());
         }
 
+        public ActionResult AjaxIndex()
+        {
+            return PartialView(db.QandAs.ToList());
+        }
+
         // GET: /QandA/
         public ActionResult Admin()
         {

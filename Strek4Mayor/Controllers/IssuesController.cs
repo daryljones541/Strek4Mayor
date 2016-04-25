@@ -13,5 +13,10 @@ namespace Strek4Mayor.Controllers
         {
             return View();
         }
+
+        public ActionResult AjaxIndex()
+        {
+            return PartialView();
+        }
     }
 }

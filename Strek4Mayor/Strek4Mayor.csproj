@@ -308,6 +308,12 @@
     <Content Include="Views\QandA\Admin.cshtml" />
     <Content Include="Views\QandA\Answer.cshtml" />
     <Content Include="Views\QandA\Thanks.cshtml" />
+    <Content Include="Views\Issues\AjaxIndex.cshtml" />
+    <Content Include="Views\Home\AjaxAbout.cshtml" />
+    <Content Include="Views\Home\AjaxIndex.cshtml" />
+    <Content Include="Views\Events\AjaxList.cshtml" />
+    <Content Include="Views\QandA\AjaxIndex.cshtml" />
+    <Content Include="Views\Donations\AjaxIndex.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -22,6 +22,12 @@ namespace Strek4Mayor.Controllers
             return View(events);
         }
 
+        public ActionResult AjaxList()
+        {
+            List<Event> events = db.Events.OrderBy(x => x.Date).ToList();
+            return PartialView(events);
+        }
+
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {

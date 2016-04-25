@@ -12,19 +12,21 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
-		html{
+        body {
             background-color: #a0d8f3;
         }
-        body {
+        #view-box {
             background: url(@Url.Content("~/Pictures/BackgroundWall.png"));
             width: 85%;
             margin: 2% auto;
             font-family: sans-serif;
-            padding: 25vh 3%;
+            padding: 3% 3%;
+            position: absolute;
+            top: 7vh;
+            left: 8vw;
+            right: 8vw;
         }
-        .container {
-            margin-top: 2vh;
-        }
+
         h1 {
             font-family: sans-serif;
             color: #DB2929;
@@ -52,7 +54,7 @@
 	        position: fixed;
 	        width: 96vw;
             z-index: 1;
-            
+
         }
         .left-curve {
             border-top-left-radius: 60px;
@@ -63,15 +65,16 @@
             border-bottom-right-radius: 60px;
         }
         .navlink {
-            color: white;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+            color: black;
             font-size: 2vw;
             font-weight: bold;
         }
         .navlink:hover {
             cursor: pointer;
-            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
-            color: black;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
             text-decoration: none;
         }
         .navlink {
@@ -107,27 +110,27 @@
             background-size: cover;
         }
         .tile-1:hover {
-            background: url(@Url.Content("~/Pictures/BrightFlag1.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag1.png")) no-repeat;
             background-size: cover;
         }
         .tile-2:hover {
-            background: url(@Url.Content("~/Pictures/BrightFlag2.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag2.png")) no-repeat;
             background-size: cover;
         }
         .tile-3:hover {
-            background: url(@Url.Content("~/Pictures/BrightFlag3.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag3.png")) no-repeat;
             background-size: cover;
         }
         .tile-4:hover {
-            background: url(@Url.Content("~/Pictures/BrightFlag4.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag4.png")) no-repeat;
             background-size: cover;
         }
         .tile-5:hover {
-            background: url(@Url.Content("~/Pictures/BrightFlag5.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag5.png")) no-repeat;
             background-size: cover;
         }
         .tile-6:hover {
-            background: url(@Url.Content("~/Pictures/BrightFlag6.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag6.png")) no-repeat;
             background-size: cover;
         }
         .border-right {
@@ -146,13 +149,14 @@
             top: 10vh;
             width: 20vw;
         }
-            *@
+
         #left-panel {
             left:8vw;
             position: absolute;
             right:8vw;
             top: 10vh;
         }
+            *@
         #left-panel img {
             max-width: 100%;
             text-align: center;
@@ -211,11 +215,7 @@
                 Q and A
             </div>
     </div>   
-        <a href='@Url.Action("Index", "Home")'>
-            <div id="left-panel">
-                <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
-            </div>
-        </a>
+        
         @*
     <div id="right-panel">
         <a href='@Url.Action("Make", "Donations")'>
@@ -242,8 +242,15 @@
         </div>
     </div>
         *@
-    <div id="view-box" class="container body-content">
-        @RenderBody()
+    <div id="view-box">
+        <a href='@Url.Action("Index", "Home")'>
+            <div id="left-panel">
+                <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
+            </div>
+        </a>
+        <div id="ajax-box" class="container body-content">
+            @RenderBody()
+        </div>
         <footer style="margin-top:20px;clear:left;">
             <br />
             <p align="center" style="font-size:x-small;"><i>Paid for by:</i> Thoughtful Locals for Strong Communities</p>
