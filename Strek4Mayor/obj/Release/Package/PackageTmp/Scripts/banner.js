@@ -3,55 +3,55 @@
     $(".tile-1").click(function () {
         $.ajax({
             type: "GET",
-            url: "/Home/Index/",
+            url: "/Home/AjaxIndex/",
             dataType: "html",
-            success: function (data) { $('#view-box').html(data); },
-            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+            success: function (data) { $('#ajax-box').html(data); },
+            error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
     $(".tile-2").click(function () {
         $.ajax({
             type: "GET",
-            url: "/Home/About/",
+            url: "/Home/AjaxAbout/",
             dataType: "html",
-            success: function (data) { $('#view-box').html(data); },
-            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+            success: function (data) { $('#ajax-box').html(data); },
+            error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
     $(".tile-3").click(function () {
         $.ajax({
             type: "GET",
-            url: "/Issues/Index/",
+            url: "/Issues/AjaxIndex/",
             dataType: "html",
-            success: function (data) { $('#view-box').html(data); },
-            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+            success: function (data) { $('#ajax-box').html(data); },
+            error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
     $(".tile-4").click(function () {
         $.ajax({
             type: "GET",
-            url: "/Donations/Index/",
+            url: "/Donations/AjaxIndex/",
             dataType: "html",
-            success: function (data) { $('#view-box').html(data); },
-            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+            success: function (data) { $('#ajax-box').html(data); },
+            error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
     $(".tile-5").click(function () {
         $.ajax({
             type: "GET",
-            url: "/Events/List/",
+            url: "/Events/AjaxList/",
             dataType: "html",
-            success: function (data) { $('#view-box').html(data); },
-            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+            success: function (data) { $('#ajax-box').html(data); },
+            error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
     $(".tile-6").click(function () {
         $.ajax({
             type: "GET",
-            url: "/QandA/Index/",
+            url: "/QandA/AjaxIndex/",
             dataType: "html",
-            success: function (data) { $('#view-box').html(data); },
-            error: function (data) { $('#view-box').html("Unable to retrieve page from server."); }
+            success: function (data) { $('#ajax-box').html(data); },
+            error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
 });

@@ -29,29 +29,32 @@
 </div>
 <br />
 
-<div>
-    <h1 style="text-align:center"> Stefan Strek stands for...</h1>
-    <br />
-    @*<p align="center"></p>*@
+<h1 style="text-align:center"> Stefan Strek stands for...</h1>
+<br />
+@*<p align="center"></p>*@
 
-    <a href='@Url.Action("Index", "Issues")'>
-        <div class="blocks" style="margin-left:12%;">
-            <IMG SRC="~/Pictures/animals.png" height=95 width=230>
-            <br />
-            <p>Animal Welfare</p>
-        </div>
-    </a>
-    <a href='@Url.Action("Index", "Issues")'>
-        <div class="blocks">
-            <IMG SRC="~/Pictures/housing.png" height=95 width=230>
-            <br />
-            <p>Housing Assistance</p>
-        </div>
-    </a>
-    <a href='@Url.Action("Index", "Issues")'>
-        <div class="blocks">
-            <IMG SRC="~/Pictures/committee.png" height=95 width=230>
-            <br />
-            <p>Community development</p>
-        </div>
-    </a>
+<a href='@Url.Action("Index", "Issues")'>
+    <div class="blocks" style="margin-left:12%;">
+        <IMG SRC="~/Pictures/animals.png" height=95 width=230>
+        <br />
+        <p>Animal Welfare</p>
+    </div>
+</a>
+<a href='@Url.Action("Index", "Issues")'>
+    <div class="blocks">
+        <IMG SRC="~/Pictures/housing.png" height=95 width=230>
+        <br />
+        <p>Housing Assistance</p>
+    </div>
+</a>
+<a href='@Url.Action("Index", "Issues")'>
+    <div class="blocks">
+        <IMG SRC="~/Pictures/committee.png" height=95 width=230>
+        <br />
+        <p>Community development</p>
+    </div>
+</a>
+
+<script>
+    $('.tile-1').addClass('highlighted');
+</script>

@@ -17,16 +17,16 @@
         }
         #view-box {
             background: url(@Url.Content("~/Pictures/BackgroundWall.png"));
-            width: 85%;
             margin: 2% auto;
             font-family: sans-serif;
-            padding: 3% 3%;
             position: absolute;
             top: 7vh;
             left: 8vw;
             right: 8vw;
         }
-
+        #ajax-box {
+            padding: 3% 3%;
+        }
         h1 {
             font-family: sans-serif;
             color: #DB2929;
@@ -74,8 +74,10 @@
             cursor: pointer;
             color: white;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-
             text-decoration: none;
+        }
+        .highlighted {
+            text-decoration: underline !important;
         }
         .navlink {
             float: left;
@@ -150,14 +152,14 @@
             width: 20vw;
         }
 
-        #left-panel {
+        #banner {
             left:8vw;
             position: absolute;
             right:8vw;
             top: 10vh;
         }
             *@
-        #left-panel img {
+        #banner img {
             max-width: 100%;
             text-align: center;
             width: 100%;
@@ -244,18 +246,14 @@
         *@
     <div id="view-box">
         <a href='@Url.Action("Index", "Home")'>
-            <div id="left-panel">
+            <div id="banner">
                 <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
             </div>
         </a>
-        <div id="ajax-box" class="container body-content">
+        <div id="ajax-box">
             @RenderBody()
         </div>
-        <footer style="margin-top:20px;clear:left;">
-            <br />
-            <p align="center" style="font-size:x-small;"><i>Paid for by:</i> Thoughtful Locals for Strong Communities</p>
-            <p align="center" style="font-size:x-small;">Stefan.G.Strek@gmail.com</p>
-        </footer>
+        @Html.Partial("_Footer")
     </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>
