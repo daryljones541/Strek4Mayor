@@ -25,7 +25,7 @@
             right: 8vw;
         }
         #ajax-box {
-            padding: 3% 3%;
+            padding: 3% 4%;
         }
         h1 {
             font-family: sans-serif;
@@ -247,13 +247,18 @@
     <div id="view-box">
         <a href='@Url.Action("Index", "Home")'>
             <div id="banner">
-                <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
+                <img src="@Url.Content("~/Pictures/StefanBannerV3.png")" />
             </div>
         </a>
         <div id="ajax-box">
             @RenderBody()
         </div>
-        @Html.Partial("_Footer")
+        <div style="clear:both;padding-top:5vh;padding-bottom:2vh;">
+            <p align="center" style="font-size:x-small;">
+                <i>Paid for by:</i> Thoughtful Locals for Strong Communities
+                <br /><a href="mailto:Stefan.G.Strek@gmail.com?Subject=Eugene%20Mayor" target="_top">Stefan.G.Strek@gmail.com</a>
+            </p>
+        </div>
     </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>

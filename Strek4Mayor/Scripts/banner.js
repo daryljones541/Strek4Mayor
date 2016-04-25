@@ -8,7 +8,8 @@
             url: "/Home/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);            
+                $('#ajax-box').html(data);
+                document.title = 'Home';
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -21,7 +22,8 @@
             url: "/Home/AjaxAbout/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);    
+                $('#ajax-box').html(data);
+                document.title = 'About';
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -35,6 +37,7 @@
             dataType: "html",
             success: function (data) {
                 $('#ajax-box').html(data);
+                document.title = 'Issues';
                 
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
@@ -48,7 +51,8 @@
             url: "/Donations/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);           
+                $('#ajax-box').html(data);
+                document.title = 'Donate';
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -61,7 +65,8 @@
             url: "/Events/AjaxList/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);             
+                $('#ajax-box').html(data);
+                document.title = 'Calendar';
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -74,7 +79,8 @@
             url: "/QandA/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);               
+                $('#ajax-box').html(data);
+                document.title = 'Q and A';
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Strek4Mayor.Models.QandA>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Q and A";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -28,7 +28,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Answer)
         </th>
-        <th></th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th></th>
+        }
     </tr>
 
 @foreach (var item in Model) {
