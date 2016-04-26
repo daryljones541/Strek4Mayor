@@ -40,6 +40,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BotDetect">
+      <HintPath>..\packages\Captcha.4.0.1\lib\net45\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc">
+      <HintPath>..\packages\Captcha.4.0.1\lib\net45\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -308,13 +314,13 @@
     <Content Include="Views\Donations\Index.cshtml" />
     <Content Include="Views\QandA\Admin.cshtml" />
     <Content Include="Views\QandA\Answer.cshtml" />
-    <Content Include="Views\QandA\Thanks.cshtml" />
     <Content Include="Views\Issues\AjaxIndex.cshtml" />
     <Content Include="Views\Home\AjaxAbout.cshtml" />
     <Content Include="Views\Home\AjaxIndex.cshtml" />
     <Content Include="Views\Events\AjaxList.cshtml" />
     <Content Include="Views\QandA\AjaxIndex.cshtml" />
     <Content Include="Views\Donations\AjaxIndex.cshtml" />
+    <Content Include="Views\QandA\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

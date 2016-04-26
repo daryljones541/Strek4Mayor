@@ -217,3 +217,5 @@ C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Secu
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.dll
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.pdb
+C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.dll
+C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.Web.Mvc.dll
