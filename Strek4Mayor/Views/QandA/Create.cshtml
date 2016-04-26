@@ -41,6 +41,14 @@
             </div>
         </div>
 
+        @using BotDetect.Web.Mvc;
+        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+              rel="stylesheet" type="text/css" />
+
+        @{ MvcCaptcha Create = new MvcCaptcha("Create"); }
+        @Html.Captcha(Create)
+        @Html.TextBox("CaptchaCode")
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Submit" class="btn btn-default" />
@@ -56,3 +64,6 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script>
+    $('.tile-6').addClass('highlighted');
+</script>

@@ -15,9 +15,17 @@ namespace Strek4Mayor.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
+        }
+
+        public ActionResult AjaxIndex()
+        {
+            return PartialView();
+        }
+
+        public ActionResult AjaxAbout()
+        {
+            return PartialView();
         }
 
         public ActionResult Contact()

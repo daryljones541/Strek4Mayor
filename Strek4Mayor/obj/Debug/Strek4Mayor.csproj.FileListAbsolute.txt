@@ -105,6 +105,7 @@ C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Secur
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.dll
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.pdb
 C:\Users\User\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Strek4Mayor.dll.config
@@ -216,4 +217,3 @@ C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Secu
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.dll
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.pdb
-C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache
