@@ -3,6 +3,7 @@
     $(".tile-1").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-1').addClass('highlighted');
+        $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
         $.ajax({
             type: "GET",
             url: "/Home/AjaxIndex/",
@@ -17,6 +18,7 @@
     $(".tile-2").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-2').addClass('highlighted');
+        $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
         $.ajax({
             type: "GET",
             url: "/Home/AjaxAbout/",
@@ -31,6 +33,7 @@
     $(".tile-3").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-3').addClass('highlighted');
+        $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
         $.ajax({
             type: "GET",
             url: "/Issues/AjaxIndex/",
@@ -46,6 +49,7 @@
     $(".tile-4").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-4').addClass('highlighted');
+        $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
         $.ajax({
             type: "GET",
             url: "/Donations/AjaxIndex/",
@@ -60,6 +64,7 @@
     $(".tile-5").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-5').addClass('highlighted');
+        $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
         $.ajax({
             type: "GET",
             url: "/Events/AjaxList/",
@@ -74,6 +79,7 @@
     $(".tile-6").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-6').addClass('highlighted');
+        $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
         $.ajax({
             type: "GET",
             url: "/QandA/AjaxIndex/",

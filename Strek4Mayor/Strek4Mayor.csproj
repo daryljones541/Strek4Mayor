@@ -235,6 +235,7 @@
     <Content Include="Pictures\hats.jpg" />
     <Content Include="Pictures\housing.png" />
     <Content Include="Pictures\housing2.png" />
+    <Content Include="Pictures\Loading_2_transparent.gif" />
     <Content Include="Pictures\paul2.jpg" />
     <Content Include="Pictures\SephanBanner.png" />
     <Content Include="Pictures\StefanBannerV2.png" />
