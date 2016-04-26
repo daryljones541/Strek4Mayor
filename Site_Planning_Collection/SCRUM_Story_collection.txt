@@ -51,14 +51,14 @@
 3 pts			(p 3)older articles archived and removed from page. 8 displayed at once? Whatever looks good.)
 5 pts			(P 4)(Video integration)
 
-#25 TTL			(P 2)Questions and answers (user stuff all done on the same page. Submit question at top?)
+#35 TTL			(P 2)Questions and answers (user stuff all done on the same page. Submit question at top?)
 3 pts	✔: 1	(p 2)interface to allow guests to submit questions
 12 pts	✔: 8	(p 1)CRUD
-4 pts			(p 1)DB storage
+3 pts			✔(p 1)DB storage
 2 pts			(p ?)Add a captcha? (widgit addition most likely)
 4 pts			(p 1)Scrub inputs to stop sql injection
-4 pts			(p 2)Display only answered questions
-5 pts			(p 4)Have a large button at the top that can be pressed and the interface to sub a Q will unhide itself
+4 pts			✔(p 2)Display only answered questions
+6 pts			✔(p 4)Have a large button at the top that can be pressed and the interface to sub a Q will unhide itself
 
 #21 TTL			(P 2)Calendar (Event entities displayed for guests)
 6 pts			✔(P 2)list of events first iteration (static)
