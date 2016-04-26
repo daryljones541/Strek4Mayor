@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
-using BotDetect.Web.Mvc;
 
 namespace Strek4Mayor.Controllers
 {
@@ -59,27 +58,22 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        [CaptchaValidation("CaptchaCode", "Create", "Incorrect CAPTCHA code!")]
-        public ActionResult Create([Bind(Include = "QandAId,Body,Title,Member")] QandA qanda)
+        public ActionResult Create([Bind(Include="QandAId,Body,Title,Member")] QandA qanda)
         {
             if (ModelState.IsValid)
             {
                 qanda.Date = DateTime.Now;
                 qanda.MessageStatus = false;
                 db.QandAs.Add(qanda);
-                MvcCaptcha.ResetCaptcha("Create");
-                return RedirectToAction("Thanks");
-            }
-            else
-            {
-                MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
             return View(qanda);
         }
 
         // GET: /QandA/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -131,7 +125,6 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
         public ActionResult Answer([Bind(Include = "Member,Title,Body,Answer")] QandA qanda, int? id)
         {
             if (id == null)
@@ -151,6 +144,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: /QandA/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -176,10 +170,6 @@ namespace Strek4Mayor.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Thanks()
-        {
-            return View();
-        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
