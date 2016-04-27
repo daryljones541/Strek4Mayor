@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="Strek4MayorContext-Web.config Connection String" description="Strek4MayorContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=tcp:s08.winhost.com;Initial Catalog=DB_100761_streksite;User ID=DB_100761_streksite_user;Password=allenrocks420;Integrated Security=False;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Allen\\Documents\\GitHub\\Strek4Mayor\\Strek4Mayor\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Strek4MayorContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Standard\\Documents\\GitHub\\Strek4Mayor\\Strek4Mayor\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Strek4MayorContext']/@connectionString" />
   </parameter>
 </parameters>

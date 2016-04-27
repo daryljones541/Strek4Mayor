@@ -12,16 +12,20 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
-		html{
+        body {
             background-color: #a0d8f3;
         }
-        body {
+        #view-box {
             background: url(@Url.Content("~/Pictures/BackgroundWall.png"));
-            width: 85%;
             margin: 2% auto;
             font-family: sans-serif;
-            padding-left: 3%;
-            padding-right: 3%;
+            position: absolute;
+            top: 7vh;
+            left: 8vw;
+            right: 8vw;
+        }
+        #ajax-box {
+            padding: 3% 4%;
         }
         h1 {
             font-family: sans-serif;
@@ -50,6 +54,7 @@
 	        position: fixed;
 	        width: 96vw;
             z-index: 1;
+
         }
         .left-curve {
             border-top-left-radius: 60px;
@@ -59,14 +64,20 @@
             border-top-right-radius: 60px;
             border-bottom-right-radius: 60px;
         }
-        #navbar a {
-            color: white;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        .navlink {
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+            color: black;
             font-size: 2vw;
             font-weight: bold;
         }
-        #navbar a:hover {
+        .navlink:hover {
+            cursor: pointer;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             text-decoration: none;
+        }
+        .highlighted {
+            text-decoration: underline !important;
         }
         .navlink {
             float: left;
@@ -140,14 +151,15 @@
             top: 10vh;
             width: 20vw;
         }
-            *@
-        #left-panel {
+
+        #banner {
             left:8vw;
             position: absolute;
             right:8vw;
             top: 10vh;
         }
-        #left-panel img {
+            *@
+        #banner img {
             max-width: 100%;
             text-align: center;
             width: 100%;
@@ -180,41 +192,32 @@
 </head>
 <body>
     <div id="navbar">
-        <a href="@Url.Action("Index", "Home")">
+        
             <div class="navlink border-right left-curve tile-1">
                 Home
             </div>
-        </a>
-        <a href="@Url.Action("About", "Home")">
+        
             <div class="navlink border-right tile-2">
-                About
+               About
             </div>
-        </a>
-        <a href="@Url.Action("Index", "Issues")">
+
             <div class="navlink tile-3 border-right">
                 On The Issues
             </div>
-        </a>
-        <a href="@Url.Action("Index", "Donations")">
+
             <div class="navlink border-right tile-4">
                 Donate
             </div>
-        </a>
-        <a href="@Url.Action("List", "Events")">
+
             <div class="navlink border-right tile-5">
                 Calendar
             </div>
-        </a>
-        <a href="@Url.Action("Index", "QandA")">
+
             <div class="navlink right-curve tile-6">
-                Q & A
+                Q and A
             </div>
     </div>   
-        <a href='@Url.Action("Index", "Home")'>
-            <div id="left-panel">
-                <img src="@Url.Content("~/Pictures/StefanBannerV2.png")" />
-            </div>
-        </a>
+        
         @*
     <div id="right-panel">
         <a href='@Url.Action("Make", "Donations")'>
@@ -241,14 +244,49 @@
         </div>
     </div>
         *@
-    <div class="container body-content">
-        @RenderBody()
-        <footer style="margin-top:20px;clear:left;">
+    <div id="view-box">
+        <a href='@Url.Action("Index", "Home")'>
+            <div id="banner">
+                <img src="@Url.Content("~/Pictures/StefanBannerV5-w.png")" />
+            </div>
+        </a>
+        <div id="ajax-box">
+            @RenderBody()
+        </div>
+        <div style="clear:both;padding-top:5vh;padding-bottom:2vh;text-align:center;">
+            <p style="font-size:x-small;">
+                <i>Paid for by:</i> Thoughtful Locals for Strong Communities
+                <br /><a href="mailto:Stefan.G.Strek@gmail.com?Subject=Eugene%20Mayor" target="_top">Stefan.G.Strek@gmail.com</a>
+            </p>
+
+            <!--Twitter button-->
+            <a href="https://twitter.com/realStefanStrek" class="twitter-follow-button" data-show-count="false" data-size="large">Follow Me</a>
+            <script>
+!function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id))
+    { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); }
+}(document, 'script', 'twitter-wjs');</script>
+            </ br>
+            <!--Facebook buttons-->
+            <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div class="fb-like" data-href="https://www.facebook.com/Strek4Mayor" data-layout="standard"
+                 data-action="like" data-show-faces="true" data-share="true"></div>
             <br />
-            <p align="center" style="font-size:x-small;"><i>Paid for by:</i> Thoughtful Locals for Strong Communities</p>
-            <p align="center" style="font-size:x-small;">Stefan.G.Strek@gmail.com</p>
-        </footer>
+            <!--Instagram-->
+            <!--<span class="ig-follow" data-id="5479dee" data-handle="igfbdotcom" data-count="true" data-size="large" data-username="true"></span>-->
+            <!--<script>(function (d, t) { var g = d.createElement(t), s = d.getElementsByTagName(t)[0]; g.src = "//x.instagramfollowbutton.com/follow.js"; s.parentNode.insertBefore(g, s); }(document, "script"));</script>-->
+        </div>
     </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>
 </html>
+
