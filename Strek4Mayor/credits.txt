@@ -7,3 +7,8 @@ Eugene Landscape
 ----------------
 URL: https://commons.wikimedia.org/wiki/File:DowntownEugene-1-.JPG
 License:  Public Domain
+
+Loading Graphic
+---------------
+URL: https://commons.wikimedia.org/wiki/File:Loading_2_transparent.gif
+License:  Public Domain
