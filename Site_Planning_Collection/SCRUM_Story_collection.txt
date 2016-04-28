@@ -28,53 +28,53 @@
 ##FRONTEND + BACKEND STORIES:
 ##
 #60 TTL	✔:24 	(P 1)Donation button
-	✔			(p 1)Track donations in database
-	✔			(p 3)Display a sortable list of donors for admin eyes only
+	✔		(p 1)Track donations in database
+	✔		(p 3)Display a sortable list of donors for admin eyes only
 
 #9 TTL	(P 3)Social media additions (clickable links woven into masterpage that guests can go to)
 3 pts	✔:2	twitter feed integration (list of recent tweets)
 3 pts		instagram integration (Just a button they can click and redirect)
 3 pts	✔:2f	acebook link (Just a button they can click and redirect)
 
-#19 TTL			(P 1)Issues page (Allow guests to view Stefan's stances on certain issues)
+#19 TTL		(P 1)Issues page (Allow guests to view Stefan's stances on certain issues)
 4 pts	✔: 7	(P 1)(static page)
 3 pts	✔: 1	(p 1)Images for issues
-12 pts 			(p 2)(CRUD version)
+12 pts 		(p 2)(CRUD version)
 
-#15 TTL			(P 2)Volunteer acceptance (allow users to submit relevant data for contact and checkbox what they want to do)
-5 pts			(p 2)front end
-10 pts	✔:11		(P 2)(DB backend)
+#15 TTL		(P 2)Volunteer acceptance (allow users to submit relevant data for contact and checkbox what they want to do)
+5 pts		(p 2)front end
+10 pts	✔:11	(P 2)(DB backend)
 
-#18 TTL			(P 2)in-the-news (list of recent articles displayed for guest)
-12 pts			(P 2)(CRUD)
-3 pts			(p 2)Sort by newest by default
-3 pts			(p 3)older articles archived and removed from page. 8 displayed at once? Whatever looks good.)
-5 pts			(P 4)(Video integration)
+#18 TTL		(P 2)in-the-news (list of recent articles displayed for guest)
+12 pts		(P 2)(CRUD)
+3 pts		(p 2)Sort by newest by default
+3 pts		(p 3)older articles archived and removed from page. 8 displayed at once? Whatever looks good.)
+5 pts		(P 4)(Video integration)
 
-#35 TTL			(P 2)Questions and answers (user stuff all done on the same page. Submit question at top?)
+#35 TTL		(P 2)Questions and answers (user stuff all done on the same page. Submit question at top?)
 3 pts	✔: 1	(p 2)interface to allow guests to submit questions
 12 pts	✔: 8	(p 1)CRUD
-3 pts	✔: 3		(1)DB storage
-2 pts			(p ?)Add a captcha? (widgit addition most likely)
-4 pts	✔: 4		(p 1)Scrub inputs to stop sql injection
-4 pts	✔: 5		(p 2)Display only answered questions
-6 pts	✔: 5		(p 4)Have a large button at the top that can be pressed and the interface to sub a Q will unhide itself
+3 pts	✔: 3	(1)DB storage
+2 pts		(p ?)Add a captcha? (widgit addition most likely)
+4 pts	✔: 4	(p 1)Scrub inputs to stop sql injection
+4 pts	✔: 5	(p 2)Display only answered questions
+6 pts	✔: 5	(p 4)Have a large button at the top that can be pressed and the interface to sub a Q will unhide itself
 
-#21 TTL			(P 2)Calendar (Event entities displayed for guests)
-6 pts			✔(P 2)list of events first iteration (static)
-8 pts 			✔(P 2)CRUD version that lists events in order of date
-8 pts			(P 3)Full blown calendar that shows events in on their respective days(Brian said we can use a plugin/widget)
+#21 TTL		(P 2)Calendar (Event entities displayed for guests)
+6 pts	✔: 2	(P 2)list of events first iteration (static)
+8 pts 	✔: 3	(P 2)CRUD version that lists events in order of date
+8 pts		(P 3)Full blown calendar that shows events in on their respective days(Brian said we can use a plugin/widget)
 
-#10 TTL			(p 1)Home page (displayed for guest)
+#10 TTL		(p 1)Home page (displayed for guest)
 4 pts	✔: 5	(p 1)(picture of him + his top 3 issues)
 3 pts	✔: 1	(p 2)(click Stefan profile pic to go to the about stefan page)
-3 pts	✔: 1		(P 2)(click an issue to be brought to the issues page)
+3 pts	✔: 1	(P 2)(click an issue to be brought to the issues page)
 
-#18 TTL			(p 1)Master page
+#18 TTL		(p 1)Master page
 7 pts	✔: 9	(p 1)CSS stuff
 8 pts	✔: 6	(p 1)Nav bar
 4 pts	✔: 2	(p 1)Banner image
-? pts			(p 4)Constant improvements
+? pts		 (p 4)Constant improvements
 
 4 TTL	✔: 3	(P 1)About page(static in final version)
 1 pts	✔: 1	(p 1)(pic of Stefan)
