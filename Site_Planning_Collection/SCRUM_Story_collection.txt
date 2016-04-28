@@ -70,10 +70,11 @@
 3 pts	✔: 1	(p 2)(click Stefan profile pic to go to the about stefan page)
 3 pts	✔: 1	(P 2)(click an issue to be brought to the issues page)
 
-#18 TTL		(p 1)Master page
+#19 TTL		(p 1)Master page
 7 pts	✔: 9	(p 1)CSS stuff
 8 pts	✔: 6	(p 1)Nav bar
 4 pts	✔: 2	(p 1)Banner image
+1 pts	✔: 2	(p 3)Favicon
 ? pts		 (p 4)Constant improvements
 
 4 TTL	✔: 3	(P 1)About page(static in final version)
