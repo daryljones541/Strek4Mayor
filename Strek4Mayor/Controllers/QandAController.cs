@@ -66,7 +66,7 @@ namespace Strek4Mayor.Controllers
                 qanda.MessageStatus = false;
                 db.QandAs.Add(qanda);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Thanks");
             }
 
             return View(qanda);
