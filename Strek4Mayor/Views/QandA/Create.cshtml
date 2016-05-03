@@ -1,4 +1,5 @@
 ﻿@model Strek4Mayor.Models.QandA
+@using BotDetect.Web.Mvc;
 
 @{
     ViewBag.Title = "Create";
@@ -7,6 +8,12 @@
 
 <h2>Ask</h2>
 
+    
+
+    
+
+
+    
 
 @using (Html.BeginForm()) 
 {
@@ -41,6 +48,14 @@
             </div>
         </div>
 
+        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+              rel="stylesheet" type="text/css" />
+
+        @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
+        exampleCaptcha.UserInputID = "CaptchaCode";}
+        @Html.Captcha(exampleCaptcha)
+        @Html.TextBox("CaptchaCode")
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Submit" class="btn btn-default" />
@@ -48,7 +63,7 @@
         </div>
     </div>
 }
-
+<!--exampleCaptcha = CaptchaHelper.GetExampleCaptcha()-->
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

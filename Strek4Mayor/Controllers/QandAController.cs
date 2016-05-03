@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
+using BotDetect.Web.Mvc;
 
 namespace Strek4Mayor.Controllers
 {
@@ -18,6 +19,11 @@ namespace Strek4Mayor.Controllers
         public ActionResult Index()
         {
             return View(db.QandAs.ToList());
+        }
+
+        public ActionResult Thanks()
+        {
+            return View();
         }
 
         public ActionResult AjaxIndex()
@@ -47,7 +53,22 @@ namespace Strek4Mayor.Controllers
             return View(qanda);
         }
 
+        public static class CaptchaHelper
+        {
+            public static MvcCaptcha GetExampleCaptcha()
+            {
+                // create the control instance
+                MvcCaptcha exampleCaptcha = new MvcCaptcha("Create");
+
+                // set up client-side processing of the Captcha code input textbox
+                exampleCaptcha.UserInputID = "Create";
+
+                return exampleCaptcha;
+            }
+        }
+
         // GET: /QandA/Create
+        
         public ActionResult Create()
         {
             return View();
@@ -58,15 +79,22 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="QandAId,Body,Title,Member")] QandA qanda)
+        [AllowAnonymous]
+        [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "Incorrect CAPTCHA code!")]
+        public ActionResult Create([Bind(Include="QandAId,Body,Title,Member")] QandA qanda, bool captchavalid)
         {
             if (ModelState.IsValid)
             {
                 qanda.Date = DateTime.Now;
                 qanda.MessageStatus = false;
+                MvcCaptcha.ResetCaptcha("ExampleCaptcha");
                 db.QandAs.Add(qanda);
                 db.SaveChanges();
                 return RedirectToAction("Thanks");
+            }
+            else
+            {
+                MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
             }
 
             return View(qanda);
