@@ -166,7 +166,7 @@ namespace Strek4Mayor.Controllers
                 findQuestion.MessageStatus = true;
                 db.Entry(findQuestion).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin");
             }
             return View(qanda);
         }
@@ -195,7 +195,7 @@ namespace Strek4Mayor.Controllers
             QandA qanda = db.QandAs.Find(id);
             db.QandAs.Remove(qanda);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Admin");
         }
 
         protected override void Dispose(bool disposing)
