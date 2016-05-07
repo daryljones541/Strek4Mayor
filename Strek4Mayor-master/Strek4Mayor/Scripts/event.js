@@ -1,3 +1,0 @@
-﻿$().ready(function () {
-    $('#calendar').datepicker();
-});

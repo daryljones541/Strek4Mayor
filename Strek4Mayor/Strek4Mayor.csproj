@@ -168,6 +168,7 @@
     <Compile Include="Controllers\IssuesController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\volunteersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,6 +189,7 @@
     <Compile Include="Models\Strek4MayorContext.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -211,29 +213,26 @@
     <Content Include="Pictures\animals2.png" />
     <Content Include="Pictures\BackgroundWall.png" />
     <Content Include="Pictures\BlackAndWhitePortrait.jpg" />
-    <Content Include="Pictures\BrightFlag1.png" />
-    <Content Include="Pictures\BrightFlag2.png" />
-    <Content Include="Pictures\BrightFlag3.png" />
-    <Content Include="Pictures\BrightFlag4.png" />
-    <Content Include="Pictures\BrightFlag5.png" />
-    <Content Include="Pictures\BrightFlag6.png" />
     <Content Include="Pictures\business2.jpg" />
     <Content Include="Pictures\committee.png" />
     <Content Include="Pictures\committee2.png" />
-    <Content Include="Pictures\DarkFlag1.png" />
-    <Content Include="Pictures\DarkFlag2.png" />
-    <Content Include="Pictures\DarkFlag3.png" />
-    <Content Include="Pictures\DarkFlag4.png" />
-    <Content Include="Pictures\DarkFlag5.png" />
-    <Content Include="Pictures\DarkFlag6.png" />
+    <Content Include="Pictures\DarkFlag1.jpg" />
+    <Content Include="Pictures\DarkFlag2.jpg" />
+    <Content Include="Pictures\DarkFlag3.jpg" />
+    <Content Include="Pictures\DarkFlag4.jpg" />
+    <Content Include="Pictures\DarkFlag5.jpg" />
+    <Content Include="Pictures\DarkFlag6.jpg" />
+    <Content Include="Pictures\DarkFlag7.jpg" />
+    <Content Include="Pictures\DarkFlag8.jpg" />
     <Content Include="Pictures\drmayor2.jpg" />
-    <Content Include="Pictures\Flag1.png" />
-    <Content Include="Pictures\Flag2.png" />
-    <Content Include="Pictures\Flag3.png" />
-    <Content Include="Pictures\Flag4.png" />
-    <Content Include="Pictures\Flag5.png" />
-    <Content Include="Pictures\Flag6.png" />
-    <Content Include="Pictures\FlagRightHalf.jpg" />
+    <Content Include="Pictures\Flag1.jpg" />
+    <Content Include="Pictures\Flag2.jpg" />
+    <Content Include="Pictures\Flag3.jpg" />
+    <Content Include="Pictures\Flag4.jpg" />
+    <Content Include="Pictures\Flag5.jpg" />
+    <Content Include="Pictures\Flag6.jpg" />
+    <Content Include="Pictures\Flag7.jpg" />
+    <Content Include="Pictures\Flag8.jpg" />
     <Content Include="Pictures\hankking1.jpg" />
     <Content Include="Pictures\hats.jpg" />
     <Content Include="Pictures\housing.png" />
@@ -247,7 +246,6 @@
     <Content Include="Scripts\banner.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Pictures\DonationForm.pdf" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy %282%29.pubxml" />
@@ -318,6 +316,12 @@
     <Content Include="Views\Events\AjaxList.cshtml" />
     <Content Include="Views\QandA\AjaxIndex.cshtml" />
     <Content Include="Views\Donations\AjaxIndex.cshtml" />
+    <Content Include="Views\volunteers\Create.cshtml" />
+    <Content Include="Views\volunteers\Delete.cshtml" />
+    <Content Include="Views\volunteers\Details.cshtml" />
+    <Content Include="Views\volunteers\Edit.cshtml" />
+    <Content Include="Views\volunteers\Index.cshtml" />
+    <Content Include="Views\volunteers\AjaxIndex.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -104,54 +104,70 @@
             line-height: 6vh;
             text-align: center;
             vertical-align: middle;
-            width: 16.66%;
+            width: 14.28%;
         }
         .tile-1 {
-            background: url(@Url.Content("~/Pictures/Flag1.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag1.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-2 {
-            background: url(@Url.Content("~/Pictures/Flag2.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag2.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-3 {
-            background: url(@Url.Content("~/Pictures/Flag3.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag3.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-4 {
-            background: url(@Url.Content("~/Pictures/Flag4.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag4.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-5 {
-            background: url(@Url.Content("~/Pictures/Flag5.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag5.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-6 {
-            background: url(@Url.Content("~/Pictures/Flag6.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag6.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-7 {
+            background: url(@Url.Content("~/Pictures/Flag7.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-8 {
+            background: url(@Url.Content("~/Pictures/Flag8.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-1:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag1.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag1.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-2:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag2.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag2.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-3:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag3.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag3.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-4:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag4.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag4.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-5:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag5.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag5.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-6:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag6.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag6.jpg")) no-repeat;
+            background-size: cover;
+        }
+         .tile-7:hover {
+            background: url(@Url.Content("~/Pictures/DarkFlag7.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-8:hover {
+            background: url(@Url.Content("~/Pictures/DarkFlag8.jpg")) no-repeat;
             background-size: cover;
         }
         .border-right {
@@ -210,31 +226,39 @@
     </style>
 </head>
 <body>
-    <div id="navbar">
+    <div id="navbar">     
+        <div class="navlink border-right left-curve tile-1">
+            Home
+        </div>
         
-            <div class="navlink border-right left-curve tile-1">
-                Home
-            </div>
-        
-            <div class="navlink border-right tile-2">
-               About
-            </div>
+        <div class="navlink border-right tile-2">
+            About
+        </div>
 
-            <div class="navlink tile-3 border-right">
-                On The Issues
-            </div>
+        <div class="navlink tile-3 border-right">
+            Issues
+        </div>
 
-            <div class="navlink border-right tile-4">
-                Donate
-            </div>
+        <div class="navlink border-right tile-4">
+            Donate
+        </div>
 
-            <div class="navlink border-right tile-5">
-                Calendar
-            </div>
+        <div class="navlink border-right tile-5">
+            Calendar
+        </div>
 
-            <div class="navlink right-curve tile-6">
-                Q and A
-            </div>
+        <div class="navlink border-right tile-6">
+            Q and A
+        </div>
+
+        <div class="navlink right-curve tile-7">
+            Volunteer
+        </div>
+        @*
+        <div class="navlink right-curve tile-8">
+            In The News
+        </div>
+        *@
     </div>   
         
         @*

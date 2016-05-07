@@ -15,12 +15,19 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: volunteers
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.volunteers.ToList());
         }
 
+        public ActionResult AjaxIndex()
+        {
+            return PartialView();
+        }
+
         // GET: volunteers/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -69,6 +76,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: volunteers/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -101,6 +109,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: volunteers/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
