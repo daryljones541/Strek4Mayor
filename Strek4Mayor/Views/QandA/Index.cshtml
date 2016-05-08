@@ -48,11 +48,17 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Body)            
+                @{
+                    var paragraphsBody = item.Body.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
+                 }
+                @Html.Raw(paragraphsBody)        
             </td>
             
             <td>
-                @Html.DisplayFor(modelItem => item.Answer)
+                @{
+                    var paragraphs = item.Answer.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
+                 }
+                @Html.Raw(paragraphs)
             </td>
             @if (User.IsInRole("Admin")) { 
             <td>
