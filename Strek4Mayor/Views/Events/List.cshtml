@@ -8,55 +8,25 @@
 <head>
     <title></title>
     <link href="~/Content/tables.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/calendar.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/calendar.js"></script>
+    <style>
+        #event-box {
+            background: #EEE8AA;
+            border: 1px solid orange;
+            display: none;
+            position: absolute;
+        }
+    </style>
 </head>
-
-<h2>Events Calendar</h2>
+<div id="event-box"></div>
 @if (User.IsInRole("Admin"))
 {
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        @if (User.IsInRole("Admin"))
-        {
-            <th></th>
-        }
-    </tr>
-
-@foreach (var item in Model) {
-    if (item.Date >= DateTime.Today) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            @if (User.IsInRole("Admin"))
-            {
-                <td>
-                
-                        @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) 
-                        @Html.Raw("|")
-                        @Html.ActionLink("Delete", "Delete", new { id=item.EventID })        
-                </td>
-            }
-        </tr>
-    }
-}
-
-</table>
+<div id="calendar"></div>
+<script>
+    $('.tile-5').addClass('highlighted');
+</script>

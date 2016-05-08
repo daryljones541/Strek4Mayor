@@ -16,8 +16,6 @@ namespace Strek4Mayor.Models
         public string Location { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required]
-        public string Description { get; set; }
         public List<SelectListItem> Time { get; set; }
         [Required]
         public int TimeSelection { get; set; }

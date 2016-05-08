@@ -28,6 +28,12 @@ namespace Strek4Mayor.Controllers
             return PartialView(events);
         }
 
+        public JsonResult GetList()
+        {
+            var events=db.Events.OrderBy(x=>x.Date);
+            return Json(events, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
@@ -58,7 +64,7 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Date,Location,Title,Description,TimeSelection")] EventVM eventVM)
+        public ActionResult Create([Bind(Include = "Date,Location,Title,TimeSelection")] EventVM eventVM)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +75,6 @@ namespace Strek4Mayor.Controllers
                 Event addEvent=new Event
                 { 
                     Date=date, 
-                    Description=eventVM.Description,
                     Location=eventVM.Location,
                     Title=eventVM.Title
                 };

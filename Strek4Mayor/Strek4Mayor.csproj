@@ -200,6 +200,7 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\calendar.css" />
     <Content Include="Content\issuesCSS.css" />
     <Content Include="Content\tables.css" />
     <Content Include="credits.txt" />
@@ -250,6 +251,7 @@
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy.pubxml" />
+    <Content Include="Scripts\calendar.js" />
     <Content Include="Scripts\event.js" />
     <Content Include="Scripts\donation.js" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
