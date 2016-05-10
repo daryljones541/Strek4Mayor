@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
+using BotDetect.Web.Mvc;
 
 namespace Strek4Mayor.Controllers
 {
@@ -25,7 +26,10 @@ namespace Strek4Mayor.Controllers
         {
             return PartialView();
         }
-
+        public ActionResult Thanks()
+        {
+            return View();
+        }
         // GET: volunteers/Details/5
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
@@ -42,6 +46,20 @@ namespace Strek4Mayor.Controllers
             return View(volunteer);
         }
 
+        public static class CaptchaHelper
+        {
+            public static MvcCaptcha GetExampleCaptcha()
+            {
+                // create the control instance
+                MvcCaptcha exampleCaptcha = new MvcCaptcha("Create");
+
+                // set up client-side processing of the Captcha code input textbox
+                exampleCaptcha.UserInputID = "Create";
+
+                return exampleCaptcha;
+            }
+        }
+
         // GET: volunteers/Create
         public ActionResult Create()
         {
@@ -53,10 +71,13 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer)
+        [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "Incorrect CAPTCHA code!")]
+        public ActionResult Create([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer, bool captchavalid)
         {
             if (ModelState.IsValid)
             {
+                MvcCaptcha.ResetCaptcha("ExampleCaptcha");
+
                 if (volunteer.vol1 == false && volunteer.vol2 == false && volunteer.vol3 == false)
                 {
                     ViewBag.errormessage = "please chose one of the volunteer opations";
@@ -67,10 +88,13 @@ namespace Strek4Mayor.Controllers
                 {
                     db.volunteers.Add(volunteer);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Thanks");
                 }
             }
- 
+            else
+            {
+                MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
+            } 
 
             return View(volunteer);
         }
