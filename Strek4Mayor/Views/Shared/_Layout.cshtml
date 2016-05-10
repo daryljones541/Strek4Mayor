@@ -293,6 +293,11 @@
                 <img src="@Url.Content("~/Pictures/StefanBannerV5-w.png")" />
             </div>
         </a>
+        @if (User.IsInRole("Admin"))
+        {
+            <button onclick="location.href='@Url.Action("Logout", "Users")';return false;">Logout</button>
+            <button onclick="location.href='@Url.Action("Index", "Admin")';return false;">Admin Home</button>
+        }
         <div id="ajax-box">
             @RenderBody()
         </div>
