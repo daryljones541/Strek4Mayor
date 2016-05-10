@@ -1,5 +1,5 @@
 ﻿@model Strek4Mayor.Models.volunteer
-
+@using BotDetect.Web.Mvc;
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -107,6 +107,15 @@
                 </div>
             </div>
         </div>
+
+        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+              rel="stylesheet" type="text/css" />
+
+        @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
+            exampleCaptcha.UserInputID = "CaptchaCode";}
+        @Html.Captcha(exampleCaptcha)
+        @Html.TextBox("CaptchaCode")
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
