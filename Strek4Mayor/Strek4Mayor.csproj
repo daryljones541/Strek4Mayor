@@ -324,7 +324,7 @@
     <Content Include="Views\volunteers\Details.cshtml" />
     <Content Include="Views\volunteers\Edit.cshtml" />
     <Content Include="Views\volunteers\Index.cshtml" />
-    <Content Include="Views\volunteers\AjaxIndex.cshtml" />
+    <Content Include="Views\volunteers\AjaxCreate.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

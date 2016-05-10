@@ -97,7 +97,7 @@
         $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
         $.ajax({
             type: "GET",
-            url: "/volunteers/AjaxIndex/",
+            url: "/volunteers/AjaxCreate/",
             dataType: "html",
             success: function (data) {
                 $('#ajax-box').html(data);
