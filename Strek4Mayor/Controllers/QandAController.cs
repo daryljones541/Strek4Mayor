@@ -94,7 +94,8 @@ namespace Strek4Mayor.Controllers
             }
             else
             {
-                MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
+                MvcCaptcha.IsCaptchaSolved("Incorrect CAPTCHA code!");
+                ViewBag.ErrMessage = "Error: captcha is not valid."; 
             }
 
             return View(qanda);
