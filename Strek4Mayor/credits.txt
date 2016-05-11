@@ -12,3 +12,13 @@ Loading Graphic
 ---------------
 URL: https://commons.wikimedia.org/wiki/File:Loading_2_transparent.gif
 License:  Public Domain
+
+Right Arrow
+-----------
+URL: https://commons.wikimedia.org/wiki/File:Arrow_right.svg
+License: Public domain
+
+Left Arrow
+----------
+URL: https://commons.wikimedia.org/wiki/File:Arrow_left.svg
+License: Public domain

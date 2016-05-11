@@ -1,8 +1,11 @@
 ﻿#left-arrow, #right-arrow {
-    background-color: lightblue;
     border: 1px solid black;
-    border-radius: 10px;
-    padding: 2px;
+    padding: 5px;
+}
+
+#left-arrow:hover, #right-arrow:hover {
+    border: 2px solid black;
+    padding: 4px;
 }
 
 #events {
