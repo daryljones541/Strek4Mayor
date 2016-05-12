@@ -26,6 +26,10 @@
     margin: auto;   
 }
 
+.display-event:hover {
+    cursor: pointer;   
+}
+
 #calendar-title {
     font-size: 3vw;
     padding: 1vw;
