@@ -1,4 +1,5 @@
 ﻿$().ready(function () {
+    scrollbar = 0;
     $.ajax({
         type: "GET",
         url: "/Events/GetList",
@@ -98,6 +99,7 @@ function renderCalender(monthYear) {
     $('#calendar').html(calendar);
     var width = $('#events td').width() * .75;
     $('#events td').height(width);
+    $(window).scrollTop(scrollbar);
     $('.display-event').hover(
         function () {
             var hoverText = $(this).attr('id');
@@ -166,6 +168,7 @@ function renderCalender(monthYear) {
                 year--;
             }
             monthYear = new Date(year, month, day);
+            scrollbar = $(window).scrollTop();
             renderCalender(monthYear);
         }
     );
@@ -186,6 +189,7 @@ function renderCalender(monthYear) {
                 year++;
             }
             monthYear = new Date(year, month, day);
+            scrollbar = $(window).scrollTop();
             renderCalender(monthYear);
         }
     );
