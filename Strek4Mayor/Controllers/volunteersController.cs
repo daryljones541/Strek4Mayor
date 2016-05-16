@@ -26,6 +26,28 @@ namespace Strek4Mayor.Controllers
             return PartialView();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AjaxCreate([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer)
+        {
+            if (ModelState.IsValid)
+            {
+                if (volunteer.vol1 == false && volunteer.vol2 == false && volunteer.vol3 == false)
+                {
+                    ViewBag.errormessage = "Please choose one of the volunteer options";
+                    return View("Create", volunteer);
+
+                }
+                else
+                {
+                    db.volunteers.Add(volunteer);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View("Create", volunteer);
+        }
+
         // GET: volunteers/Details/5
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
@@ -45,7 +67,7 @@ namespace Strek4Mayor.Controllers
         // GET: volunteers/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: volunteers/Create
@@ -59,20 +81,18 @@ namespace Strek4Mayor.Controllers
             {
                 if (volunteer.vol1 == false && volunteer.vol2 == false && volunteer.vol3 == false)
                 {
-                    ViewBag.errormessage = "please chose one of the volunteer opations";
-                    return View(volunteer);
+                    ViewBag.errormessage = "Please choose one of the volunteer options";
+                    return View("Create", volunteer);
                   
                 }
                 else
                 {
                     db.volunteers.Add(volunteer);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
             }
- 
-
-            return View(volunteer);
+            return View("Create", volunteer);
         }
 
         // GET: volunteers/Edit/5
