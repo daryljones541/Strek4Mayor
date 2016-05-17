@@ -108,3 +108,7 @@ C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Secur
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.csprojResolveAssemblyReference.cache
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.dll
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.pdb
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.Web.Mvc.dll
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.dll
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.Migrations.Strek4MayorContext.resources
+C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.csproj.GenerateResource.Cache

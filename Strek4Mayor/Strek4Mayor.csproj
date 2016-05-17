@@ -166,11 +166,16 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IssuesController.cs" />
+    <Compile Include="Controllers\NewsArticlesController.cs" />
     <Compile Include="Controllers\QandAController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\volunteersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605170750429_Strek4MayorContext.cs" />
+    <Compile Include="Migrations\201605170750429_Strek4MayorContext.Designer.cs">
+      <DependentUpon>201605170750429_Strek4MayorContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChangePasswordVM.cs">
@@ -183,6 +188,8 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventVM.cs" />
     <Compile Include="Models\LoginVM.cs" />
+    <Compile Include="Models\NewsArticle.cs" />
+    <Compile Include="Models\NewsArticleVM.cs" />
     <Compile Include="Models\QandA.cs" />
     <Compile Include="Models\QandADbInitializer.cs" />
     <Compile Include="Models\RegisterVM.cs" />
@@ -328,8 +335,17 @@
     <Content Include="Views\volunteers\Index.cshtml" />
     <Content Include="Views\volunteers\AjaxCreate.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\NewsArticles\Create.cshtml" />
+    <Content Include="Views\NewsArticles\Delete.cshtml" />
+    <Content Include="Views\NewsArticles\Details.cshtml" />
+    <Content Include="Views\NewsArticles\Edit.cshtml" />
+    <Content Include="Views\NewsArticles\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605170750429_Strek4MayorContext.resx">
+      <DependentUpon>201605170750429_Strek4MayorContext.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

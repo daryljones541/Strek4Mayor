@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Strek4Mayor.Models.NewsArticle>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New Article", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        @if (User.IsInRole("Admin"))
+        {
+            <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.NewsArticleID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.NewsArticleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.NewsArticleID })
+            </td>
+        }
+        else
+        {
+            <td></td>
+        }
+    </tr>
+}
+
+</table>

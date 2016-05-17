@@ -6,9 +6,11 @@
 
 <h2>Admin Menu</h2>
 
+<button onclick="location.href='@Url.Action("Create", "NewsArticles")';return false;">Add Article</button>
 <button onclick="location.href='@Url.Action("Create", "Events")';return false;">Add Event</button>
 <button onclick="location.href='@Url.Action("List", "Employments")';return false;">Employment</button>
 <button onclick="location.href='@Url.Action("RedactedList", "Donations")';return false;">Donations</button>
 <button onclick="location.href='@Url.Action("FullList", "Donations")';return false;">Donations - HTTPS</button>
 <button onclick="location.href='@Url.Action("Admin", "QandA")';return false;">Answer Questions</button>
 <button onclick="location.href='@Url.Action("Index", "Users")';return false;">User List</button>
+<button onclick="location.href='@Url.Action("Index", "volunteers")';return false;">Volunteers List</button>

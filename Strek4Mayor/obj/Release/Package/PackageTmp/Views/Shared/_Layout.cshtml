@@ -11,6 +11,25 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @*Favicon stuff*@
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <style>
         body {
             background-color: #a0d8f3;
@@ -85,54 +104,70 @@
             line-height: 6vh;
             text-align: center;
             vertical-align: middle;
-            width: 16.66%;
+            width: 14.28%;
         }
         .tile-1 {
-            background: url(@Url.Content("~/Pictures/Flag1.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag1.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-2 {
-            background: url(@Url.Content("~/Pictures/Flag2.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag2.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-3 {
-            background: url(@Url.Content("~/Pictures/Flag3.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag3.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-4 {
-            background: url(@Url.Content("~/Pictures/Flag4.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag4.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-5 {
-            background: url(@Url.Content("~/Pictures/Flag5.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag5.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-6 {
-            background: url(@Url.Content("~/Pictures/Flag6.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/Flag6.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-7 {
+            background: url(@Url.Content("~/Pictures/Flag7.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-8 {
+            background: url(@Url.Content("~/Pictures/Flag8.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-1:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag1.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag1.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-2:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag2.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag2.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-3:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag3.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag3.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-4:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag4.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag4.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-5:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag5.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag5.jpg")) no-repeat;
             background-size: cover;
         }
         .tile-6:hover {
-            background: url(@Url.Content("~/Pictures/DarkFlag6.png")) no-repeat;
+            background: url(@Url.Content("~/Pictures/DarkFlag6.jpg")) no-repeat;
+            background-size: cover;
+        }
+         .tile-7:hover {
+            background: url(@Url.Content("~/Pictures/DarkFlag7.jpg")) no-repeat;
+            background-size: cover;
+        }
+        .tile-8:hover {
+            background: url(@Url.Content("~/Pictures/DarkFlag8.jpg")) no-repeat;
             background-size: cover;
         }
         .border-right {
@@ -191,31 +226,39 @@
     </style>
 </head>
 <body>
-    <div id="navbar">
+    <div id="navbar">     
+        <div class="navlink border-right left-curve tile-1">
+            Home
+        </div>
         
-            <div class="navlink border-right left-curve tile-1">
-                Home
-            </div>
-        
-            <div class="navlink border-right tile-2">
-               About
-            </div>
+        <div class="navlink border-right tile-2">
+            About
+        </div>
 
-            <div class="navlink tile-3 border-right">
-                On The Issues
-            </div>
+        <div class="navlink tile-3 border-right">
+            Issues
+        </div>
 
-            <div class="navlink border-right tile-4">
-                Donate
-            </div>
+        <div class="navlink border-right tile-4">
+            Donate
+        </div>
 
-            <div class="navlink border-right tile-5">
-                Calendar
-            </div>
+        <div class="navlink border-right tile-5">
+            Calendar
+        </div>
 
-            <div class="navlink right-curve tile-6">
-                Q and A
-            </div>
+        <div class="navlink border-right tile-6">
+            Q and A
+        </div>
+
+        <div class="navlink right-curve tile-7">
+            Volunteer
+        </div>
+        @*
+        <div class="navlink right-curve tile-8">
+            In The News
+        </div>
+        *@
     </div>   
         
         @*
@@ -258,7 +301,7 @@
                 <i>Paid for by:</i> Thoughtful Locals for Strong Communities
                 <br /><a href="mailto:Stefan.G.Strek@gmail.com?Subject=Eugene%20Mayor" target="_top">Stefan.G.Strek@gmail.com</a>
             </p>
-
+        </div>
             <!--Twitter button-->
             <a href="https://twitter.com/realStefanStrek" class="twitter-follow-button" data-show-count="false" data-size="large">Follow Me</a>
             <script>
@@ -284,7 +327,6 @@
             <!--Instagram-->
             <!--<span class="ig-follow" data-id="5479dee" data-handle="igfbdotcom" data-count="true" data-size="large" data-username="true"></span>-->
             <!--<script>(function (d, t) { var g = d.createElement(t), s = d.getElementsByTagName(t)[0]; g.src = "//x.instagramfollowbutton.com/follow.js"; s.parentNode.insertBefore(g, s); }(document, "script"));</script>-->
-        </div>
     </div>
     <script src="@Url.Content("~/Scripts/banner.js")"></script>
 </body>
