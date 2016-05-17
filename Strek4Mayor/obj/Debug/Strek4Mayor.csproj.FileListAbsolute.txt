@@ -52,7 +52,6 @@ C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Se
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.dll
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.pdb
-C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Strek4Mayor.dll.config
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Strek4Mayor.dll
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\Strek4Mayor.pdb
@@ -227,3 +226,5 @@ C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.Web.Mvc.dl
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\bin\BotDetect.dll
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.Migrations.Strek4MayorContext.resources
 C:\Users\Allen\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csproj.GenerateResource.Cache
+C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.Migrations.Strek4MayorContext.resources
+C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csproj.GenerateResource.Cache

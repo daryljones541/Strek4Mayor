@@ -4,38 +4,7 @@
     ViewBag.Title = "Calendar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<head>
-    <title></title>
-    <link href="~/Content/tables.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/calendar.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/calendar.js"></script>
-    <style>
-        #event-box {
-            background: #EEE8AA;
-            border: 1px solid orange;
-            display: none;
-            position: absolute;
-        }
-        #left-arrow {
-            float: left;
-        }
-        #right-arrow {
-            float: right;
-        }
-        #left-arrow, #right-arrow {
-            max-width: 15%;
-        }
-    </style>
-</head>
-<div id="event-box"></div>
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-}
-<div id="calendar"></div>
+@Html.Partial("AjaxList") 
 <script>
     $('.tile-5').addClass('highlighted');
 </script>
