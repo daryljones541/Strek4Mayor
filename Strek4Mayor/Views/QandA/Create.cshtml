@@ -7,10 +7,8 @@
 }
 <head>
     <title>Ask</title>
-
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/QandA.css")" />
-
-    </head>
+</head>
 
 
     
@@ -19,7 +17,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="form-horizontal" id="captcha-box">
         <h4>Question</h4>
         <hr />
         @Html.ValidationSummary(true)
@@ -47,18 +45,15 @@
                 @Html.ValidationMessageFor(model => model.Body)
             </div>
         </div>
-
-        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
-              rel="stylesheet" type="text/css" />
-
-        @Html.Label("CaptchaCode", "Retype the code from the picture")
-        @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
-        exampleCaptcha.UserInputID = "CaptchaCode";}
-        @Html.Captcha(exampleCaptcha)
-        @Html.TextBox("CaptchaCode")
-        <p class="Error">  @ViewBag.ErrMessage </p>  
         
-
+            <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+                  rel="stylesheet" type="text/css" />
+            @Html.Label("CaptchaCode", "Retype the code from the picture")
+            @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
+             exampleCaptcha.UserInputID = "CaptchaCode";}
+            @Html.Captcha(exampleCaptcha)
+            @Html.TextBox("CaptchaCode")
+            <p class="Error">  @ViewBag.ErrMessage </p>
 
 
 
