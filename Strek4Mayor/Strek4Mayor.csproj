@@ -327,6 +327,7 @@
     <Content Include="Views\volunteers\Edit.cshtml" />
     <Content Include="Views\volunteers\Index.cshtml" />
     <Content Include="Views\volunteers\AjaxCreate.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

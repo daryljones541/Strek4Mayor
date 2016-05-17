@@ -5,12 +5,12 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <title>Ask</title>
 
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/QandA.css")" />
+<h2>Ask</h2>
 
-    </head>
+    
+
+    
 
 
     
@@ -51,16 +51,10 @@
         <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
               rel="stylesheet" type="text/css" />
 
-        @Html.Label("CaptchaCode", "Retype the code from the picture")
         @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
         exampleCaptcha.UserInputID = "CaptchaCode";}
         @Html.Captcha(exampleCaptcha)
         @Html.TextBox("CaptchaCode")
-        <p class="Error">  @ViewBag.ErrMessage </p>  
-        
-
-
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

@@ -4,7 +4,77 @@
     ViewBag.Title = "Q and A";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.Partial("AjaxIndex") 
+
+<h3>I am always here to answer questions and help out. Please don't be offensive or rude or your question will not be posted. I take criticism very well and am always looking to better myself for the good of the people of Eugene.</h3>
+
+<p>
+    <input type="button" id="submit" style='width:300px' value="Ask Me a Question" onclick="location.href='@Url.Action("Create", "QandA")'" /> 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.Label("Posted by")
+        </th>
+        <th>
+            @Html.Label("Topic")
+            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th></th>
+        }
+    </tr>
+
+@foreach (var item in Model) {
+    if (item.MessageStatus == true) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @{
+                    var paragraphsBody = item.Body.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
+                 }
+                @Html.Raw(paragraphsBody)        
+            </td>
+            
+            <td>
+                @{
+                    var paragraphs = item.Answer.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
+                 }
+                @Html.Raw(paragraphs)
+            </td>
+            @if (User.IsInRole("Admin")) { 
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.QandAId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.QandAId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.QandAId })
+            </td>
+            }
+            else
+            {
+                <td></td>
+            }        
+    </tr>
+    }
+}
+</table>
 <script>
     $('.tile-6').addClass('highlighted');
 </script>

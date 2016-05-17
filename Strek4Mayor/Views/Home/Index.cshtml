@@ -2,7 +2,58 @@
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.Partial("AjaxIndex")
+<head>
+    <title></title>
+    <style>
+        .blocks {
+            width: 25%;
+            float: left;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<div>
+
+    <h1 style="text-align:center">I think Eugene is the best city in the world<br />
+    and we can make it even better!</h1>
+    <br />
+    <p><IMG SRC="~/Pictures/business2.jpg" ALT="image" style="float: left; margin: 0 15px;" height="280" width="210">Good day!</p>
+    <p>Winners Vote Strek. It's an election year, and all the candidates are talking about fixing Eugene's homeless problem. Stefan Strek is the only candidate running for Mayor of Eugene who has specifically mentioned the importance of caring for animals. Candidate Strek has the best working model to emulate, the Front Steps Program based out of Austin, TX houses over 500 people and provides housing, healthcare, therapy, job assistance and other services through a variety of funding sources. We can adapt this model for Eugene, with a more flexible emphasis.</p>
+    <p>Currently there are many animals living in Eugene who need veterinary care. Our program will network nearby veterinarian students and their professors with a facility here in Eugene, OR. Students will get school credit for doing routing educational training on homeless or low-income people's animals. This will provide a valuable resource to all levels of the community, our plan is to have a shuttle so that students can make appointments with alter-abled residents and seniors at their homes to help provide routine animal welfare care.</p>
+    <p>Healthy animal companions is a cornerstone for people's self-esteem, mental well-being and life-purpose. Together, we can establish a program that benefits all levels of society and generates a positive, all-inclusive Eugene. From day 1, Stefan Strek has advocated public spaces, local business and the rights of local homeowners. This campaign is dedicated to the principle that City Residents have the final say in City Planning. We have the work ethic necessary to Make Eugene Great Again and  the progress-minded vision for A Better Eugene, Strek 2016.</p>
+<p>Sincerely,</p>
+<p>&emsp;&emsp;-Candidate For Mayor Stefan Strek</p>
+
+    @*GET STEFAN TO WRITE A NICE BLURG 1P LONG*@
+</div>
+<br />
+
+<h1 style="text-align:center"> Stefan Strek stands for...</h1>
+<br />
+@*<p align="center"></p>*@
+
+<a href='@Url.Action("Index", "Issues")'>
+    <div class="blocks" style="margin-left:12%;">
+        <IMG SRC="~/Pictures/animals.png" height=95 width=230>
+        <br />
+        <p>Animal Welfare</p>
+    </div>
+</a>
+<a href='@Url.Action("Index", "Issues")'>
+    <div class="blocks">
+        <IMG SRC="~/Pictures/housing.png" height=95 width=230>
+        <br />
+        <p>Housing Assistance</p>
+    </div>
+</a>
+<a href='@Url.Action("Index", "Issues")'>
+    <div class="blocks">
+        <IMG SRC="~/Pictures/committee.png" height=95 width=230>
+        <br />
+        <p>Community development</p>
+    </div>
+</a>
 
 <script>
     $('.tile-1').addClass('highlighted');
