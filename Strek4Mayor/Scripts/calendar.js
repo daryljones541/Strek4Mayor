@@ -40,7 +40,7 @@ function renderCalender(monthYear) {
     var calendarYear = calendarDate.getFullYear();
     var monthName = ["January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"];
-    var calendar = '<table id="events"><thead><tr><th id="calendar-title" colspan="7"><img src="../Pictures/120px-Arrow_left.svg.png"  alt="Back one month" id="left-arrow" /> ' + monthName[calendarMonth] + ' ' + calendarYear + ' <img src="../Pictures/120px-Arrow_right.svg.png" alt="Forward one month" id="right-arrow" /></th></tr><tr id="weekdays"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>';
+    var calendar = '<table id="events"><thead><tr><th id="calendar-title" colspan="7"><img src="/Pictures/120px-Arrow_left.svg.png"  alt="Back one month" id="left-arrow" /> ' + monthName[calendarMonth] + ' ' + calendarYear + ' <img src="/Pictures/120px-Arrow_right.svg.png" alt="Forward one month" id="right-arrow" /></th></tr><tr id="weekdays"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>';
     var dayOfMonth = new Date(calendarYear, calendarMonth, 1);
     var weekday = dayOfMonth.getDay();
     if (weekday > 0) {
