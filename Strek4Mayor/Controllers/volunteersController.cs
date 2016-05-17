@@ -22,10 +22,49 @@ namespace Strek4Mayor.Controllers
             return View(db.volunteers.ToList());
         }
 
-        public ActionResult AjaxIndex()
+        public ActionResult AjaxCreate()
         {
             return PartialView();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AjaxCreate([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer)
+        {
+            if (ModelState.IsValid)
+            {
+                if (volunteer.vol1 == false && volunteer.vol2 == false && volunteer.vol3 == false)
+                {
+                    ViewBag.errormessage = "Please choose one of the volunteer options";
+                    return View("Create", volunteer);
+
+                }
+                else
+                {
+                    db.volunteers.Add(volunteer);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View("Create", volunteer);
+        }
+
+        // GET: volunteers/Details/5
+        [Authorize(Roles = "Admin")]
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            volunteer volunteer = db.volunteers.Find(id);
+            if (volunteer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(volunteer);
+        }
+
         public ActionResult Thanks()
         {
             return View();
