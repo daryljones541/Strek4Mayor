@@ -21,6 +21,12 @@ namespace Strek4Mayor.Controllers
             return View(articles);
         }
 
+        public ActionResult AjaxIndex()
+        {
+            List<NewsArticle> articles = db.NewsArticles.OrderBy(i => i.PublishDate).ToList();
+            return PartialView(articles);
+        }
+
         [Authorize(Roles = "Admin")]
         public ActionResult AdminList()
         {

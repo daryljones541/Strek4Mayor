@@ -339,6 +339,7 @@
     <Content Include="Views\NewsArticles\Details.cshtml" />
     <Content Include="Views\NewsArticles\Edit.cshtml" />
     <Content Include="Views\NewsArticles\Index.cshtml" />
+    <Content Include="Views\NewsArticles\AjaxIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605170750429_Strek4MayorContext.resx">

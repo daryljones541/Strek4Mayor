@@ -69,21 +69,6 @@ namespace Strek4Mayor.Controllers
         {
             return View();
         }
-        // GET: volunteers/Details/5
-        [Authorize(Roles = "Admin")]
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            volunteer volunteer = db.volunteers.Find(id);
-            if (volunteer == null)
-            {
-                return HttpNotFound();
-            }
-            return View(volunteer);
-        }
 
         public static class CaptchaHelper
         {
