@@ -29,24 +29,32 @@ namespace Strek4Mayor.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AjaxCreate([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer)
+        [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "Incorrect CAPTCHA code!")]
+        public ActionResult AjaxCreate([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer, bool captchavalid)
         {
             if (ModelState.IsValid)
             {
+                MvcCaptcha.ResetCaptcha("ExampleCaptcha");
+
                 if (volunteer.vol1 == false && volunteer.vol2 == false && volunteer.vol3 == false)
                 {
-                    ViewBag.errormessage = "Please choose one of the volunteer options";
-                    return View("Create", volunteer);
+                    ViewBag.errormessage = "please chose one of the volunteer opations";
+                    return View(volunteer);
 
                 }
                 else
                 {
                     db.volunteers.Add(volunteer);
                     db.SaveChanges();
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Thanks");
                 }
             }
-            return View("Create", volunteer);
+            else
+            {
+                MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
+            }
+
+            return View(volunteer);
         }
 
         // GET: volunteers/Details/5
