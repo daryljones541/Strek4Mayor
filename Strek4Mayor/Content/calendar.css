@@ -26,6 +26,11 @@
     margin: auto;   
 }
 
+.display-event img {
+    width: 50%;
+    margin-left: 25%;
+}
+
 .display-event:hover {
     cursor: pointer;   
 }

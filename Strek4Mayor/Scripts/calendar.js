@@ -84,7 +84,7 @@ function renderCalender(monthYear) {
             }
         }
         if (eventTD != '') {
-            calendarBox = '<td class="calendar-box display-event" id="' + eventID + '">' + i + '<br /><br />' + eventTD;
+            calendarBox = '<td class="calendar-box display-event" id="' + eventID + '">' + i + '<br /><img src="/Pictures/282px-Golden_star.svg.png" />';// + eventTD;
         }
         calendar += calendarBox + '</td>';
         if (weekday == 6) calendar += '</tr>';
