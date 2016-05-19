@@ -39,7 +39,7 @@ namespace Strek4Mayor.Controllers
                 if (volunteer.vol1 == false && volunteer.vol2 == false && volunteer.vol3 == false)
                 {
                     ViewBag.errormessage = "please chose one of the volunteer opations";
-                    return View(volunteer);
+                    return View("Create", volunteer);
 
                 }
                 else
@@ -54,7 +54,7 @@ namespace Strek4Mayor.Controllers
                 MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
             }
 
-            return View(volunteer);
+            return View("Create", volunteer);
         }
 
         // GET: volunteers/Details/5
