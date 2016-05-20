@@ -100,13 +100,6 @@ function renderCalender(monthYear) {
     var width = $('#events td').width() * .75;
     $('#events td').height(width);
     $(window).scrollTop(scrollbar);
-    //$('.display-event').hover(
-    //    function () {
-    //        var hoverText = $(this).attr('id');
-    //        //$(this).css('cursor', 'pointer');
-    //        $(this).attr('title', hoverText);
-    //    }
-    //);
 
     $('.calendar-box').hover(
         function () {
@@ -124,7 +117,6 @@ function renderCalender(monthYear) {
             $('#event-box').css('display', 'none');
         }
     );
-
 
     $('.display-event').mouseenter(
        function () {
@@ -153,13 +145,6 @@ function renderCalender(monthYear) {
             $('#event-box').fadeOut(1200);
         }
     );
-        
-
-    //$('.hover-event').mouseout(
-      //  function () {
-       //     $('#event-box').fadeOut();
-       // }
-    //);
 
     $('#left-arrow').click(
         function () {

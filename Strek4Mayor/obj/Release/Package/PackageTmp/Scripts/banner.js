@@ -106,6 +106,21 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+    $(".tile-8").click(function () {
+        $('.navlink').removeClass('highlighted');
+        $('.tile-8').addClass('highlighted');
+        $('#ajax-box').html('<img src="/Pictures/Loading_2_transparent.gif" style="width:10%;height:10%;margin-left:45%;" />');
+        $.ajax({
+            type: "GET",
+            url: "/NewsArticles/AjaxIndex/",
+            dataType: "html",
+            success: function (data) {
+                $('#ajax-box').html(data);
+                document.title = 'Volunteer';
+            },
+            error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
+        });
+    });
 });
 
 $(window).resize(function () {

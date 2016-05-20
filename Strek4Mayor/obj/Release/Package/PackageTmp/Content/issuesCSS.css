@@ -24,4 +24,6 @@ h2{
     text-decoration: underline;
 }
 
-
+#wrapper {
+    overflow: auto;
+}

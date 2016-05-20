@@ -15,6 +15,13 @@ namespace Strek4Mayor.Controllers
     {
         private Strek4MayorContext db = new Strek4MayorContext();
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult Index()
+        {
+            List<Event> events = db.Events.OrderBy(x => x.Date).ToList();
+            return View(events);
+        }
+
         // GET: Events
         public ActionResult List()
         {
@@ -50,6 +57,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: Events/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             EventVM eventVM = new EventVM();
@@ -64,6 +72,7 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Date,Location,Title,TimeSelection")] EventVM eventVM)
         {
             if (ModelState.IsValid)
@@ -105,6 +114,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: Events/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -136,6 +146,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: Events/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -23,22 +23,22 @@
 }
 
 #event-box {
-        background: #EEE8AA;
-        border: 1px solid orange;
-        display: none;
-        pointer-events : none;
-        position: absolute;
-    }
+    background: #EEE8AA;
+    border: 1px solid orange;
+    display: none;
+    pointer-events : none;
+    position: absolute;
+}
 
-    #left-arrow {
-        float: left;
-        max-width: 15%;
-    }
+#left-arrow {
+    float: left;
+    max-width: 15%;
+}
 
-    #right-arrow {
-        float: right;
-        max-width: 15%;
-    }
+#right-arrow {
+    float: right;
+    max-width: 15%;
+}
 
 .display-event {
     margin: auto;   
