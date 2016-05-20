@@ -1,27 +1,8 @@
 ﻿@model IEnumerable<Strek4Mayor.Models.Event>
 
-<head>
-    <title></title>
-    <link href="~/Content/tables.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/calendar.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/calendar.js"></script>
-    <style>
-        #event-box {
-            background: #EEE8AA;
-            border: 1px solid orange;
-            display: none;
-            position: absolute;
-        }
-        #left-arrow {
-            float: left;
-            max-width: 15%;
-        }
-        #right-arrow {
-            float: right;
-            max-width: 15%;
-        }
-    </style>
-</head>
+<link href="~/Content/tables.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/calendar.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/calendar.js"></script>
 <div id="event-box"></div>
 @if (User.IsInRole("Admin"))
 {
@@ -29,4 +10,7 @@
         @Html.ActionLink("Create New", "Create")
     </p>
 }
+<h4>
+    <img src="~/Pictures/282px-Golden_star.svg.png" style="width:5%" alt="Event Star" /> = Events<br />Point to any event for details
+</h4>
 <div id="calendar"></div>

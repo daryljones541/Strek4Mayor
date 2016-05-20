@@ -100,13 +100,13 @@ function renderCalender(monthYear) {
     var width = $('#events td').width() * .75;
     $('#events td').height(width);
     $(window).scrollTop(scrollbar);
-    $('.display-event').hover(
-        function () {
-            var hoverText = $(this).attr('id');
-            //$(this).css('cursor', 'pointer');
-            $(this).attr('title', hoverText);
-        }
-    );
+    //$('.display-event').hover(
+    //    function () {
+    //        var hoverText = $(this).attr('id');
+    //        //$(this).css('cursor', 'pointer');
+    //        $(this).attr('title', hoverText);
+    //    }
+    //);
 
     $('.calendar-box').hover(
         function () {
@@ -125,32 +125,41 @@ function renderCalender(monthYear) {
         }
     );
 
-    $('.display-event').click(
+
+    $('.display-event').mouseenter(
+       function () {
+           $('#event-box').finish();
+           if (typeof eventTimer != 'undefined') {
+               clearTimeout(eventTimer);
+           }
+           var eventText = $(this).attr('id');
+           eventText = eventText.replace(/\n/g, "<br />");
+           var pos = $(this).position();
+           var positionLeft = pos.left;
+           var positionTop = pos.top;
+           var boxHeight = $(this).outerHeight();
+           var boxWidth = $(this).outerWidth();
+           $('#event-box').html(eventText);
+           var eventWidth = $('#event-box').outerWidth();
+           var eventHeight = $('#event-box').outerHeight();
+           positionLeft += (boxWidth / 2) - (eventWidth / 2);
+           positionTop += boxHeight / 2 - (eventHeight / 2);
+           $('#event-box').css('top', positionTop);
+           $('#event-box').css('left', positionLeft);
+           $('#event-box').fadeIn();
+       }
+   ).mouseleave( 
         function () {
-            $('#event-box').finish();
-            if (typeof eventTimer != 'undefined') {
-                clearTimeout(eventTimer);
-            }
-            var eventText = $(this).attr('id');
-            eventText = eventText.replace(/\n/g, "<br />");
-            var pos = $(this).position();
-            var positionLeft = pos.left;
-            var positionTop = pos.top;
-            $('#event-box').html(eventText);
-            $('#event-box').css('top', positionTop + 10);
-            $('#event-box').css('left', '0');
-            $('#event-box').stop().animate({
-                left: "+=" + (positionLeft - 10),
-                height: "toggle"
-            }, 1000, function () {
-                eventTimer = setTimeout(function () {
-                    $('#event-box').stop().hide(1000);
-                }, 10000);
-                
-            });
-            $('#event-box').css('display', 'block');
+            $('#event-box').fadeOut(1200);
         }
     );
+        
+
+    //$('.hover-event').mouseout(
+      //  function () {
+       //     $('#event-box').fadeOut();
+       // }
+    //);
 
     $('#left-arrow').click(
         function () {
