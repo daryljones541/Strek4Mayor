@@ -32,12 +32,12 @@
 
 #left-arrow {
     float: left;
-    max-width: 15%;
+    max-width: 10%;
 }
 
 #right-arrow {
     float: right;
-    max-width: 15%;
+    max-width: 10%;
 }
 
 .display-event {
@@ -47,10 +47,6 @@
 .display-event img {
     width: 50%;
     margin-left: 25%;
-}
-
-.display-event:hover {
-    cursor: pointer;   
 }
 
 #calendar-title {

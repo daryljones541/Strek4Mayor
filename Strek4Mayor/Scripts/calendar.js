@@ -101,23 +101,6 @@ function renderCalender(monthYear) {
     $('#events td').height(width);
     $(window).scrollTop(scrollbar);
 
-    $('.calendar-box').hover(
-        function () {
-            $(this).css('border', '2px solid black');
-        }, function () {
-            $(this).css('border', '1px solid black');
-        });
-
-    $('.calendar-box').click(
-        function () {
-            $('#event-box').finish();
-            if (typeof eventTimer != 'undefined') {
-                clearTimeout(eventTimer);
-            }
-            $('#event-box').css('display', 'none');
-        }
-    );
-
     $('.display-event').mouseenter(
        function () {
            $('#event-box').finish();

@@ -303,7 +303,6 @@
     <Content Include="Views\QandA\Details.cshtml" />
     <Content Include="Views\QandA\Edit.cshtml" />
     <Content Include="Views\QandA\Index.cshtml" />
-    <Content Include="Views\Donations\Make.cshtml" />
     <Content Include="Views\Donations\Complete.cshtml" />
     <Content Include="Views\Donations\Cancel.cshtml" />
     <Content Include="Views\Employments\List.cshtml" />
