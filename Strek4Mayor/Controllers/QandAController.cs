@@ -16,16 +16,9 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: /QandA/
-        public ActionResult Index(string searchString)
+        public ActionResult Search(string searchString)
         {
-            var search = from s in db.QandAs
-                         select s;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                search = search.Where(s => s.Body.Contains(searchString));
-            }
-
+            var search = db.QandAs.Where(s => s.Body.Contains(searchString));
             //return View(db.QandAs.ToList());
             return View(search);
         }
@@ -33,6 +26,11 @@ namespace Strek4Mayor.Controllers
         public ActionResult Thanks()
         {
             return View();
+        }
+
+        public ActionResult Index()
+        {
+            return View(db.QandAs.ToList());
         }
 
         public ActionResult AjaxIndex()

@@ -21,10 +21,10 @@
       <br />
          @if (User.IsInRole("Admin"))
              {
-                 using (Html.BeginForm())
+                using (Html.BeginForm("Search", "QandA", FormMethod.Post))
                 {
-                     @Html.TextBox("SearchString"); <br />
-                     <input type="submit" value="Search" />
+                    @Html.TextBox("SearchString"); <br />
+                    <input type="submit" value="Search" />
                 }
              }
       </p>
