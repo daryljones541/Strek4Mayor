@@ -16,10 +16,18 @@
         background-color: lightblue;
     }
 </style>
-
-<p>
-    <input type="button" id="submit" style='width:300px' value="Ask Me a Question" onclick="location.href='@Url.Action("Create", "QandA")'" />
-</p>
+      <p>
+      <input type="button" id="submit" style='width:300px' value="Ask Me a Question" onclick="location.href='@Url.Action("Create", "QandA")'" />
+      <br />
+         @if (User.IsInRole("Admin"))
+             {
+                 using (Html.BeginForm())
+                {
+                     @Html.TextBox("SearchString"); <br />
+                     <input type="submit" value="Search" />
+                }
+             }
+      </p>
 
 @foreach (var item in Model)
 {

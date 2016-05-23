@@ -9,6 +9,8 @@ namespace Strek4Mayor.Models
     public class QandA
     {
         public int QandAId { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         [Display(Name = "Question")]
         public string Body { get; set; }
