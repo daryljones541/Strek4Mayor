@@ -9,27 +9,45 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @*Favicon stuff*@
-    <link rel="apple-touch-icon" sizes="57x57" href="~/Favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="~/Favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="~/Favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="~/Favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="~/Favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="~/Favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="~/Favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="~/Favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="~/Favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="~/Favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="~/Favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="~/Favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="~/Favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <link href="~/Content/master.css" rel="stylesheet" type="text/css" />
+
+    @*Various social media tags*@
+    <meta name="description" content="Stefan Strek wants to be your next Mayor, Eugene!" />
+    @*Twitter*@
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:site" content="@realStefanStrek" />
+    <meta name="twitter:title" content="Page Title">
+    <meta name="twitter:description" content="Stefan wants to represent you, Eugene!">
+    <meta name="twitter:creator" content="@realStefanStrek">
+    <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/702752099189129216/hg6c5Ycq_400x400.jpg">
+    @*More general tags*@
+    <meta property="og:title" content="Strek For Mayor!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.votestrek.com" />
+    <meta property="og:image" content="http://www.votestrek.com/Pictures/business2.jpg" />
+    <meta property="og:description" content="Stefan wants to represent you as Mayor, Eugene!" />
+    <meta property="og:site_name" content="VoteStrek" />
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @*Favicon stuff*@
+        <link rel="apple-touch-icon" sizes="57x57" href="~/Favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="~/Favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="~/Favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="~/Favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="~/Favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="~/Favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="~/Favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="~/Favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="~/Favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="~/Favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="~/Favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="~/Favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="~/Favicon/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <link href="~/Content/master.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="navbar">     
