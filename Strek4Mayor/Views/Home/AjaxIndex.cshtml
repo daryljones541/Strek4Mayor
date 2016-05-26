@@ -1,7 +1,7 @@
 ﻿<style>
     .blocks {
         width: 25%;
-        float: right;
+        float: left;
         margin-bottom: 2vh;
         text-align: center;
     }
@@ -23,25 +23,26 @@
 <br />
 <h1 style="text-align:center"> Stefan Strek stands for...</h1>
 <br />
-@*<p align="center"></p>*@
-<a href='@Url.Action("Index", "Issues")'>
-<div class="blocks" style="margin-left:12%;">
-    <img src="~/Pictures/animals.png" height=95 width=230>
-    <br />
-    <p>Animal Welfare</p>
-</div>
-</a>
-<a href='@Url.Action("Index", "Issues")'>
-<div class="blocks">
-    <img src="~/Pictures/housing.png" height=95 width=230>
-    <br />
-    <p>Housing Assistance</p>
-</div>
-</a>
-<a href='@Url.Action("Index", "Issues")'>
-<div class="blocks">
-    <img src="~/Pictures/committee.png" height=95 width=230>
-    <br />
-    <p>Community Development</p>
+<div style="margin-left:12%;">
+    <a href='@Url.Action("Index", "Issues")'>
+        <div class="blocks">
+            <img src="~/Pictures/animals.png" height=95 width=230>
+            <br />
+            <p>Animal Welfare</p>
+        </div>
+    </a>
+    <a href='@Url.Action("Index", "Issues")'>
+        <div class="blocks">
+            <img src="~/Pictures/housing.png" height=95 width=230>
+            <br />
+            <p>Housing Assistance</p>
+        </div>
+    </a>
+    <a href='@Url.Action("Index", "Issues")'>
+        <div class="blocks">
+            <img src="~/Pictures/committee.png" height=95 width=230>
+            <br />
+            <p>Community Development</p>
+        </div>
 </div>
 </a>
