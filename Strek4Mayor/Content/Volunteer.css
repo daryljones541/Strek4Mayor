@@ -1,0 +1,53 @@
+﻿*{
+    padding: 0px;
+    margin: 0px;
+}
+.clear{
+    clear:both;
+}
+
+#right-pannel{
+    float:right;
+    height:500px;
+    width:50%;
+}
+
+#left-pannel{
+    float:left;
+    height:500px;
+    width:50%;
+}
+
+#bottom-pannel{
+    height:500px;
+    width:100%;
+}
+
+ul li{
+    padding-right:0px;
+    list-style-type:none;
+    margin-left:50px;
+}
+
+ul li div{
+    float:left;
+    display:inline;
+}
+.checkbox{
+    padding-left:150px;
+}
+#CaptchaCode{
+    margin-top: 70px;
+}
+ .form-group{
+     padding: 55px 50px;
+}
+ .width2{
+     width:33%;
+ }
+
+ #logo {
+    width: 100%;
+    background: url(/Pictures/LogoSS.png) 50% 0%;
+    background-repeat: no-repeat;
+}

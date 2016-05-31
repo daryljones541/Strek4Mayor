@@ -3,10 +3,11 @@
     ViewBag.Title = "Thanks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<meta http-equiv="refresh" content="0; url= ~/Home/Index">
-<h2>Thank for your question. Once reviewed your question will be answered as soon as possible</h2>
+<meta http-equiv="refresh" content="10; url= ~/Home/Index">
+<h2>Thank for your volunteering. Once Mr Sterk needs volunteers he will contact you</h2>
+<h3> this page will redrict in 10 sec if it dose not please click the button below to take you back to the home page</h3>
 </br>
-<input type="button" id="submit" style='width:300px' value="return to Question page" onclick="location.href='@Url.Action("Index", "QandA")'" />
+<input type="button" id="submit" style='width:300px' value="return to Home page" onclick="location.href='@Url.Action("Index", "Home")'" />
 <script>
     $('.tile-6').addClass('highlighted');
 </script>
