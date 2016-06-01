@@ -27,3 +27,9 @@ h2{
 #wrapper {
     overflow: auto;
 }
+
+#logo {
+    width: 100%;
+    background: url(/Pictures/LogoSS.png) 50% 0%;
+    background-repeat: no-repeat;
+}

@@ -4,9 +4,8 @@
     ViewBag.Title = "Thanks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Thank for your question. Once reviewed your question will be answered as soon as possible</h2>
-</br>
+<meta http-equiv="refresh" content="10; url= ~/QandA/Index">
+<h2 style="color:red;">Thank for your question. Once reviewed your question will be answered as soon as possible. You will be redirected in 10 seconds</h2></br>
 <input type="button" id="submit" style='width:300px' value="return to Question page" onclick="location.href='@Url.Action("Index", "QandA")'" /> 
 
 <script>
