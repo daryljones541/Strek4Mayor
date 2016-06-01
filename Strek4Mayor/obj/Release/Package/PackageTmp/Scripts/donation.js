@@ -1,4 +1,13 @@
-﻿$(function () {
+﻿$().ready(function () {
+    if ($('#employ-check').is(':checked')) {
+        $(".employ-data").hide();
+    }
+    else {
+        $(".employ-data").show();
+    }
+});
+
+$(function () {
     $('#employ-check').change(function () {
         if ($(this).is(':checked')) {
             $(".employ-data").hide();
