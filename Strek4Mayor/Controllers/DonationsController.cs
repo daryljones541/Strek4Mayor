@@ -65,6 +65,7 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
+            if (string.IsNullOrEmpty(donationVM.Amount)) return View(donationVM);
             if (donationVM.NoEmployment==true)
             {
                 donationVM.Occupation = "";
@@ -84,6 +85,7 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AjaxIndex([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
+            if (string.IsNullOrEmpty(donationVM.Amount)) return View(donationVM);
             if (donationVM.NoEmployment == true)
             {
                 donationVM.Occupation = "";
