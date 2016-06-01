@@ -89,7 +89,7 @@ namespace Strek4Mayor.Controllers
                 };
                 db.Events.Add(addEvent);
                 db.SaveChanges();
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
             else {
                 PopulateTime(eventVM);
@@ -126,7 +126,15 @@ namespace Strek4Mayor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            EventVM eventVM = new EventVM { ID=@event.EventID, Date = @event.Date, Location = @event.Location, Title = @event.Title };
+            PopulateTime(eventVM);
+            string currentTime = @event.Date.ToShortTimeString();
+            eventVM.TimeSelection=0;
+            while (currentTime != eventVM.Time[eventVM.TimeSelection].Text && eventVM.TimeSelection<48)
+            {
+                eventVM.TimeSelection++;
+            }
+            return View(eventVM);
         }
 
         // POST: Events/Edit/5
@@ -134,15 +142,27 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,Date,Location,Title,Description")] Event @event)
+        public ActionResult Edit([Bind(Include = "ID,Date,Location,Title,TimeSelection")] EventVM eventVM)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(@event).State = EntityState.Modified;
+                PopulateTime(eventVM);
+                DateTime date = eventVM.Date;
+                TimeSpan time = Convert.ToDateTime(eventVM.Time[eventVM.TimeSelection].Text).TimeOfDay;
+                date = date.Add(time);
+                Event editEvent = db.Events.Find(eventVM.ID);
+                editEvent.Date=date;
+                editEvent.Location=eventVM.Location;
+                editEvent.Title=eventVM.Title;
+                db.Entry(editEvent).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
-            return View(@event);
+            else
+            {
+                PopulateTime(eventVM);
+            }
+            return View(eventVM);
         }
 
         // GET: Events/Delete/5

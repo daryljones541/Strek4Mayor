@@ -15,6 +15,7 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+
     $(".tile-2").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-2').addClass('highlighted');
@@ -30,6 +31,7 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+
     $(".tile-3").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-3').addClass('highlighted');
@@ -46,6 +48,7 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+
     $(".tile-4").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-4').addClass('highlighted');
@@ -61,6 +64,7 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+
     $(".tile-5").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-5').addClass('highlighted');
@@ -76,6 +80,7 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+
     $(".tile-6").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-6').addClass('highlighted');
@@ -91,6 +96,7 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+
     $(".tile-7").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-7').addClass('highlighted');
@@ -106,6 +112,7 @@
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
     });
+
     $(".tile-8").click(function () {
         $('.navlink').removeClass('highlighted');
         $('.tile-8').addClass('highlighted');
@@ -120,6 +127,28 @@
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
+    });
+
+    var i = null;
+    $(document).mousemove(function () {
+        if (inside == true) return;
+        clearTimeout(i);
+        $("#navbar").fadeIn();
+        i = setTimeout(function () {
+            $("#navbar").fadeOut();
+        }, 2000);
+    }).mouseleave(function () {
+        clearTimeout(i);
+        $("#navbar").fadeOut();
+    });
+
+    var inside = false;
+    $('#navbar').mouseenter(function () {
+        clearTimeout(i);
+        $('#navbar').show();
+        inside = true;
+    }).mouseleave(function () {
+        inside=false;
     });
 });
 

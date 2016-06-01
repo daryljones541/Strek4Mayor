@@ -9,6 +9,7 @@ namespace Strek4Mayor.Models
 {
     public class EventVM
     {
+        public int ID { get; set; }
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Date { get; set; }
