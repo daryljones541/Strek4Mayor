@@ -1,16 +1,20 @@
 ﻿@model Strek4Mayor.Models.DonationVM
 <style>
     .amount-button {
-        float: right;
-        font-size: xx-large;
-        font-weight: bold;
-        text-align: center;
+        background-color: #F0E68C;
+        border: 1px solid black;
+        border-radius: 90%;
+        float: left;
+        height: 6vw;      
+        margin: 5px;
+        padding-top: 2.5vh;
+        text-align: center;    
+        width: 6vw;
     }
 
-    .amount-button {
-        border: 1px solid black;
-        margin: 5px;
-        padding: 5px;
+    .my-font {
+        font-size: 1.8vw;
+        font-weight: bold;
     }
 
     .amount-button:hover {
@@ -20,40 +24,54 @@
     .highlight {
         background-color: greenyellow !important;
     }
+
+    #left-side {
+        float: left;
+        margin-left: 5%;
+        width: 50%;
+    }
+
+    #right-side {
+        float: right;
+        margin-right:5%;
+        margin-top:1%;
+        width: 40%;
+    }
+
+    #submit-donation {
+        border: 1px solid gray;
+        border-radius: 60%;
+        font-size: 1.8vw;
+        margin-left: 17%;
+        margin-top: 1vh;
+        padding:10px;
+    }
+
+    #submit-donation:hover {
+        background-color: lightblue;
+    }
 </style>
 
-<h2>Make a Donation</h2>
-<hr />
+<h1>Make a Donation</h1>
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "donation-form" }))
 {
     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-horizontal">
-
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <div class="form-group" style="margin-top:50px;">
-            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @id = "amount-field" } })
-                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-1 amount-button dollar" id="100">$100</div>
-            <div class="col-md-1 amount-button dollar" id="50">$50</div>
-            <div class="col-md-1 amount-button dollar" id="20">$20</div>
-            <div class="col-md-1 amount-button dollar" id="10">$10</div>
-            <div class="col-md-1 amount-button dollar" id="5">$5</div>
-                
-                
-                
-                
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.NoEmployment, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NoEmployment, new { htmlAttributes = new { @id = "employ-check", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NoEmployment, "", new { @class = "text-danger" })
+    <div style="text-align:center;margin: 3%;">
+        @Html.Label("How much do you want to donate?", htmlAttributes: new { @class = "control-label my-font" })
+        @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "col-md-offset-1 my-font", @id = "amount-field" } })
+    </div>
+    @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger", @style="text-align:center;" })
+    <div id="left-side">
+        <span class="my-font">Employment Info</span>
+        <div class="form-horizontal">      
+            <div class="form-group">
+                @Html.LabelFor(model => model.NoEmployment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NoEmployment, new { htmlAttributes = new { @id = "employ-check", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NoEmployment, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -72,9 +90,23 @@
                 @Html.ValidationMessageFor(model => model.Employer, "", new { @class = "text-danger employ-data" })
             </div>
         </div>
+        @ViewBag.Message
     </div>
-    <hr />
-    <input type="submit" value="Continue" style="margin-left:15vw;" />
+</div>
+    <div id="right-side" class="my-font">
+        <div class="row" style="margin-left:2.7vw;">
+            <div class="amount-button dollar" id="100">$100</div>
+            <div class="amount-button dollar" id="50">$50</div>
+        </div>
+        <div class="row">
+            <div class="amount-button dollar" id="20">$20</div>
+            <div class="amount-button dollar" id="10">$10</div>
+            <div class="amount-button dollar" id="5">$5</div>
+        </div>
+        <div class="row">
+            <input type="submit" id="submit-donation" value="Continue" />
+        </div>
+    </div>
 }
 
 @section Scripts {

@@ -17,7 +17,7 @@ $(function () {
 
 $(function () {
     $('.dollar').mouseleave(function () {
-        $(this).css('background-color', 'transparent');
+        $(this).css('background-color', '#F0E68C');
     });
 });
 

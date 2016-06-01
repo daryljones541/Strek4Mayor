@@ -63,47 +63,33 @@ namespace Strek4Mayor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public void Index([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
+        public ActionResult Index([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
-            if (donationVM.NoEmployment == true)
+            if (donationVM.NoEmployment==true)
             {
                 donationVM.Occupation = "";
                 donationVM.Employer = "";
             }
+            else if (!ModelState.IsValid) return View();          
             Employment employment=new Employment { Employer=donationVM.Employer,
                 Occupation=donationVM.Occupation, Unemployed=donationVM.NoEmployment };
             db.Employments.Add(employment);
             db.SaveChanges();
-            Response.Clear();
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<html>");
-            sb.AppendFormat(@"<body onload='document.forms[""form""].submit()'>");
-            sb.AppendFormat("<form name='form' action='{0}' method='post'>", "https://www.sandbox.paypal.com/cgi-bin/webscr");
-            sb.AppendFormat("<input type='hidden' name='custom' value='{0}'>", employment.EmploymentID.ToString());
-            sb.AppendFormat("<input type='hidden' name='cmd' value='{0}'>", "_donations");
-            sb.AppendFormat("<input type='hidden' name='business' value='{0}'>", "daryljones541-facilitator@gmail.com");
-            sb.AppendFormat("<input type='hidden' name='lc' value='{0}'>", "US");
-            sb.AppendFormat("<input type='hidden' name='item_name' value='{0}'>", "Strek4Mayor");
-            sb.AppendFormat("<input type='hidden' name='no_note' value='{0}'>", "1");
-            sb.AppendFormat("<input type='hidden' name='no_shipping' value='{0}'>", "2");
-            sb.AppendFormat("<input type='hidden' name='currency_code' value='{0}'>", "USD");
-            sb.AppendFormat("<input type='hidden' name='amount' value='{0}'>", donationVM.Amount.ToString());
-            sb.Append("</form>");
-            sb.Append("</body>");
-            sb.Append("</html>");
-            Response.Write(sb.ToString());
-            Response.End();
+            ViewBag.Amount = donationVM.Amount.ToString();
+            ViewBag.EmploymentID = employment.EmploymentID.ToString();
+            return View("Continue");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public void AjaxIndex([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
+        public ActionResult AjaxIndex([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
             if (donationVM.NoEmployment == true)
             {
                 donationVM.Occupation = "";
                 donationVM.Employer = "";
             }
+            else if (!ModelState.IsValid) return View();
             Employment employment = new Employment
             {
                 Employer = donationVM.Employer,
@@ -112,25 +98,9 @@ namespace Strek4Mayor.Controllers
             };
             db.Employments.Add(employment);
             db.SaveChanges();
-            Response.Clear();
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<html>");
-            sb.AppendFormat(@"<body onload='document.forms[""form""].submit()'>");
-            sb.AppendFormat("<form name='form' action='{0}' method='post'>", "https://www.sandbox.paypal.com/cgi-bin/webscr");
-            sb.AppendFormat("<input type='hidden' name='custom' value='{0}'>", employment.EmploymentID.ToString());
-            sb.AppendFormat("<input type='hidden' name='cmd' value='{0}'>", "_donations");
-            sb.AppendFormat("<input type='hidden' name='business' value='{0}'>", "daryljones541-facilitator@gmail.com");
-            sb.AppendFormat("<input type='hidden' name='lc' value='{0}'>", "US");
-            sb.AppendFormat("<input type='hidden' name='item_name' value='{0}'>", "Strek4Mayor");
-            sb.AppendFormat("<input type='hidden' name='no_note' value='{0}'>", "1");
-            sb.AppendFormat("<input type='hidden' name='no_shipping' value='{0}'>", "2");
-            sb.AppendFormat("<input type='hidden' name='currency_code' value='{0}'>", "USD");
-            sb.AppendFormat("<input type='hidden' name='amount' value='{0}'>", donationVM.Amount.ToString());
-            sb.Append("</form>");
-            sb.Append("</body>");
-            sb.Append("</html>");
-            Response.Write(sb.ToString());
-            Response.End();
+            ViewBag.Amount = donationVM.Amount.ToString();
+            ViewBag.EmploymentID = employment.EmploymentID.ToString();
+            return View("Continue");
         }
 
         public ActionResult Complete()

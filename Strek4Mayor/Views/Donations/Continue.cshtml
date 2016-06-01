@@ -1,0 +1,16 @@
+﻿<html>
+<body onload='document.forms["form"].submit()'>
+    <h1>Transferring you to PayPal...</h1>
+    <form name='form' action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post'>
+    <input type='hidden' name='custom' value='@ViewBag.EmploymentID' />
+    <input type='hidden' name='cmd' value='_donations' />
+    <input type='hidden' name='business' value='daryljones541-facilitator@gmail.com' />
+    <input type='hidden' name='lc' value='US' />
+    <input type='hidden' name='item_name' value='Strek4Mayor' />
+    <input type='hidden' name='no_note' value='1' />
+    <input type='hidden' name='no_shipping' value='2' />
+    <input type='hidden' name='currency_code' value='USD' />
+    <input type='hidden' name='amount' value='@ViewBag.Amount' />
+    </form>
+</body>
+</html>
