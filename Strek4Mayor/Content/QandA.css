@@ -1,6 +1,27 @@
 ﻿body {
 }
 
+.question-box {
+        background-color: #EEE8AA;
+        border: 1px solid #D2B48C;
+        margin-top: 2vh;
+        padding: 15px;
+    }
+.question-box hr {
+        height: 1px;
+        margin: 2vh 2vw;
+        background: #D2B48C;
+    }
+.question-button {
+        width: 300px;
+        border: 2px solid;
+        border-radius: 25px;
+        background-color: silver;
+        font-weight: bold;
+    }
+#submit:hover {
+    background-color: lightblue;
+    }  
 .Error {
     font-size: 1em;
     color: red;

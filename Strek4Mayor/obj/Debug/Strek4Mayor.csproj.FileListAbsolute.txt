@@ -232,4 +232,3 @@ C:\Users\User\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csp
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.Migrations.Strek4MayorContext.resources
 C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csproj.GenerateResource.Cache
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache
-C:\Users\Hunter\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Debug\Strek4Mayor.csprojResolveAssemblyReference.cache
