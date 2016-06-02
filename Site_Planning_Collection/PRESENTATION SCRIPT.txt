@@ -23,15 +23,20 @@ table of contents(the order in which we present)
 		- Emails back and forth, mentioning what were working on and how we are prioritizing.
 		- Bumping into him downtown while he's campaigning.
 	3. team colab (HUNTER)
-	•	Helping with bugs 
-	•	Testing each other’s pages throughout the process
-	•	Staying in contact with each other through email consistently 
-	•	Discussing future plans for upcoming weeks
-	•	Good culture and all around attitude
-	•	Members with strong skills in certain areas helped and explained it to others
-	•	Github used frequently and often. Worked with each other to learn github
+	â€¢	Helping with bugs 
+	â€¢	Testing each otherâ€™s pages throughout the process
+	â€¢	Staying in contact with each other through email consistently 
+	â€¢	Discussing future plans for upcoming weeks
+	â€¢	Good culture and all around attitude
+	â€¢	Members with strong skills in certain areas helped and explained it to others
+	â€¢	Github used frequently and often. Worked with each other to learn github
 	4. proj management (MATT)
-	5. design of system (DARYLL)
+	5. design of system (DARYL)
+	â€¢	Designed around Stefanâ€™s specs
+	â€¢	Vertical design
+	â€¢	Built around shared layout and fixed AJAX navbar
+
+
 	
 	-USER SEGWAY-
 	
