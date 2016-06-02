@@ -1,0 +1,45 @@
+--15 to 20 min
+--Cover things from the document about our teamwork and how 
+--we handled the project.
+
+--OBJECTIVES OF PRESENTATION
+--Evaluation	of	the	development	process. Describe what went	well and how you could do	
+--each of these things better in the future:
+--(Discuss these things In your presentation-putting them in written form is optional)
+--	(ALLEN)	i. Communication with your client, especially elicitation of requirements.
+--	(HUNTER)ii. Team collaboration 
+--	(DARYLL)iii. Designing the system
+--	(MATT)	iv. Project	management
+
+table of contents(the order in which we present)
+	1. General intro: (ALLEN)
+		- Meeting stefan and offering to create site for our project
+		- Figuring out what we can legally do as a website to run for mayor
+			- (possibility of merch store not allowed, restriction of non-profit)
+			- How we can legally take donation and what info we can store
+	2. Segway into comm with client (ALLEN)
+		- Scheduling meetings with our group to meet Stef and figure out what is needed
+			- Hashing out what he wants from the website and how it can be accomplished during meetings
+		- Emails back and forth, mentioning what were working on and how we are prioritizing.
+		- Bumping into him downtown while he's campaigning.
+	3. team colab (HUNTER)
+	4. proj management (MATT)
+	5. design of system (DARYLL)
+	
+	-USER SEGWAY-
+	
+	(user side presentation)
+	- (DARYLL) Donation + Calendar + Nav bar
+	- (HUNTER) Q+A + social media (soothing captcha)
+	- (MATT) Issues + Volunteer
+	- (ALLEN) Home + About + in-the-news
+	
+	-ADMIN SEGWAY-
+	
+	- (DARYLL) general admin presentation (showing off buttons)
+	
+	- General outro (talk about goals and how we accomplished them)
+					(talk about future of website + possible longevity)
+					
+
+	
