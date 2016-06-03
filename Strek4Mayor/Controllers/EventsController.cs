@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
-using System.Web.UI.WebControls;
 
 namespace Strek4Mayor.Controllers
 {
@@ -28,16 +25,16 @@ namespace Strek4Mayor.Controllers
             List<Event> events = db.Events.OrderBy(x => x.Date).ToList();
             return View(events);
         }
-
+        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult AjaxList()
         {
             List<Event> events = db.Events.OrderBy(x => x.Date).ToList();
             return PartialView(events);
         }
 
-        public JsonResult GetList()
+        public JsonResult GetList(int month)
         {
-            var events=db.Events.OrderBy(x=>x.Date);
+            var events=db.Events.Where(x=>x.Date.Month==month);
             return Json(events, JsonRequestBehavior.AllowGet);
         }
 
@@ -89,6 +86,10 @@ namespace Strek4Mayor.Controllers
                 };
                 db.Events.Add(addEvent);
                 db.SaveChanges();
+                var clearCache = Url.Action("AjaxIndex", "Events");
+                Response.RemoveOutputCacheItem(clearCache);
+                clearCache = Url.Action("Index", "Events");
+                Response.RemoveOutputCacheItem(clearCache);
                 return RedirectToAction("Index");
             }
             else {

@@ -22,6 +22,7 @@ namespace Strek4Mayor.Controllers
             return View(db.volunteers.ToList());
         }
 
+        [OutputCache(Duration = 300, VaryByParam = "none")]
         public ActionResult AjaxCreate()
         {
             return PartialView();
@@ -94,6 +95,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: volunteers/Create
+        [OutputCache(Duration = 300, VaryByParam = "none")]
         public ActionResult Create()
         {
             return View();
@@ -105,6 +107,7 @@ namespace Strek4Mayor.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "Incorrect CAPTCHA code!")]
+        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Create([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer, bool captchavalid)
         {
             if (ModelState.IsValid)

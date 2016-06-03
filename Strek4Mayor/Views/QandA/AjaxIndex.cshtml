@@ -1,9 +1,23 @@
 ﻿@model IEnumerable<Strek4Mayor.Models.QandA>
 
-
-      <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/QandA.css")" />
+<style>
+    .question-box {
+        background-color: #EEE8AA;
+        border: 1px solid #D2B48C;
+        margin-top: 2vh;
+        padding: 15px;
+    }
+    .question-box hr {
+        height: 1px;
+        margin: 2vh 2vw;
+        background: #D2B48C;
+    }
+    #submit:hover {
+        background-color: lightblue;
+    }
+</style>
       <p>
-      <input type="button" id="submit" class="question-button" value="Ask Me a Question" onclick="location.href='@Url.Action("Create", "QandA")'" />
+      <input type="button" id="submit" style='width:300px' value="Ask Me a Question" onclick="location.href='@Url.Action("Create", "QandA")'" />
       <br />
          @if (User.IsInRole("Admin"))
              {

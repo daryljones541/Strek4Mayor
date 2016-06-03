@@ -1,8 +1,12 @@
 ﻿$().ready(function () {
     scrollbar = 0;
+    var today = new Date();
+    var todaysMonth = today.getMonth();
+    todaysMonth++;
     $.ajax({
         type: "GET",
         url: "/Events/GetList",
+        data: { month: todaysMonth },
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
@@ -10,8 +14,8 @@
             for (var i = 0; i < numEvents; i++) {
                 var objDate = new Date(parseInt(data[i]["Date"].replace('/Date(', '')));
                 data[i]["Date"] = objDate;
-                calendar(data);
             }
+            calendar(data);
         }
     });
 });
@@ -146,7 +150,24 @@ function renderCalender(monthYear) {
             }
             monthYear = new Date(year, month, day);
             scrollbar = $(window).scrollTop();
-            renderCalender(monthYear);
+            month++;
+
+            $.ajax({
+                type: "GET",
+                url: "/Events/GetList",
+                data: { month: month },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    numEvents = data.length;
+                    for (var i = 0; i < numEvents; i++) {
+                        var objDate = new Date(parseInt(data[i]["Date"].replace('/Date(', '')));
+                        data[i]["Date"] = objDate;
+                    }
+                    events = data;
+                    renderCalender(monthYear);
+                }
+            });         
         }
     );
 
@@ -166,8 +187,25 @@ function renderCalender(monthYear) {
                 year++;
             }
             monthYear = new Date(year, month, day);
-            scrollbar = $(window).scrollTop();
-            renderCalender(monthYear);
+            scrollbar = $(window).scrollTop();          
+            month++;
+
+            $.ajax({
+                type: "GET",
+                url: "/Events/GetList",
+                data: { month: month },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    numEvents = data.length;
+                    for (var i = 0; i < numEvents; i++) {
+                        var objDate = new Date(parseInt(data[i]["Date"].replace('/Date(', '')));
+                        data[i]["Date"] = objDate;
+                    }
+                    events = data;
+                    renderCalender(monthYear);
+                }
+            });
         }
     );
 }

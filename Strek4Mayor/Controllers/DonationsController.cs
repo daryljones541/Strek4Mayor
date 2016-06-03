@@ -46,12 +46,12 @@ namespace Strek4Mayor.Controllers
             ViewBag.Net = gross - fee;
             return View(donations);
         }
-
+        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult AjaxIndex()
         {
             return PartialView();
         }
-
+        [OutputCache(Duration = 60, VaryByParam = "none")]
         // GET: Donations/Create
         public ActionResult Index()
         {
