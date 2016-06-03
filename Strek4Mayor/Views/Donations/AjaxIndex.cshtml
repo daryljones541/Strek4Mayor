@@ -77,12 +77,10 @@
             @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger", @style = "text-align:center;" })
             <div id="left-side">
                 <span class="my-font">Employment Info</span>
-                <div class="form-horizontal">
+                <div class="form-horizontal" style="margin-top:10px;">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.NoEmployment, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NoEmployment, new { htmlAttributes = new { @id = "employ-check", @class = "form-control" } })
-                        </div>
+                        @Html.LabelFor(model => model.NoEmployment, htmlAttributes: new { @class = "control-label col-md-offset-1" })
+                        @Html.EditorFor(model => model.NoEmployment, new { htmlAttributes = new { @id = "employ-check", @style = "transform:scale(2.5, 2.5);margin-left: 15px;" } })
                     </div>
 
 
@@ -103,16 +101,16 @@
                 </div>
             </div>
             <div id="right-side" class="my-font">
-                <div class="row" style="margin-left:2.7vw;">
+                <div class="row" style="margin-left:6.5vw;">
                     <div class="amount-button dollar" id="100">$100</div>
                     <div class="amount-button dollar" id="50">$50</div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-left:3vw;">
                     <div class="amount-button dollar" id="20">$20</div>
                     <div class="amount-button dollar" id="10">$10</div>
                     <div class="amount-button dollar" id="5">$5</div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-left:4vw;">
                     <input type="submit" id="submit-donation" value="Continue" />
                 </div>
             </div>
