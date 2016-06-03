@@ -31,6 +31,9 @@ table of contents(the order in which we present)
 	•	Members with strong skills in certain areas helped and explained it to others
 	•	Github used frequently and often. Worked with each other to learn github
 	4. proj management (MATT)
+	•	scrum master
+	•	pivoltal tracker
+	•	users storys
 	5. design of system (DARYL)
 	•	Designed around Stefan’s specs
 	•	Vertical design
