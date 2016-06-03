@@ -11,6 +11,8 @@
             success: function (data) {
                 $('#ajax-box').html(data);
                 document.title = 'Home';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "About", "/Home");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -27,6 +29,8 @@
             success: function (data) {
                 $('#ajax-box').html(data);
                 document.title = 'About';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "About", "/Home/About");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -43,6 +47,8 @@
             success: function (data) {
                 $('#ajax-box').html(data);
                 document.title = 'Issues';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "Issues", "/Issues");
                 
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
@@ -60,6 +66,8 @@
             success: function (data) {
                 $('#ajax-box').html(data);
                 document.title = 'Donate';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "Donate", "/Donations");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -76,6 +84,8 @@
             success: function (data) {
                 $('#ajax-box').html(data);
                 document.title = 'Calendar';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "Calendar", "/Events/List");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -91,7 +101,9 @@
             dataType: "html",
             success: function (data) {
                 $('#ajax-box').html(data);
-                document.title = 'Q and A';
+                document.title = 'Q & A';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "Q & A", "/QandA");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -108,6 +120,8 @@
             success: function (data) {
                 $('#ajax-box').html(data);
                 document.title = 'Volunteer';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "Volunteer", "/Volunteers/Create");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -123,7 +137,9 @@
             dataType: "html",
             success: function (data) {
                 $('#ajax-box').html(data);
-                document.title = 'Volunteer';
+                document.title = 'News';
+                var stateObj = { foo: "bar" };
+                history.pushState(stateObj, "News", "/News");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
