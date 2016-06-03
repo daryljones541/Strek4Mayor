@@ -137,9 +137,9 @@
             dataType: "html",
             success: function (data) {
                 $('#ajax-box').html(data);
-                document.title = 'News';
+                document.title = 'In The News';
                 var stateObj = { foo: "bar" };
-                history.pushState(stateObj, "News", "/News");
+                history.pushState(stateObj, "In The News", "/NewsArticles");
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });

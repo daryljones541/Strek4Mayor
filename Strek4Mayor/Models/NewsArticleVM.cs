@@ -13,7 +13,6 @@ namespace Strek4Mayor.Models
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime PublishDate { get; set; }
-        public bool Hidden { get; set; }
         [Required]
         public string Url { get; set; }
     }
