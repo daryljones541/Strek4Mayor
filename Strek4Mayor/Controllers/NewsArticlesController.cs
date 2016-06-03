@@ -15,23 +15,22 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: NewsArticles
-        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Index()
         {
-            List<NewsArticle> articles = db.NewsArticles.OrderBy(i => i.PublishDate).ToList();
+            List<NewsArticle> articles = db.NewsArticles.OrderByDescending(i => i.PublishDate).ToList();
             return View(articles);
         }
-        [OutputCache(Duration = 60, VaryByParam = "none")]
+
         public ActionResult AjaxIndex()
         {
-            List<NewsArticle> articles = db.NewsArticles.OrderBy(i => i.PublishDate).ToList();
+            List<NewsArticle> articles = db.NewsArticles.OrderByDescending(i => i.PublishDate).ToList();
             return PartialView(articles);
         }
 
         [Authorize(Roles = "Admin")]
         public ActionResult AdminList()
         {
-            List<NewsArticle> articles = db.NewsArticles.OrderBy(i => i.PublishDate).ToList();
+            List<NewsArticle> articles = db.NewsArticles.OrderByDescending(i => i.PublishDate).ToList();
             return View(articles);
         }
 
@@ -69,10 +68,6 @@ namespace Strek4Mayor.Controllers
             {
                 db.NewsArticles.Add(newsArticle);
                 db.SaveChanges();
-                var clearCache = Url.Action("AjaxIndex", "Events");
-                Response.RemoveOutputCacheItem(clearCache);
-                clearCache = Url.Action("Index", "Events");
-                Response.RemoveOutputCacheItem(clearCache);
                 return RedirectToAction("Index", "Admin");
             }
 
@@ -136,6 +131,12 @@ namespace Strek4Mayor.Controllers
             db.NewsArticles.Remove(newsArticle);
             db.SaveChanges();
             return RedirectToAction("AdminList");
+        }
+
+        [HttpPost]
+        public void Load(string url)
+        {
+            Response.Redirect(url);
         }
 
         protected override void Dispose(bool disposing)
