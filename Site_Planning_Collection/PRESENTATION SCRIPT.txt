@@ -17,41 +17,53 @@ table of contents(the order in which we present)
 		- Figuring out what we can legally do as a website to run for mayor
 			- (possibility of merch store not allowed, restriction of non-profit)
 			- How we can legally take donation and what info we can store
-	2. Segway into comm with client (ALLEN)
-		- Scheduling meetings with our group to meet Stef and figure out what is needed
-			- Hashing out what he wants from the website and how it can be accomplished during meetings
-		- Emails back and forth, mentioning what were working on and how we are prioritizing.
-		- Bumping into him downtown while he's campaigning.
-	3. team colab (HUNTER)
-	•	Helping with bugs 
-	•	Testing each other’s pages throughout the process
-	•	Staying in contact with each other through email consistently 
-	•	Discussing future plans for upcoming weeks
-	•	Good culture and all around attitude
-	•	Members with strong skills in certain areas helped and explained it to others
-	•	Github used frequently and often. Worked with each other to learn github
-	4. proj management (MATT)
-	5. design of system (DARYL)
-	•	Designed around Stefan’s specs
-	•	Vertical design
-	•	Built around shared layout and fixed AJAX navbar
-
-
+			
+	DOCUMENT PART D:
 	
-	-USER SEGWAY-
+	2. Part A: Revised documentation(DARYLL)
+		- Talk about how our model changed over the course of the project?
+	3. Part B: Evaluation of the development process (MATT)
+		- Comm with client
+		- Team colab
+		- Design the system
+		- Project management
+	4. Part C i+ii (ALLEN)
+		- Assess the completeness and correctness of our system
+			- Does it do what the Client wants it to do?
+		- Assess quality of design
+			- Difficult features to add?
+			- Scaleable?
+			- Simple to convey the design?
+			- Responsive design in the final product?
+			- Would a different design have been better?
+	5. Part C iii (HUNTER)
+		- Easy to maintain software?
+			- easy bug fixes?
+			- easy to add new features?
+			- Little *dead* code?
+		- Well documented internally?
+			- Good nameing practices?
+			- Well commented?
+			- unit tests?
+		- Does it run fast? lots of users at once?
+		- Efficient code?
+		- Bug free?
+		- How are exceptions handled?
 	
-	(user side presentation)
-	- (DARYLL) Donation + Calendar + Nav bar
-	- (HUNTER) Q+A + social media (soothing captcha)
-	- (MATT) Issues + Volunteer
-	- (ALLEN) Home + About + in-the-news
+	-WEBSITE USER VIEW SEGWAY-
 	
-	-ADMIN SEGWAY-
+		- (DARYLL) Donation + Calendar + Nav bar
+		- (HUNTER) Q+A + social media (soothing captcha)
+		- (MATT) Issues + Volunteer
+		- (ALLEN) Home + About + in-the-news
 	
-	- (DARYLL) general admin presentation (showing off buttons)
+	-WEBSITE ADMIN SEGWAY-
 	
-	- General outro (talk about goals and how we accomplished them)
-					(talk about future of website + possible longevity)
+		- (DARYLL) general admin presentation (showing off buttons)
+			- Each of us shows how our individual admin function work?
+	
+	General outro (talk about goals and how we accomplished them)
+				  (talk about future of website + possible longevity)
 					
 
 	

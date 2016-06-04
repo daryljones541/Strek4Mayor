@@ -15,6 +15,7 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: NewsArticles
+        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Index()
         {
             List<NewsArticle> articles = db.NewsArticles.OrderByDescending(i => i.PublishDate).ToList();
@@ -28,6 +29,7 @@ namespace Strek4Mayor.Controllers
             return View(articles);
         }
 
+        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult AjaxIndex()
         {
             List<NewsArticle> articles = db.NewsArticles.OrderByDescending(i => i.PublishDate).ToList();
@@ -131,12 +133,6 @@ namespace Strek4Mayor.Controllers
             db.NewsArticles.Remove(newsArticle);
             db.SaveChanges();
             return RedirectToAction("AdminList");
-        }
-
-        [HttpPost]
-        public void Load(string url)
-        {
-            Response.Redirect(url);
         }
 
         protected override void Dispose(bool disposing)
