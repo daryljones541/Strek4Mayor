@@ -377,6 +377,7 @@
     <Content Include="Views\QandA\Search.cshtml" />
     <Content Include="Views\Donations\Continue.cshtml" />
     <Content Include="Views\volunteers\Thanks.cshtml" />
+    <Content Include="Views\NewsArticles\EditIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605170750429_Strek4MayorContext.resx">
