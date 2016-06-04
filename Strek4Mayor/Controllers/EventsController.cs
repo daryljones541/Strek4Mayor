@@ -25,7 +25,7 @@ namespace Strek4Mayor.Controllers
             List<Event> events = db.Events.OrderBy(x => x.Date).ToList();
             return View(events);
         }
-        [OutputCache(Duration = 60, VaryByParam = "none")]
+        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult AjaxList()
         {
             List<Event> events = db.Events.OrderBy(x => x.Date).ToList();

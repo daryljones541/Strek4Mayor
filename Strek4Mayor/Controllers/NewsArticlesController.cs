@@ -15,13 +15,13 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: NewsArticles
-        [OutputCache(Duration = 60, VaryByParam = "none")]
+        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult Index()
         {
             List<NewsArticle> articles = db.NewsArticles.OrderBy(i => i.PublishDate).ToList();
             return View(articles);
         }
-        [OutputCache(Duration = 60, VaryByParam = "none")]
+        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult AjaxIndex()
         {
             List<NewsArticle> articles = db.NewsArticles.OrderBy(i => i.PublishDate).ToList();

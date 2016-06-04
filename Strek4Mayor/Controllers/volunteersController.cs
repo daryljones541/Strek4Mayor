@@ -22,7 +22,7 @@ namespace Strek4Mayor.Controllers
             return View(db.volunteers.ToList());
         }
 
-        [OutputCache(Duration = 300, VaryByParam = "none")]
+        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult AjaxCreate()
         {
             return PartialView();
@@ -95,7 +95,7 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: volunteers/Create
-        [OutputCache(Duration = 300, VaryByParam = "none")]
+        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult Create()
         {
             return View();

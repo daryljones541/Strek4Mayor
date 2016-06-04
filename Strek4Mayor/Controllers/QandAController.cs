@@ -28,13 +28,13 @@ namespace Strek4Mayor.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "none")]
+        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult Index()
         {
             return View(db.QandAs.ToList());
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "none")]
+        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult AjaxIndex()
         {
             return PartialView(db.QandAs.ToList());
