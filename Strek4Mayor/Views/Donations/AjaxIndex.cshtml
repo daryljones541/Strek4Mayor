@@ -34,7 +34,6 @@
     #right-side {
         float: right;
         margin-right:5%;
-        margin-top:1%;
         width: 40%;
     }
 
@@ -74,7 +73,6 @@
                 @Html.Label("How much do you want to donate?", htmlAttributes: new { @class = "control-label my-font" })
                 @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "col-md-offset-1 my-font", @id = "amount-field" } })
             </div>
-            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger", @style = "text-align:center;" })
             <div id="left-side">
                 <span class="my-font">Employment Info</span>
                 <div class="form-horizontal" style="margin-top:10px;">
@@ -100,21 +98,24 @@
                     </div>
                 </div>
             </div>
-            <div id="right-side" class="my-font">
-                <div class="row" style="margin-left:6.5vw;">
+            <div id="right-side">
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger", @style = "text-align:center;" })
+                <div class="row my-font" style="margin-left:6.5vw;margin-top:1vh;">
                     <div class="amount-button dollar" id="100">$100</div>
                     <div class="amount-button dollar" id="50">$50</div>
                 </div>
-                <div class="row" style="margin-left:3vw;">
+                <div class="row my-font" style="margin-left:3vw;">
                     <div class="amount-button dollar" id="20">$20</div>
                     <div class="amount-button dollar" id="10">$10</div>
                     <div class="amount-button dollar" id="5">$5</div>
                 </div>
-                <div class="row" style="margin-left:4vw;">
+                <div class="row my-font" style="margin-left:4vw;">
                     <input type="submit" id="submit-donation" value="Continue" />
                 </div>
             </div>
-    <div id="clear"></div>
+            <div id="clear"></div>
+            @Html.Label("Alternatively, you can mail in your donation using our ") 
+            <a href="~/Pictures/StrekDonation.pdf" target="_blank">Donation Form</a>.
         </div><!--end or logo div-->
     }
    

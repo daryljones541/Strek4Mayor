@@ -1,4 +1,9 @@
-﻿<html>
+﻿@{
+    ViewBag.Title = "Make Donation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
 <body onload='document.forms["form"].submit()'>
     <h1>Transferring you to PayPal...</h1>
     <form name='form' action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post'>

@@ -176,14 +176,6 @@ namespace Strek4Mayor.Controllers
                                 ViewBag.Amount = donation.Amount;
                             }                           
                         }
-                        /*
-                        string payPalResponse = "";
-                        foreach (KeyValuePair<string, string> result in results)
-                        {
-                            payPalResponse += "<li>" + result.Key + " = " + result.Value + "</li>";
-                        }
-                        ViewBag.data = payPalResponse;
-                         */
                     }
                     else if (line == "FAIL")
                     {

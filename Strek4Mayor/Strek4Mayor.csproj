@@ -291,6 +291,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Favicon\manifest.json" />
+    <Content Include="Pictures\StrekDonation.pdf" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Strek4Mayor - Web Deploy %282%29.pubxml" />
