@@ -49,6 +49,13 @@
         width: 100px;
         overflow: hidden;
     }
+
+    .article-container {
+        background-color: #EEE8AA;
+        border: 1px solid #D2B48C;
+        margin-top: 2vh;
+        padding: 15px;
+    }
 </style>
 
 <h2>Index</h2>
@@ -59,39 +66,14 @@
         @Html.ActionLink("Create New Article", "Create")
     </p>
 }
-<table class="table">
     @foreach (var item in Model)
     {
-        if (item.Hidden == false)
-        {
-            <tr>
-                <td>
+                <div class="article-container">
                     <div class="linkButton" id="@item.Url">
                         <div class="links">
                             <iframe src="@item.Url" scrolling="no" @*frameborder="0"*@></iframe>
                         </div>
                     </div>
-                </td>
-                <td>
                     <a href="@item.Url">@Html.DisplayFor(modelItem => item.Title)</a>
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.PublishDate)
-                </td>*@
-                @if (User.IsInRole("Admin"))
-                {
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.NewsArticleID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.NewsArticleID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.NewsArticleID })
-                    </td>
-                }
-                else
-                {
-                    <td></td>
-                }
-            </tr>
-        }
+                </div>//I am not a CSS wizard. I wanted to have this float top left next to the thumbnail but couldn't
     }
-
-</table>
