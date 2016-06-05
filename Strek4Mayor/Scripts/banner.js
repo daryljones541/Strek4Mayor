@@ -9,10 +9,10 @@
             url: "/Home/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'Home';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "About", "/Home");
+                $('#ajax-box').html(data);
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -27,10 +27,10 @@
             url: "/Home/AjaxAbout/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'About';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "About", "/Home/About");
+                $('#ajax-box').html(data);
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -45,11 +45,10 @@
             url: "/Issues/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'Issues';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "Issues", "/Issues");
-                
+                $('#ajax-box').html(data);      
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -64,10 +63,10 @@
             url: "/Donations/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'Donate';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "Donate", "/Donations");
+                $('#ajax-box').html(data);
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -82,10 +81,10 @@
             url: "/Events/AjaxList/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'Calendar';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "Calendar", "/Events/List");
+                $('#ajax-box').html(data);
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -100,10 +99,10 @@
             url: "/QandA/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'Q & A';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "Q & A", "/QandA");
+                $('#ajax-box').html(data);     
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -118,10 +117,10 @@
             url: "/volunteers/AjaxCreate/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'Volunteer';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "Volunteer", "/Volunteers/Create");
+                $('#ajax-box').html(data);
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });
@@ -136,10 +135,10 @@
             url: "/NewsArticles/AjaxIndex/",
             dataType: "html",
             success: function (data) {
-                $('#ajax-box').html(data);
                 document.title = 'In The News';
                 var stateObj = { foo: "bar" };
                 history.pushState(stateObj, "In The News", "/NewsArticles");
+                $('#ajax-box').html(data);
             },
             error: function (data) { $('#ajax-box').html("Unable to retrieve page from server."); }
         });

@@ -1,4 +1,5 @@
 ﻿$().ready(function () {
+    selectAmount();
     if ($('#employ-check').is(':checked')) {
         $(".employ-data").hide();
     }
@@ -6,6 +7,16 @@
         $(".employ-data").show();
     }
 });
+
+function selectAmount() {
+    var amount = $('#amount-field').val();
+    var number = parseInt(amount);
+    if (number == 100) { $('#100').addClass('highlight'); }
+    else if (number == 50) { $('#50').addClass('highlight'); }
+    else if (number == 20) { $('#20').addClass('highlight'); }
+    else if (number == 10) { $('#10').addClass('highlight'); }
+    else if (number == 5) { $('#5').addClass('highlight'); }
+}
 
 $(function () {
     $('#employ-check').change(function () {
@@ -32,6 +43,7 @@ $(function () {
 
 $('#amount-field').keyup(function () {
     $('.dollar').removeClass('highlight');
+    selectAmount();
 })
 
 $(function () {

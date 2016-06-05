@@ -65,13 +65,13 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
-            if (string.IsNullOrEmpty(donationVM.Amount)) return View(donationVM);
+            if (string.IsNullOrEmpty(donationVM.Amount)) return View("Index", donationVM);
             if (donationVM.NoEmployment==true)
             {
                 donationVM.Occupation = "";
                 donationVM.Employer = "";
             }
-            else if (!ModelState.IsValid) return View();          
+            else if (!ModelState.IsValid) return View("Index", donationVM);          
             Employment employment=new Employment { Employer=donationVM.Employer,
                 Occupation=donationVM.Occupation, Unemployed=donationVM.NoEmployment };
             db.Employments.Add(employment);
@@ -85,13 +85,13 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AjaxIndex([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
-            if (string.IsNullOrEmpty(donationVM.Amount)) return View(donationVM);
+            if (string.IsNullOrEmpty(donationVM.Amount)) return View("AjaxIndex", donationVM);
             if (donationVM.NoEmployment == true)
             {
                 donationVM.Occupation = "";
                 donationVM.Employer = "";
             }
-            else if (!ModelState.IsValid) return View();
+            else if (!ModelState.IsValid) return View("AjaxIndex", donationVM);
             Employment employment = new Employment
             {
                 Employer = donationVM.Employer,
