@@ -11,6 +11,7 @@ using System.Text;
 using System.IO;
 using System.Collections.Specialized;
 using System.Web.Security;
+using System.Web.UI;
 
 namespace Strek4Mayor.Controllers
 {
@@ -46,12 +47,11 @@ namespace Strek4Mayor.Controllers
             ViewBag.Net = gross - fee;
             return View(donations);
         }
-        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult AjaxIndex()
         {
             return PartialView();
         }
-        [OutputCache(Duration = 86400, VaryByParam = "none")]
+
         // GET: Donations/Create
         public ActionResult Index()
         {
@@ -65,15 +65,19 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
-            if (string.IsNullOrEmpty(donationVM.Amount)) return View("Index", donationVM);
-            if (donationVM.NoEmployment==true)
+            if (string.IsNullOrEmpty(donationVM.Amount)) return View(donationVM);
+            if (donationVM.NoEmployment == true)
             {
                 donationVM.Occupation = "";
                 donationVM.Employer = "";
             }
-            else if (!ModelState.IsValid) return View("Index", donationVM);          
-            Employment employment=new Employment { Employer=donationVM.Employer,
-                Occupation=donationVM.Occupation, Unemployed=donationVM.NoEmployment };
+            else if (!ModelState.IsValid) return View(donationVM);          
+            Employment employment=new Employment 
+            { 
+                Employer=donationVM.Employer,
+                Occupation=donationVM.Occupation, 
+                Unemployed=donationVM.NoEmployment 
+            };
             db.Employments.Add(employment);
             db.SaveChanges();
             ViewBag.Amount = donationVM.Amount.ToString();
@@ -85,13 +89,13 @@ namespace Strek4Mayor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AjaxIndex([Bind(Include = "Amount,Employer,Occupation,NoEmployment")] DonationVM donationVM)
         {
-            if (string.IsNullOrEmpty(donationVM.Amount)) return View("AjaxIndex", donationVM);
+            if (string.IsNullOrEmpty(donationVM.Amount)) return View(donationVM);
             if (donationVM.NoEmployment == true)
             {
                 donationVM.Occupation = "";
                 donationVM.Employer = "";
             }
-            else if (!ModelState.IsValid) return View("AjaxIndex", donationVM);
+            else if (!ModelState.IsValid) return View(donationVM);
             Employment employment = new Employment
             {
                 Employer = donationVM.Employer,

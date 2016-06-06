@@ -56,3 +56,4 @@ C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4May
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.csproj.GenerateResource.Cache
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.dll
 C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.pdb
+C:\Users\Standard\Documents\GitHub\Strek4Mayor\Strek4Mayor\obj\Release\Strek4Mayor.csprojResolveAssemblyReference.cache

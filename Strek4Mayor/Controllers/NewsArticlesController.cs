@@ -15,7 +15,6 @@ namespace Strek4Mayor.Controllers
         private Strek4MayorContext db = new Strek4MayorContext();
 
         // GET: NewsArticles
-        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Index()
         {
             List<NewsArticle> articles = db.NewsArticles.OrderByDescending(i => i.PublishDate).ToList();
@@ -29,7 +28,6 @@ namespace Strek4Mayor.Controllers
             return View(articles);
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult AjaxIndex()
         {
             List<NewsArticle> articles = db.NewsArticles.OrderByDescending(i => i.PublishDate).ToList();

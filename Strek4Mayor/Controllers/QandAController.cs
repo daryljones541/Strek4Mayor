@@ -28,13 +28,11 @@ namespace Strek4Mayor.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult Index()
         {
             return View(db.QandAs.ToList());
         }
 
-        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult AjaxIndex()
         {
             return PartialView(db.QandAs.ToList());
@@ -99,10 +97,6 @@ namespace Strek4Mayor.Controllers
                 MvcCaptcha.ResetCaptcha("ExampleCaptcha");
                 db.QandAs.Add(qanda);
                 db.SaveChanges();
-                var clearCache = Url.Action("AjaxIndex", "Events");
-                Response.RemoveOutputCacheItem(clearCache);
-                clearCache = Url.Action("Index", "Events");
-                Response.RemoveOutputCacheItem(clearCache);
                 return RedirectToAction("Thanks");
             }
             else

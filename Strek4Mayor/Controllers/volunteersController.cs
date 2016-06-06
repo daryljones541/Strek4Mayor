@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Strek4Mayor.Models;
 using BotDetect.Web.Mvc;
+using System.Web.UI;
 
 namespace Strek4Mayor.Controllers
 {
@@ -22,7 +19,6 @@ namespace Strek4Mayor.Controllers
             return View(db.volunteers.ToList());
         }
 
-        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult AjaxCreate()
         {
             return PartialView();
@@ -95,7 +91,6 @@ namespace Strek4Mayor.Controllers
         }
 
         // GET: volunteers/Create
-        [OutputCache(Duration = 86400, VaryByParam = "none")]
         public ActionResult Create()
         {
             return View();
