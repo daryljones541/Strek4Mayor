@@ -107,7 +107,6 @@ namespace Strek4Mayor.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "Incorrect CAPTCHA code!")]
-        [OutputCache(Duration = 60, VaryByParam = "none")]
         public ActionResult Create([Bind(Include = "id,first_name,last_name,adress_1,adress_2,city,state,phone,email,vol1,vol2,vol3")] volunteer volunteer, bool captchavalid)
         {
             if (ModelState.IsValid)
@@ -117,7 +116,7 @@ namespace Strek4Mayor.Controllers
                 if (volunteer.vol1 == false && volunteer.vol2 == false && volunteer.vol3 == false)
                 {
                     ViewBag.errormessage = "please chose one of the volunteer opations";
-                    return View("Create", volunteer);
+                    return View(volunteer);
                   
                 }
                 else
@@ -130,9 +129,9 @@ namespace Strek4Mayor.Controllers
             else
             {
                 MvcCaptcha.ResetCaptcha("Incorrect CAPTCHA code!");
-            }
+            } 
 
-            return View("Create", volunteer);
+            return View(volunteer);
         }
 
         // GET: volunteers/Edit/5
